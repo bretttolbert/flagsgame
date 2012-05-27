@@ -103,16 +103,19 @@ function startLevel()
     level++;
 	numCountries++;
     question=1;
-    if (level > 1)
+    if (level > 1) {
         points += POINT_INCREASE;
+	}
     var msg = "";
     if (!missed){
-        msg += "<h3>Perfect level bonus: +1 lives.<br></h3>";
-        lives += 1;
+		var livesBonus = 1;
+        msg += '<h3>Perfect level bonus: ' + getLivesIndicatorHtml(livesBonus) + '</h3>';
+        lives += livesBonus;
     }
 	if (level > 1) {
-		msg += "<h3>Level bonus: +1 info bomb.<br></h3>";
-		infoBombs += 1;	
+		var infoBombsBonus = 1;
+		msg += '<h3>Level bonus: ' + getInfoBombsIndicatorHtml(infoBombsBonus) + '</h3>';
+		infoBombs += infoBombsBonus;	
 	}
     msg += "<h1>Level " + level + "</h1><h3>Questions are worth " + points + " points.</h3>";
 	msg += '<br/>';
@@ -133,29 +136,37 @@ function gameOver()
         + "<a href='#' onclick='location.reload(true);'>Play Again</a></h3>");
 }
 
+function getInfoBombsIndicatorHtml(n) {
+	var html = '';
+	if (n > 0) {
+		for (var i=0; i<n; ++i) {
+			html += '<img src="img/info_icon.png" />';
+		}
+	} else {
+		html += '0';
+	}
+	return html;
+}
+
+function getLivesIndicatorHtml(n) {
+	var html = '';
+	if (n > 0) {
+		for (var i=0; i<n; ++i) {
+			html += '<img src="img/flag_icon.png" />';
+		}
+	} else {
+		html += '0';
+	}
+	return html;
+}
+
 function updateDivs()
 {
 	$('#level').html(level);
 	$('#levelProgress').html(question + '/' + QUESTIONS_PER_ROUND);
 	$('#score').html(score);
-	var livesHtml = '';
-	if (lives > 0) {
-		for (var i=0; i<lives; ++i) {
-			livesHtml += '<img src="img/flag_icon.png" />';
-		}
-	} else {
-		livesHtml += '0';
-	}
-	$('#lives').html(livesHtml);
-	var infoBombsHtml = '';
-	if (infoBombs > 0) {
-		for (var i=0; i<infoBombs; ++i) {
-			infoBombsHtml += '<img src="img/info_icon.png" />';
-		}
-	} else {
-		infoBombsHtml += '0';
-	}
-	$('#info_bombs').html(infoBombsHtml);
+	$('#lives').html(getLivesIndicatorHtml(lives));
+	$('#info_bombs').html(getInfoBombsIndicatorHtml(infoBombs));
 }
 
 function pickCountry()
