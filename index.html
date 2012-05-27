@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>Flags</title>
+<link rel="stylesheet" type="text/css" href="flags.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="flags.js"></script>
+</head>
+<body>
+<div id="container">
+	<table class='statsTable'>
+	<tr><td>Score</td><td>Level</td><td>Level Progress</td><td>Lives</td><td>Info Bombs</td></tr>
+	<tr>
+		<td><span id="score"></span></td>
+		<td><span id="level"></span></td>
+		<td><span id="levelProgress"></span></td>
+		<td><span id="lives"></span></td>
+		<td><span id="info_bombs"></span></td>
+	</tr>
+	</table>
+	<div id="main">
+		<div id="flags">
+			<div id="prompt"></div>
+			<div id="flagTable"></div>
+		</div>
+		<div id="feedback"></div>
+		<span id="infoBombIndicator">
+			<img src="img/info_icon_48x48.png" title="Use Info Bomb"/>
+			<span></span>
+		</span>
+		<img id="continue" title="Continue" src="img/next_48x48.png" class="Clickable"/>
+	</div>
+</div>
+</body>
+</html>

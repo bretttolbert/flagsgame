@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="896" height="448" viewBox="0 0 224 112">
+<defs>
+<pattern id="str" patternUnits="userSpaceOnUse" width="99" height="16">
+<rect fill="#fff" width="99" height="16"/>
+<rect fill="#dc241f" width="99" height="8"/>
+</pattern>
+</defs>
+<rect fill="url(#str)" width="224" height="112"/>
+<rect fill="#0035ad" width="112" height="64"/>
+<circle fill="#ffd100" cx="46" cy="32" r="24"/>
+<circle fill="#0035ad" cx="51" cy="32" r="21"/>
+<polygon fill="#ffd100" points="70,52 68.2198,39.7994 61.3223,50.0194 65.0121,38.2547 54.3634,44.4698 62.7922,35.4711 50.5014,36.4504 62,32 50.5014,27.5496 62.7922,28.5289 54.3634,19.5302 65.0121,25.7453 61.3223,13.9806 68.2198,24.2006 70,12 71.7802,24.2006 78.6777,13.9806 74.9879,25.7453 85.6366,19.5302 77.2078,28.5289 89.4986,27.5496 78,32 89.4986,36.4504 77.2078,35.4711 85.6366,44.4698 74.9879,38.2547 78.6777,50.0194 71.7802,39.7994"/>
+</svg>

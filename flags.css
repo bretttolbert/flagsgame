@@ -1,0 +1,40 @@
+body {
+    background-color: #dddddd;
+}
+#prompt {
+    width: 100%;
+    text-align: center;
+}
+#flags {
+	margin-top: 30px;
+}
+.flagTable {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.statsTable {
+	margin-left: auto;
+	margin-right: auto;
+}
+.statsTable  td {
+	padding-right: 20px;
+}
+#feedback  {
+	margin-top: 30px;
+}
+#container {
+    text-align: center;
+}
+#infoBombIndicator {
+}
+#infoBombIndicator  img {
+	cursor: pointer;
+}
+.Clickable {
+	cursor: pointer;
+}
+.choice_link img {
+	padding: 10px;
+	margin: 10px;
+}
