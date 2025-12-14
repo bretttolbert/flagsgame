@@ -28,6 +28,11 @@ var continueTimeout = null;
 var infoBombActive = false;
 var numCountries = 2;
 
+var audioWrongAnswer = new Audio('sounds/wrong_answer.mp3');
+var audioCorrectAnswer = new Audio('sounds/correct_answer.mp3');
+var audioPowerup = new Audio('sounds/powerup.mp3');
+var audioGameOver = new Audio('sounds/game_over.mp3');
+
 //load xml
 $.get("countries.xml", {}, function(xml){
     $("country",xml).each(function(){
@@ -44,6 +49,7 @@ function choiceLinkClicked(event) {
 	} else {
 		var msg, sleep;
 		if (event.target.id == correctCountryId) {
+			audioCorrectAnswer.play();
 			msg = "+" + points + "<br>"
 				+ "<table class='flagTable'><tr><td><h3>"
 				+ currentCountries[correctCountryId].name
@@ -51,8 +57,9 @@ function choiceLinkClicked(event) {
 				+ currentCountries[correctCountryId].imagehtml
 				+ "</td></tr></table>";
 			score += points;
-			continueTimeout = setTimeout(pickCountry, 1500);
+			continueTimeout = setTimeout(pickCountry, 500);
 		} else {
+			audioWrongAnswer.play();
 			msg = "Incorrect <br>"
 				+ "<table class='flagTable'><tr><td>Your Choice:</td><td>Correct Choice:</td></tr>"
 				+ "<tr><td><h3>" + currentCountries[event.target.id].name + "</h3></td>"
@@ -61,6 +68,7 @@ function choiceLinkClicked(event) {
 				+ "<td>" + currentCountries[correctCountryId].imagehtml + "</td></tr></table>";
 			lives--;
 			missed = true;
+			continueTimeout = setTimeout(pickCountry, 2000);
 		}
 		setTimeout(updateDivs, 1000);
 		question++;
@@ -100,6 +108,9 @@ function deactivateInfoBomb() {
 
 function startLevel()
 {
+	if (level > 0) {
+		audioPowerup.play();
+	}
     level++;
 	numCountries++;
     question=1;
@@ -126,10 +137,12 @@ function startLevel()
 	$('#infoBombIndicator').hide();
     updateDivs();
     missed = false;
+	continueTimeout = setTimeout(pickCountry, 1500);
 }
 
 function gameOver()
 {
+	audioGameOver.play();
 	$('#flags').hide();
     $("#feedback").show();
     $("#feedback").html("<br>Game Over<br><h3>"
