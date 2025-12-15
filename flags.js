@@ -41,170 +41,170 @@ $.get("countries.xml", {}, function(xml){
 });
 
 function choiceLinkClicked(event) {
-	if (infoBombActive) {
-		alert(currentCountries[event.target.id].name);
-		infoBombs--;
-		deactivateInfoBomb();
-		updateDivs();
-	} else {
-		var msg, sleep;
-		if (event.target.id == correctCountryId) {
-			audioCorrectAnswer.play();
-			msg = "+" + points + "<br>"
-				+ "<table class='flag-table'>"
-				+ "<tr><td>"
-				+ currentCountries[correctCountryId].name
-				+ "</td></tr>"
-				+ "<tr><td>"
-				+ currentCountries[correctCountryId].imagehtml
-				+ "</td></tr>"
-				+ "</table>";
-			score += points;
-			continueTimeout = setTimeout(pickCountry, 500);
-		} else {
-			audioWrongAnswer.play();
-			msg = "Incorrect <br>"
-				+ "<table class='flag-table'>"
-					+ "<tr><th>Your Choice:</th><th>Correct Choice:</th></tr>"
-					+ "<tr>"
-						+ "<td>" + currentCountries[event.target.id].name + "</td>"
-						+ "<td>" + currentCountries[correctCountryId].name + "</td>" 
-					+ "</tr>"
-					+ "<tr>"
-						+ "<td>" + currentCountries[event.target.id].imagehtml + "</td>"
-						+ "<td>" + currentCountries[correctCountryId].imagehtml + "</td>"
-					+ "</tr>" 
-				+ "</table>";
-			lives--;
-			missed = true;
-			continueTimeout = setTimeout(pickCountry, 3000);
-		}
-		setTimeout(updateDivs, 1000);
-		question++;
-		$('#continue').show();
-		$('#infoBombIndicator').hide();
-		$('#flags').hide();
-		$("#feedbackContainer").html(msg);
-		$("#feedbackContainer").fadeIn("fast");
-	}
+    if (infoBombActive) {
+        alert(currentCountries[event.target.id].name);
+        infoBombs--;
+        deactivateInfoBomb();
+        updateDivs();
+    } else {
+        var msg, sleep;
+        if (event.target.id == correctCountryId) {
+            audioCorrectAnswer.play();
+            msg = "+" + points + "<br>"
+                + "<table class='flag-table'>"
+                + "<tr><td>"
+                + currentCountries[correctCountryId].name
+                + "</td></tr>"
+                + "<tr><td>"
+                + currentCountries[correctCountryId].imagehtml
+                + "</td></tr>"
+                + "</table>";
+            score += points;
+            continueTimeout = setTimeout(pickCountry, 500);
+        } else {
+            audioWrongAnswer.play();
+            msg = "Incorrect <br>"
+                + "<table class='flag-table'>"
+                    + "<tr><th>Your Choice:</th><th>Correct Choice:</th></tr>"
+                    + "<tr>"
+                        + "<td>" + currentCountries[event.target.id].name + "</td>"
+                        + "<td>" + currentCountries[correctCountryId].name + "</td>" 
+                    + "</tr>"
+                    + "<tr>"
+                        + "<td>" + currentCountries[event.target.id].imagehtml + "</td>"
+                        + "<td>" + currentCountries[correctCountryId].imagehtml + "</td>"
+                    + "</tr>" 
+                + "</table>";
+            lives--;
+            missed = true;
+            continueTimeout = setTimeout(pickCountry, 3000);
+        }
+        setTimeout(updateDivs, 1000);
+        question++;
+        $('#continue').show();
+        $('#infoBombIndicator').hide();
+        $('#flags').hide();
+        $("#feedbackContainer").html(msg);
+        $("#feedbackContainer").fadeIn("fast");
+    }
 }
 
 $(function(){
     $("#feedbackContainer").hide();
     $(".choice-link").click(choiceLinkClicked);
-	$('#infoBombIndicator img').click(function(){
-		if (!infoBombActive) {
-			activateInfoBomb();
-		} else {
-			deactivateInfoBomb();
-		}
-	});
-	$('#continue').click(pickCountry);
+    $('#infoBombIndicator img').click(function(){
+        if (!infoBombActive) {
+            activateInfoBomb();
+        } else {
+            deactivateInfoBomb();
+        }
+    });
+    $('#continue').click(pickCountry);
     setTimeout("startLevel();",500);
 });
 
 function activateInfoBomb() {
-	$('#infoBombIndicator img').attr('src','img/info_icon_active_48x48.png');
-	$('#infoBombIndicator span').html('Click a flag to use the info bomb');
-	infoBombActive = true;
+    $('#infoBombIndicator img').attr('src','img/info_icon_active_48x48.png');
+    $('#infoBombIndicator span').html('Click a flag to use the info bomb');
+    infoBombActive = true;
 }
 
 function deactivateInfoBomb() {
-	$('#infoBombIndicator img').attr('src','img/info_icon_48x48.png');
-	$('#infoBombIndicator span').html('');
-	infoBombActive = false;
+    $('#infoBombIndicator img').attr('src','img/info_icon_48x48.png');
+    $('#infoBombIndicator span').html('');
+    infoBombActive = false;
 }
 
 function startLevel()
 {
-	if (level > 0) {
-		audioPowerup.play();
-	}
+    if (level > 0) {
+        audioPowerup.play();
+    }
     level++;
-	numCountries++;
+    numCountries++;
     question=1;
     if (level > 1) {
         points += POINT_INCREASE;
-	}
+    }
     var msg = "";
     if (!missed){
-		var livesBonus = 1;
+        var livesBonus = 1;
         msg += 'Perfect level bonus: ' + getLivesIndicatorHtml(livesBonus) + "<br>";
         lives += livesBonus;
     }
-	if (level > 1) {
-		var infoBombsBonus = 1;
-		msg += 'Level bonus: ' + getInfoBombsIndicatorHtml(infoBombsBonus) + "<br>";
-		infoBombs += infoBombsBonus;	
-	}
+    if (level > 1) {
+        var infoBombsBonus = 1;
+        msg += 'Level bonus: ' + getInfoBombsIndicatorHtml(infoBombsBonus) + "<br>";
+        infoBombs += infoBombsBonus;	
+    }
     msg += "Level " + level + "<br>";
-	msg += "Questions are worth " + points + " points. <br>";
+    msg += "Questions are worth " + points + " points. <br>";
     $("#feedbackContainer").html(msg);
     $("#feedbackContainer").show();
-	$('#flags').hide();
-	$('#continue').show();
-	$('#infoBombIndicator').hide();
+    $('#flags').hide();
+    $('#continue').show();
+    $('#infoBombIndicator').hide();
     updateDivs();
     missed = false;
-	continueTimeout = setTimeout(pickCountry, 1500);
+    continueTimeout = setTimeout(pickCountry, 1500);
 }
 
 function gameOver()
 {
-	audioGameOver.play();
-	$('#flags').hide();
+    audioGameOver.play();
+    $('#flags').hide();
     $("#feedbackContainer").show();
     $("#feedbackContainer").html("<br>Game Over<br>"
         + "<a href='#' onclick='location.reload(true);'>Play Again</a>");
 }
 
 function getInfoBombsIndicatorHtml(n) {
-	var html = '';
-	if (n > 0) {
-		for (var i=0; i<n; ++i) {
-			html += '<img src="img/info_icon_48x48.png" />';
-		}
-	} else {
-		html += '0';
-	}
-	return html;
+    var html = '';
+    if (n > 0) {
+        for (var i=0; i<n; ++i) {
+            html += '<img src="img/info_icon_48x48.png" />';
+        }
+    } else {
+        html += '0';
+    }
+    return html;
 }
 
 function getLivesIndicatorHtml(n) {
-	var html = '';
-	if (n > 0) {
-		for (var i=0; i<n; ++i) {
-			html += '<img src="img/flag_icon.png" />';
-		}
-	} else {
-		html += '0';
-	}
-	return html;
+    var html = '';
+    if (n > 0) {
+        for (var i=0; i<n; ++i) {
+            html += '<img src="img/flag_icon.png" />';
+        }
+    } else {
+        html += '0';
+    }
+    return html;
 }
 
 function updateDivs()
 {
-	$('#level').html(level);
-	$('#levelProgress').html(question + '/' + QUESTIONS_PER_ROUND);
-	$('#score').html(score);
-	$('#lives').html(getLivesIndicatorHtml(lives));
-	$('#info_bombs').html(getInfoBombsIndicatorHtml(infoBombs));
+    $('#level').html(level);
+    $('#levelProgress').html(question + '/' + QUESTIONS_PER_ROUND);
+    $('#score').html(score);
+    $('#lives').html(getLivesIndicatorHtml(lives));
+    $('#info_bombs').html(getInfoBombsIndicatorHtml(infoBombs));
 }
 
 function pickCountry()
 {
-	clearTimeout(continueTimeout);
+    clearTimeout(continueTimeout);
     updateDivs();
     $('#feedbackContainer').hide();
-	$('#continue').show();
-	$('#flags').show();
-	$('#infoBombIndicator').show();
+    $('#continue').show();
+    $('#flags').show();
+    $('#infoBombIndicator').show();
     if (lives == -1) {
         gameOver();
-	} else if (question == 11) {
+    } else if (question == 11) {
         startLevel();
-	} else {
-		var html = '';
+    } else {
+        var html = '';
         //pick n random countries, no duplicates
         for (i=0; i<numCountries; i++) {
             var duplicate;
@@ -216,14 +216,14 @@ function pickCountry()
                         duplicate = true;
                 }
             } while(duplicate);
-			html += '<a href="#" class="choice-link">';
-			html += '<img class="flag-image" id="' + i + '" src="' + currentCountries[i].filename + '" border="0" src="" />';
-			html += '</a>';
+            html += '<a href="#" class="choice-link">';
+            html += '<img class="flag-image" id="' + i + '" src="' + currentCountries[i].filename + '" border="0" src="" />';
+            html += '</a>';
         }
-		$('#flagTableContainer').html(html);
+        $('#flagTableContainer').html(html);
         //pick which one is to be the correct choice
         correctCountryId = Math.floor(Math.random()*numCountries);
         $("#prompt").html(currentCountries[correctCountryId].name);
-		$(".choice-link").click(choiceLinkClicked);
+        $(".choice-link").click(choiceLinkClicked);
     }
 }
