@@ -1,41 +1,61 @@
 body {
-    background-color: #dddddd;
+    color: white;
+    background-color:#181818;
+    font-size: 48pt;
+    font-family: sans-serif;
 }
 #prompt {
     width: 100%;
     text-align: center;
 }
 #flags {
-	margin-top: 30px;
+    margin-top: 30px;
 }
-.flagTable {
+.flag-table {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
 }
-.statsTable {
-	margin-left: auto;
-	margin-right: auto;
+.stats-table {
+    margin-left: auto;
+    margin-right: auto;
 }
-.statsTable  td {
-	padding-right: 20px;
+.stats-table th {
+    padding-left: 50px;
+    padding-right: 50px;
+    font-size: 24pt;
 }
-#feedback  {
-	margin-top: 30px;
-    font-size: 72pt;
+.stats-table td {
+    padding-left: 50px;
+    padding-right: 50px;
+    font-size: 48pt;
 }
-#container {
+#feedbackContainer  {
+    margin-top: 1em;
+}
+.wrapper {
     text-align: center;
 }
 #infoBombIndicator {
+    margin-top: 1em;
 }
-#infoBombIndicator  img {
-	cursor: pointer;
+#infoBombIndicator img {
+    cursor: pointer;
 }
 .Clickable {
-	cursor: pointer;
+    cursor: pointer;
 }
-.choice_link img {
-	padding: 10px;
-	margin: 10px;
+.choice-link img {
+    padding: 0px;
+    margin: 10px;
+    min-width: 512px;
+    height: 269px;
+    margin: 8px;
+}
+.flag-image {
+    padding: 0px;
+    margin: 10px;
+    min-width: 512px;
+    height: 269px;
+    margin: 8px;
 }

@@ -1,34 +1,52 @@
 <html>
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z8SPJYBDNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z8SPJYBDNX');
+</script>
 <title>Flags</title>
 <link rel="stylesheet" type="text/css" href="flags.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type="text/javascript" src="flags.js"></script>
 </head>
 <body>
-<div id="container">
-	<table class='statsTable'>
-	<tr><td>Score</td><td>Level</td><td>Level Progress</td><td>Lives</td><td>Info Bombs</td></tr>
-	<tr>
-		<td><span id="score"></span></td>
-		<td><span id="level"></span></td>
-		<td><span id="levelProgress"></span></td>
-		<td><span id="lives"></span></td>
-		<td><span id="info_bombs"></span></td>
-	</tr>
-	</table>
-	<div id="main">
-		<div id="flags">
-			<div id="prompt"></div>
-			<div id="flagTable"></div>
-		</div>
-		<div id="feedback"></div>
-		<span id="infoBombIndicator">
-			<img src="img/info_icon_48x48.png" title="Use Info Bomb"/>
-			<span></span>
-		</span>
-		<img id="continue" title="Continue" src="img/next_48x48.png" class="Clickable"/>
-	</div>
-</div>
+    <header>
+        <div id="wrapper">
+            <table class='stats-table'>
+            <tr><th>Score</th><th>Level</th><th>Level Progress</th><th>Lives</th><th>Info Bombs</th></tr>
+            <tr>
+                <td><span id="score"></span></td>
+                <td><span id="level"></span></td>
+                <td><span id="levelProgress"></span></td>
+                <td><span id="lives"></span></td>
+                <td><span id="info_bombs"></span></td>
+            </tr>
+            </table>
+        </div>
+    </header>
+    <main>
+        <div class="wrapper">
+            <div id="flags">
+                <div id="prompt"></div>
+                <div id="flagTableContainer"></div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="wrapper">
+            <div id="feedbackContainer"></div>
+            <div id="infoBombIndicator">
+                <img src="img/info_icon_48x48.png" title="Use Info Bomb"/>
+            </div>
+            <!--
+            <img id="continue" title="Continue" src="img/next_48x48.png" class="Clickable"/>
+            -->
+        </div>
+    </footer>
 </body>
 </html>
