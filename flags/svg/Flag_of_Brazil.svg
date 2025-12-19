@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="720px" height="504px" viewBox="-2100 -1470 4200 2940">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+	width="720px" height="504px" viewBox="-2100 -1470 4200 2940">
 	<title>Flag of Brazil</title>
 
 	<defs>
@@ -40,7 +39,7 @@
 		<use id="star5" xlink:href="#star" transform="scale(10.5, 10.5)"/>
 	</defs>
 
-	<rect id="field" fill="#00923f" x="-50%" y="-50%" width="100%" height="100%"/>
+	<rect id="field" fill="#00923f" x="-2100" y="-1470" width="4200" height="2940"/>
 	<path id="rhombus" fill="#f8c300" d="M -1743,0 L 0,1113 L 1743,0 L 0,-1113 z"/>
 	<circle id="circle" fill="#28166f" r="735"/>
 	<clipPath id="clipcircle">

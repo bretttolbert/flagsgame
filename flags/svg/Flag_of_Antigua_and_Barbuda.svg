@@ -1,14 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="750px" height="500px" viewBox="-69 -46 138 92">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+	width="750px" height="500px" viewBox="-69 -46 138 92">
 	<title>Flag of Antigua and Barbuda</title>
 
-	<rect id="field" x="-50%" y="-50%" width="100%" height="100%" fill="white"/>
-	<rect id="blueband" x="-50%" y="-10" width="100%" height="20" fill="#0072c6"/>
-	<rect id="blackband" x="-50%" y="-50%" width="100%" height="36" fill="black"/>
-	<path id="redtriangles" d="M-69,-46 v92 h138 v-92 l-69,92 z" fill="#ce1126"/>
+	<rect id="field" x="-69" y="-46" width="138" height="92" fill="white"/>
+	<rect id="blackband" x="-69" y="-46" width="138" height="36" fill="black"/>
 	<clipPath id="clipsun">
-		<rect x="-50%" y="-50%" width="100%" height="50%"/>
+		<rect x="-69" y="-46" width="138" height="92"/>
 	</clipPath>
 	<g id="sun" fill="#fcd116" transform="translate(0, -10) scale(30, 30)" clip-path="url(#clipsun)">
 		<g id="three_cones">
@@ -22,4 +19,6 @@
 		<use xlink:href="#three_cones" transform="rotate(67.5)"/>
 		<use xlink:href="#three_cones" transform="rotate(-67.5)"/>
 	</g>
+	<rect id="blueband" x="-69" y="-10" width="138" height="20" fill="#0072c6"/>
+	<path id="redtriangles" d="M-69,-46 v92 h138 v-92 l-69,92 z" fill="#ce1126"/>
 </svg>

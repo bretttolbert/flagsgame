@@ -1,0 +1,49 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="flags.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="flags.js"></script>
+<script>
+function displayClusters() {
+    let clusterCountries = {};
+    for (const [svgFilename, assignedCluster] of Object.entries(getClusters())) {
+        console.log(`cluster ${svgFilename}=${assignedCluster}`);
+        //get country 
+        let country = getCountryFromSvgFilename(svgFilename);
+        //skip svgs not in countries list e.g. retired flags
+        if (country != null) {
+            if (assignedCluster in clusterCountries) {
+                clusterCountries[assignedCluster].push(country);
+            } else {
+                clusterCountries[assignedCluster] = [country];
+            }
+        }
+    }
+
+    let html = '';
+    for (const [cluster, countryClusterCountries] of Object.entries(clusterCountries)) {
+        html += `<h1>Cluster ${cluster} (count=${countryClusterCountries.length})</h1>`;
+        for (let i=0; i<countryClusterCountries.length; ++i) {
+            let clusterCountry = countryClusterCountries[i];
+            html += `<img class="flag-image" id="${cluster}-${i}" src="${clusterCountry.filename}" border="0" />`;
+        }
+    }
+    $('#clustersContainer').html(html);
+}
+
+$(document).ajaxStop(function() {
+    // This function runs when the number of active AJAX requests becomes zero.
+    console.log("All jQuery AJAX requests have completed.");
+    displayClusters();
+    // You might unbind the event if it only needs to run once
+    $(this).off('ajaxStop');
+});
+
+</script>
+</head>
+<body>
+<div id="clustersContainer">
+    Test
+</div>
+</body>
+</html>

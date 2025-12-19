@@ -1,10 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="784px" height="504px" viewBox="-910 -585 1820 1170">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+	width="784px" height="504px" viewBox="-910 -585 1820 1170">
 	<title>Flag of Argentina</title>
 
-	<rect id="blue" fill="#75aadb" x="-50%" y="-50%" width="100%" height="100%"/>
-	<rect id="white" fill="white" x="-50%" y="-195" width="100%" height="390"/>
+	<rect id="blue" fill="#75aadb" x="-910" y="-585" width="1820" height="1170"/>
+	<rect id="white" fill="white" x="-910" y="-195" width="1820" height="390"/>
 	<g id="sun" fill="#fcbf49" stroke="#843511" stroke-width="1.5">
 		<g id="16rays">
 			<g id="8rays">

@@ -1,8 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg width="900" height="600" viewBox="-72 -28 144 96" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" zoomAndPan="magnify">
 
-   <rect x="-50%" y="-28" width="100%" height="100%" fill="#009530"/>
+   <rect x="-72" y="-28" width="900" height="600" fill="#009530"/>
    
 
    <circle r="31" fill="#ffc400" cy="8"/>
