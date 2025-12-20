@@ -2,7 +2,7 @@
    viewBox="-60 -40 120 80" width="1200" height="800">
    
    <g fill="#e70013">
-      <rect width="120" height="80" x="-60" y="-40"/>
+      <rect fill="#e70013" width="120" height="80" x="-60" y="-40"/>
       <circle r="20" fill="white"/>
       <circle r="15"/>
       <circle cx="4" r="12" fill="white"/>   

@@ -164,8 +164,10 @@ def convert_to_hsl_tuples(colors):
     Converts webcolors.IntegerRGB to primitive hsl tuples
     """
     hue_steps = 8
-    sat_steps = 3
-    light_steps = 3
+    sat_steps = 2
+    light_steps = (
+        3  # needs to be high enough to prevent dark blue from being merged with black
+    )
     return [
         reduce_hsl_resolution(rgb_to_hsl(c), hue_steps, sat_steps, light_steps)
         for c in colors
@@ -175,9 +177,13 @@ def convert_to_hsl_tuples(colors):
 """
 I attempted to automate as much as possible, and modified many SVG files to allow it go get the
 colors automatically, but unfortunately some flag SVGs have a large number of mostly insignificant colors,
-(e.g. flags with seals or coats of arms)
+(e.g. flags with crests, seals or coats of arms)
 Until I can implement some method of considering the proportional area of each color, it's easier
 to just put in some manual overrides. 
+
+Alternative implementation idea:
+Render SVG as a very low resolution raster graphic (e.g. 8x8 px), then take the color information from the pixels.
+
 """
 overrides = {
     "Flag_of_Croatia.svg": ["#de1818", "#ffffff", "#00298c"],
@@ -189,6 +195,17 @@ overrides = {
     "Flag_of_Liechtenstein.svg": ["#ce1126", "#002b7f", "#ffd83d", "#000000"],
     "Flag_of_Spain.svg": ["#ad1519", "#ffc400", "#cccccc", "#005bbf"],
     "Flag_of_Dominican_Republic.svg": ["#d21034", "#003f87", "#ffffff", "#007b63"],
+    "Flag_of_Fiji.svg": ["#51b5e0", "#ce1126", "#002868", "#ffffff"],
+    "Flag_of_Vatican_City.svg": ["#ffbd03", "#ffffff", "#bfbfbf"],
+    "Flag_of_Moldova.svg": ["#0000b3", "#f7d900", "#e32110", "#86632b"],
+    "Flag_of_Uganda.svg": ["#000000", "#de3108", "#ffe700", "#ffffff"],
+    "Flag_of_San_Marino.svg": ["#ffffff", "#0071bc", "#006800", "#aa8800"],
+    "Flag_of_Mexico.svg": ["#006847", "#ffffff", "#ce1126", "#904720", "#0872a7"],
+    "Flag_of_Nicaragua.svg": ["#0067c6", "#ffffff", "#fdce12", "#57702e"],
+    "Flag_of_Ecuador.svg": ["#fcd116", "#0000c4", "#ce1126", "#005b00"],
+    "Flag_of_Belize.svg": ["#ce1126", "#003f87", "#ffffff", "#005800"],
+    "Flag_of_Guatemala.svg": ["#86c7e3", "#ffffff", "#009900", "#ffce00"],
+    "Flag_of_Haiti.svg": ["#d21034", "#0a328c", "#ffffff", "#016a16", "#f1b517"],
 }
 
 
@@ -251,17 +268,20 @@ def extract_colors_from_svg(filename, filepath):
                         ret["strokes_rgb"].append(normalized_color)
 
     # filter out dupes
-    fills_rgb = list(set(ret["fills_rgb"]))
-    strokes_rgb = list(set(ret["strokes_rgb"]))
+    fills_rgb = sorted(list(set(ret["fills_rgb"])))
+    strokes_rgb = sorted(list(set(ret["strokes_rgb"])))
     # convert RGB to HSL and reduce color resolution
     fills_hsl = convert_to_hsl_tuples(fills_rgb)
     strokes_hsl = convert_to_hsl_tuples(strokes_rgb)
     # filter out dupes again (effectively merging similar colors)
-    fills_hsl = list(set(fills_hsl))
-    strokes_hsl = list(set(strokes_hsl))
+    fills_hsl = sorted(list(set(fills_hsl)))
+    strokes_hsl = sorted(list(set(strokes_hsl)))
     # convert back to rgb, now that we've reduced the resolution and filtered out dupes
     fills_rgb_low = [hsl_to_rgb(c) for c in fills_hsl]
     strokes_rgb_low = [hsl_to_rgb(c) for c in strokes_hsl]
+    # filter out dupes one more time (subly different HSL may convert to exact same RGB hex code)
+    fills_rgb_low = sorted(list(set(fills_rgb_low)))
+    strokes_rgb_low = sorted(list(set(strokes_rgb_low)))
     # return the colors data
     return {
         "fills_rgb": fills_rgb,

@@ -8,7 +8,7 @@
    <rect fill="white" x="-770" y="-440" width="1540" height="880"/>
    <rect fill="#239f40" x="-770" y="-440" width="1540" height="294"/>
    <g fill="#da0000">
-      <rect x="-770" y="146" width="1540" height="294"/>
+      <rect fill="#da0000" x="-770" y="146" width="1540" height="294"/>
       <g transform="translate(0, -128)">
          <path d="M 0,22 l -16,13 l 3,208 l 13,15 l 13,-15 l 3,-208 z"/>
          <path d="M 32,0 a 22,22 0 0,1 -32,6 a 22,22 0 0,1 -32,-6 a 19,19 0 0,0 32,18 a 19,19 0 0,0 32,-18"/>

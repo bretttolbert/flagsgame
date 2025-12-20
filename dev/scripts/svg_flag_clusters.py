@@ -47,23 +47,34 @@ with open("flag_features.json", "r") as f:
         item_fills_g = np.array([f[1] for f in item_fills])
         item_fills_b = np.array([f[2] for f in item_fills])
 
+        PAD_VALUE = -1
+
         if len(item_fills_r) < NUM_FILLS:
             item_fills_r = np.pad(
-                item_fills_r, (0, NUM_FILLS - len(item_fills_r)), "constant"
+                item_fills_r,
+                (0, NUM_FILLS - len(item_fills_r)),
+                "constant",
+                constant_values=PAD_VALUE,
             )
         elif len(item_fills_r > NUM_FILLS):
             item_fills_r = item_fills_r[:NUM_FILLS]
 
         if len(item_fills_g) < NUM_FILLS:
             item_fills_g = np.pad(
-                item_fills_g, (0, NUM_FILLS - len(item_fills_g)), "constant"
+                item_fills_g,
+                (0, NUM_FILLS - len(item_fills_g)),
+                "constant",
+                constant_values=PAD_VALUE,
             )
         elif len(item_fills_g > NUM_FILLS):
             item_fills_g = item_fills_g[:NUM_FILLS]
 
         if len(item_fills_b) < NUM_FILLS:
             item_fills_b = np.pad(
-                item_fills_b, (0, NUM_FILLS - len(item_fills_b)), "constant"
+                item_fills_b,
+                (0, NUM_FILLS - len(item_fills_b)),
+                "constant",
+                constant_values=PAD_VALUE,
             )
         elif len(item_fills_b > NUM_FILLS):
             item_fills_b = item_fills_b[:NUM_FILLS]

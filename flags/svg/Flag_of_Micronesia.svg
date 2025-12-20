@@ -4,7 +4,7 @@
    <rect x="-19" y="-10" width="38" height="20" fill="#75b2dd"/>
    <g id="star" fill="white" transform="translate(0, -6) scale(2, 2)">
      <g id="cone">
-       <polygon id="triangle" points="0,0 0,1 0.5,1" transform="translate(0, -1) rotate(18)"/>
+       <polygon fill="white" id="triangle" points="0,0 0,1 0.5,1" transform="translate(0, -1) rotate(18)"/>
        <use xlink:href="#triangle" transform="scale(-1, 1)"/>
      </g>
      <use xlink:href="#cone" transform="rotate(72)"/>
