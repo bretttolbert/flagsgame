@@ -5,10 +5,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type="text/javascript" src="flags.js"></script>
 <script type="text/javascript" src="flagsgame.js"></script>
+<meta name="viewport" content="width=720px, initial-scale=0.5, user-scalable=no">
 </head>
 <body>
     <header>
-        <div id="wrapper">
+        <div class="wrapper">
             <table class='stats-table'>
             <tr><th>Score</th><th>Level</th><th>Level Progress</th><th>Lives</th><th>Info Bombs</th></tr>
             <tr>
@@ -16,12 +17,12 @@
                 <td><span id="level"></span></td>
                 <td><span id="levelProgress"></span></td>
                 <td><span id="lives"></span></td>
-                <td><span id="info_bombs"></span></td>
+                <td><span id="infoBombs"></span> <img id="useInfoBombImg" class="clickable" src="img/info_icon_48x48.png" title="Use Info Bomb"/></td>
             </tr>
             </table>
         </div>
-        <div id="infoBombIndicator">
-            <img src="img/info_icon_48x48.png" title="Use Info Bomb"/>
+        <div class="wrapper">
+            <span id="useInfoBombSpan"></span>
         </div>
     </header>
     <main>
@@ -36,7 +37,7 @@
     <footer>
         <div class="wrapper">
             <!--
-            <img id="continue" title="Continue" src="img/next_48x48.png" class="Clickable"/>
+            <img id="continue" title="Continue" src="img/next_48x48.png" class="clickable"/>
             -->
             <a href="clusters.html" target="_blank" rel="noopener noreferrer">Clusters</a>
         </div>

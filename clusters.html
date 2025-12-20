@@ -27,9 +27,12 @@ function rgbToHex(r, g, b) {
 }
 
 function getColorSwatchesHtml(key, clusterCountryFeatures) {
-    html = '';
+    html = '<tr>';
     html += `<div class="inner-swatches">`; //innner-swatches
-    html += `<div>${key}</div>`
+    html += "<td>";
+    html += `<div style="float: none">${key}</div>`
+    html += "</td>";
+    html += "<td>";
     let fillsRgb = clusterCountryFeatures[key];
     for (let j=0; j<fillsRgb.length; ++j) {
         let fillRgb = fillsRgb[j];
@@ -39,8 +42,9 @@ function getColorSwatchesHtml(key, clusterCountryFeatures) {
             <div class="color-swatch-label">${hexCode}</div>
         </div>`
     }
+    html += "</td>";
     html += "</div>"; // end inner-swatches
-    html += "<br>";
+    html += "</tr>"
     return html;
 }
 
@@ -53,22 +57,29 @@ function displayClusters() {
         // flags images
         html += '<div class="flag-images">'
         for (let i=0; i<countryIdxs.length; ++i) {
-            let clusterCountryIdx = countryIdxs[i];
-            html += getFlagImgHtml(cluster, clusterCountryIdx);
+            let countryIdx = countryIdxs[i];
+            html += getFlagImgHtml(cluster, countryIdx);
         }
         html += "</div>"; // end flag-images
         // color swatches
         html += '<div class="color-swatches">'
-        for (let i=0; i<clusterCountryIdxs.length; ++i) {
-            html += '<div class="color-swatch-container">'
-            let country = getCountryByIdx(country);
+        for (let i=0; i<countryIdxs.length; ++i) {
+            let countryIdx = countryIdxs[i];
+            let country = getCountryByIdx(countryIdx);
             let countryFeatures = getFeaturesByCountryName(country.name);
+            html += '<div class="color-swatch-container">'
             html += "<div>" + country.name + "</div>";
             html += "<div>";
-            html += getFlagImgHtml(cluster, country, i);
+            html += getFlagImgHtml(cluster, countryIdx);
             html += "</div>";
+
+            html += '<div class="hcentered">';
+            html += "<table>";
             html += getColorSwatchesHtml("fills_rgb", countryFeatures)
             html += getColorSwatchesHtml("fills_rgb_low", countryFeatures)
+            html += "</table>";
+            html += "</div>";
+
             html += "</div>"; // end color-swatch-container
         }
         html += "</div>"; // end color-swatches
@@ -87,6 +98,7 @@ $(document).ajaxStop(function() {
 });
 
 </script>
+<meta name="viewport" content="width=720px, initial-scale=0.5, user-scalable=no">
 </head>
 <body>
 <div>

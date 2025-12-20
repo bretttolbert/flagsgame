@@ -27,28 +27,72 @@ $(function(){
 
     $("#feedbackContainer").hide();
     $(".choice-link").click(choiceLinkClicked);
-    $('#infoBombIndicator img').click(function(){
-        if (!infoBombActive) {
-            activateInfoBomb();
-        } else {
-            deactivateInfoBomb();
-        }
-    });
+    $('#useInfoBombImg').click(infoBombClicked);
     $('#continue').click(pickCountry);
     setTimeout("startLevel();",500);
 });
 
+function infoBombClicked() {
+    if (!infoBombActive) {
+        if (infoBombs > 0) {
+            activateInfoBomb(); // once activated, user must click a flag to actually use it
+        } else {
+            alert("No info bombs remaining");
+        }
+    } else {
+        cancelInfoBomb(); // one activated, user can cancel by clicking info bomb icon again
+    }
+}
 
 function activateInfoBomb() {
-    $('#infoBombIndicator img').attr('src','img/info_icon_active_48x48.png');
-    $('#infoBombIndicator span').html('Click a flag to use the info bomb');
+    $('#useInfoBombImg').attr('src','img/info_icon_active_48x48.png');
+    $('#useInfoBombImg').attr('title', 'Cancel info bomb');
+    $('#useInfoBombSpan').text('Click a flag to use the info bomb');
     infoBombActive = true;
 }
 
-function deactivateInfoBomb() {
-    $('#infoBombIndicator img').attr('src','img/info_icon_48x48.png');
-    $('#infoBombIndicator span').html('');
+function cancelInfoBomb() {
+    $('#useInfoBombImg').attr('src','img/info_icon_48x48.png');
+    $('#useInfoBombImg').attr('title', 'Use info bomb');
+    $('#useInfoBombSpan').text('');
     infoBombActive = false;
+}
+
+function enableInfoBomb() {
+    $('#useInfoBombImg').attr('title', 'Use info bomb');
+    $('#useInfoBombImg').removeClass("non-clickable");
+    $('#useInfoBombImg').addClass("clickable");
+    $('#useInfoBombImg').attr('src','img/info_icon_48x48.png');
+}
+
+function disableInfoBomb() {
+    $('#useInfoBombImg').attr('title', 'No info bombs remaining');
+    $('#useInfoBombImg').removeClass("clickable");
+    $('#useInfoBombImg').addClass("non-clickable");
+    $('#useInfoBombImg').attr('src','img/info_icon_disabled_48x48.png');
+}
+
+function decrementInfoBombs() {
+    if (infoBombs > 0) {
+        --infoBombs;
+        if (infoBombs == 0) {
+            disableInfoBomb();
+        }
+    }
+}
+
+function incrementInfoBombs(increment) {
+    infoBombs = infoBombs + increment;
+    if (infoBombs > 0) {
+        enableInfoBomb();
+    }
+}
+
+function useInfoBomb(countryName) {
+    alert(currentCountries[countryName].name);
+    cancelInfoBomb();
+    decrementInfoBombs();
+    updateDivs();
 }
 
 function startLevel()
@@ -71,7 +115,7 @@ function startLevel()
     if (level > 1) {
         var infoBombsBonus = 1;
         msg += 'Level bonus: ' + getInfoBombsIndicatorHtml(infoBombsBonus) + "<br>";
-        infoBombs += infoBombsBonus;	
+        incrementInfoBombs(infoBombsBonus);
     }
     msg += "Level " + level + "<br>";
     msg += "Questions are worth " + points + " points. <br>";
@@ -79,7 +123,7 @@ function startLevel()
     $("#feedbackContainer").show();
     $('#flags').hide();
     $('#continue').show();
-    $('#infoBombIndicator').hide();
+    //$('#infoBombIndicator').hide();
     updateDivs();
     missed = false;
     continueTimeout = setTimeout(pickCountry, 1500);
@@ -94,46 +138,54 @@ function gameOver()
         + "<a href='#' onclick='location.reload(true);'>Play Again</a>");
 }
 
-function getInfoBombsIndicatorHtml(n) {
+function getInfoBombsIndicatorHtml(infoBombs) {
     var html = '';
-    if (n > 0) {
-        for (var i=0; i<n; ++i) {
-            html += '<img src="img/info_icon_48x48.png" />';
-        }
-    } else {
-        html += '0';
-    }
+    html += infoBombs;
     return html;
 }
 
-function getLivesIndicatorHtml(n) {
-    var html = '';
-    if (n > 0) {
-        for (var i=0; i<n; ++i) {
-            html += '<img src="img/flag_icon.png" />';
-        }
-    } else {
-        html += '0';
+function getLivesIndicatorHtml(lives) {
+    let displayValue = lives;
+    if (lives == -1) {
+        displayValue = 0;
     }
+    var html = '';
+    html += lives;
     return html;
+}
+
+function updateLivesIndicatorHtml() {
+    $('#lives').html(getLivesIndicatorHtml(lives));
+    if (lives <= 0) {
+        $("#lives").addClass("warning");
+        $("#lives").addClass("blink");
+    } else {
+        $("#lives").removeClass("warning");
+        $("#lives").removeClass("blink");
+    }
+}
+
+function updateInfoBombsIndicatorHtml() {
+    $('#infoBombs').html(getInfoBombsIndicatorHtml(infoBombs));
+    if (infoBombs <= 0) {
+        $("#infoBombs").addClass("warning");
+    } else {
+        $("#infoBombs").removeClass("warning");
+    }
 }
 
 function updateDivs()
 {
     $('#level').html(level);
-    $('#levelProgress').html(question + '/' + QUESTIONS_PER_ROUND);
+    $('#levelProgress').html(question + ' of ' + QUESTIONS_PER_ROUND);
     $('#score').html(score);
-    $('#lives').html(getLivesIndicatorHtml(lives));
-    $('#info_bombs').html(getInfoBombsIndicatorHtml(infoBombs));
+    updateLivesIndicatorHtml();
+    updateInfoBombsIndicatorHtml();
 }
-
 
 function choiceLinkClicked(event) {
     if (infoBombActive) {
-        alert(currentCountries[event.target.id].name);
-        infoBombs--;
-        deactivateInfoBomb();
-        updateDivs();
+        useInfoBomb(event.target.id);
     } else {
         var msg, sleep;
         if (event.target.id == correctCountryId) {
@@ -170,7 +222,7 @@ function choiceLinkClicked(event) {
         setTimeout(updateDivs, 1000);
         question++;
         $('#continue').show();
-        $('#infoBombIndicator').hide();
+        //$('#infoBombIndicator').hide();
         $('#flags').hide();
         $("#feedbackContainer").html(msg);
         $("#feedbackContainer").fadeIn("fast");
@@ -197,7 +249,7 @@ function pickCountry()
     $('#feedbackContainer').hide();
     $('#continue').show();
     $('#flags').show();
-    $('#infoBombIndicator').show();
+    //$('#infoBombIndicator').show();
     if (lives == -1) {
         gameOver();
     } else if (question == 11) {
