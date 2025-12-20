@@ -177,7 +177,7 @@ function updateInfoBombsIndicatorHtml() {
 function updateDivs()
 {
     $('#level').html(level);
-    $('#levelProgress').html(question + ' of ' + QUESTIONS_PER_ROUND);
+    $('#levelProgress').html(question + '/' + QUESTIONS_PER_ROUND);
     $('#score').html(score);
     updateLivesIndicatorHtml();
     updateInfoBombsIndicatorHtml();

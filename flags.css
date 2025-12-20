@@ -1,7 +1,7 @@
 body {
     color: white;
     background-color:#181818;
-    font-size: 48pt;
+    font-size: 1em;
     font-family: sans-serif;
     text-align: center;
 }
@@ -51,12 +51,12 @@ a:active {
 .stats-table th {
     padding-left: 50px;
     padding-right: 50px;
-    font-size: 24pt;
+    font-size: 1em;
 }
 .stats-table td {
     padding-left: 50px;
     padding-right: 50px;
-    font-size: 48pt;
+    font-size: 2em;
 }
 #feedbackContainer  {
     margin-top: 1em;
@@ -66,7 +66,7 @@ a:active {
     margin-bottom: 1em;
 }
 #useInfoBombSpan {
-    font-size: 18pt;
+    font-size: 1em;
 }
 #useInfoBombImg {
     cursor: pointer;
@@ -93,7 +93,7 @@ a:active {
 }
 footer {
     margin-top: 1em;
-    font-size: small;
+    font-size: 0.8em;
 }
 .color-swatches {
     margin-top: 0.5em;
@@ -111,7 +111,7 @@ footer {
 }
 .color-swatch-label {
     background-color: white;
-    font-size: small;
+    font-size: 0.8em;
     font-family: monospace;
     color: black;
     background-color: gray;
