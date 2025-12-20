@@ -181,7 +181,7 @@ function randomCountryIdx() {
 function randomCountryIdxFromCluster(cluster) {
     //TODO: improve efficiency by building list of countries by cluster
     cIdx = randomCountryIdx();
-    while (getClusterByCountry(getCountryByIdx(cIdx).name) != cluster) {
+    while (getClusterByCountryIdx(cIdx) != cluster) {
         cIdx = randomCountryIdx();
     }
     return cIdx;
