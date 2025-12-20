@@ -295,7 +295,7 @@ function randomCountryIdxs() {
         }
     }
 
-    return countryIdxs;
+    return shuffleArray(countryIdxs);
 }
 
 function nextQuestion()
