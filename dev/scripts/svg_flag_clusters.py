@@ -23,8 +23,8 @@ with open("flag_features.json", "r") as f:
     # ])
 
     # Calculate max number of fills and strokes
-    all_fills = [len(item[1]["fills"]) for item in raw_data_items]
-    all_strokes = [len(item[1]["strokes"]) for item in raw_data_items]
+    all_fills = [len(item[1]["fills_hsl"]) for item in raw_data_items]
+    all_strokes = [len(item[1]["strokes_hsl"]) for item in raw_data_items]
     print(f"max_fills = {max(all_fills)}")
     print(f"max_strokes = {max(all_strokes)}")
     print(f"avg_fills = {sum(all_fills) / len(all_fills)}")
@@ -42,7 +42,7 @@ with open("flag_features.json", "r") as f:
 
     data = []
     for item in raw_data.items():
-        item_fills = item[1]["fills"]
+        item_fills = item[1]["fills_hsl"]
         item_fills_r = np.array([f[0] for f in item_fills])
         item_fills_g = np.array([f[1] for f in item_fills])
         item_fills_b = np.array([f[2] for f in item_fills])

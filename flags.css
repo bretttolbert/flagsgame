@@ -4,6 +4,33 @@ body {
     font-size: 48pt;
     font-family: sans-serif;
 }
+
+/* no underline */
+a {
+  text-decoration: none;
+}
+
+/* unvisited link */
+a:link {
+    color: white;
+}
+
+/* visited link */
+a:visited {
+    color: white;
+}
+
+/* mouse over link */
+a:hover {
+    color: hotpink;
+}
+
+/* selected link */
+a:active {
+    color: blue;
+}
+
+
 #prompt {
     width: 100%;
     text-align: center;
@@ -58,4 +85,29 @@ body {
     min-width: 512px;
     height: 269px;
     margin: 8px;
+}
+footer {
+    margin-top: 1em;
+    font-size: small;
+}
+.color-swatch {
+    width: 64px;
+    height: 64px;
+    margin: 2px;
+    float: left;
+}
+.color-swatch-label {
+    background-color: white;
+    font-size: small;
+    font-family: monospace;
+    color: black;
+    background-color: gray;
+}
+.cluster {
+    margin-top: 3em;
+    margin-bottom: 3em;
+}
+.inner-swatches {
+    margin-top: 0.5em;
+    margin-bottom: 2em;
 }

@@ -175,13 +175,13 @@ function choiceLinkClicked(event) {
 }
 
 function randomCountryIdx() {
-    return Math.floor(Math.random()*countries.length);
+    return Math.floor(Math.random()*getCountries().length);
 }
 
 function randomCountryIdxFromCluster(cluster) {
     //TODO: improve efficiency by building list of countries by cluster
     cIdx = randomCountryIdx();
-    while (getClusterFromPngFilePath(countries[cIdx].filename) != cluster) {
+    while (getClusterByCountry(getCountryByIdx(cIdx).name) != cluster) {
         cIdx = randomCountryIdx();
     }
     return cIdx;
@@ -204,7 +204,7 @@ function pickCountry()
         //pick first country (this determines cluster)
         let firstCountryIdx = randomCountryIdx();
         countryIdxs.push(firstCountryIdx);
-        let cluster = getClusterFromPngFilePath(countries[firstCountryIdx].filename);
+        let cluster = getClusterByCountryIdx(firstCountryIdx);
         console.log("Chosen cluster: " + cluster);
 
         //pick n-1 more countries from cluster, no duplicates
@@ -218,7 +218,7 @@ function pickCountry()
 
         currentCountries = [];
         for (let i = 0; i < countryIdxs.length; i++) {
-            currentCountries.push(countries[countryIdxs[i]])
+            currentCountries.push(getCountryByIdx(countryIdxs[i]))
         }
         let html = '';
         for (let i = 0; i < currentCountries.length; i++) {

@@ -155,16 +155,10 @@ def convert_to_hsl_tuples(colors):
     hue_steps = 8
     sat_steps = 2
     light_steps = 2
-    return {
-        "fills": [
-            reduce_hsl_resolution(rgb_to_hsl(c), hue_steps, sat_steps, light_steps)
-            for c in list(colors["fills"])
-        ],
-        "strokes": [
-            reduce_hsl_resolution(rgb_to_hsl(c), hue_steps, sat_steps, light_steps)
-            for c in list(colors["strokes"])
-        ],
-    }
+    return [
+        reduce_hsl_resolution(rgb_to_hsl(c), hue_steps, sat_steps, light_steps)
+        for c in colors
+    ]
 
 
 def extract_colors_from_svg(filename):
@@ -181,7 +175,7 @@ def extract_colors_from_svg(filename):
     if str(filename).find("Ireland") != -1:
         print("Ireland")
 
-    ret = {"fills": [], "strokes": []}
+    ret = {"fills_rgb": [], "strokes_rgb": []}
     try:
         # returns color (stroke and fill) lists
         paths, attributes = svg2paths(filename)  # type: ignore
@@ -195,11 +189,11 @@ def extract_colors_from_svg(filename):
         if "fill" in attrib_dict:
             normalized_color = normalize_color(attrib_dict["fill"])
             if normalized_color is not None:
-                ret["fills"].append(normalized_color)
+                ret["fills_rgb"].append(normalized_color)
         if "stroke" in attrib_dict:
             normalized_color = normalize_color(attrib_dict["stroke"])
             if normalized_color is not None:
-                ret["strokes"].append(normalized_color)
+                ret["strokes_rgb"].append(normalized_color)
         if "style" in attrib_dict:
             style = attrib_dict["style"]
             sheet = cssutils.parseString(".st0 {" + style + "}")
@@ -215,15 +209,19 @@ def extract_colors_from_svg(filename):
                 fill = dct["fill"]
                 normalized_color = normalize_color(fill)
                 if normalized_color is not None:
-                    ret["fills"].append(normalized_color)
+                    ret["fills_rgb"].append(normalized_color)
             if "stroke" in dct:
                 stroke = dct["stroke"]
                 normalized_color = normalize_color(stroke)
                 if normalized_color is not None:
-                    ret["strokes"].append(normalized_color)
+                    ret["strokes_rgb"].append(normalized_color)
+    fills_rgb = list(set(ret["fills_rgb"]))
+    strokes_rgb = list(set(ret["strokes_rgb"]))
     return {
-        "fills": list(set(ret["fills"])),
-        "strokes": list(set(ret["strokes"])),
+        "fills_rgb": fills_rgb,
+        "fills_hsl": convert_to_hsl_tuples(fills_rgb),
+        "strokes_rgb": strokes_rgb,
+        "strokes_hsl": convert_to_hsl_tuples(strokes_rgb),
     }
 
 
@@ -232,8 +230,7 @@ def extract_features():
     for file_path in directory_path.iterdir():
         if file_path.is_file():
             colors = extract_colors_from_svg(file_path.absolute())
-            color_tuples = convert_to_hsl_tuples(colors)
-            ret[file_path.name] = color_tuples
+            ret[file_path.name] = colors
     return ret
 
 

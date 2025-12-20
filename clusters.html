@@ -4,13 +4,34 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type="text/javascript" src="flags.js"></script>
 <script>
+
+
+function getFlagImgHtml(cluster, clusterCountry, clusterCountryIdx) {
+    html = '';
+    const pattern = / /gi;
+    let countryNameWikiEscaped = clusterCountry.name.replace(pattern, "_");
+    html += `<a href="https://en.wikipedia.org/wiki/${countryNameWikiEscaped}">`;
+    html += `<img class="flag-image" id="${cluster}-${clusterCountryIdx}" src="${clusterCountry.filename}" border="0" />`;
+    html += `</a>`;
+    return html;
+}
+
+function componentToHex(c) {
+  var hex = c.toString(16);
+  return hex.length == 1 ? "0" + hex : hex;
+}
+
+function rgbToHex(r, g, b) {
+  return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+}
+
 function displayClusters() {
     let clusterCountries = {};
-    for (const [svgFilename, assignedCluster] of Object.entries(getClusters())) {
+    let clusters = getClusters();
+    for (const [svgFilename, assignedCluster] of Object.entries(clusters)) {
         console.log(`cluster ${svgFilename}=${assignedCluster}`);
-        //get country 
         let country = getCountryFromSvgFilename(svgFilename);
-        //skip svgs not in countries list e.g. retired flags
+        //skip svgs not in countries list e.g. retired flag
         if (country != null) {
             if (assignedCluster in clusterCountries) {
                 clusterCountries[assignedCluster].push(country);
@@ -22,12 +43,42 @@ function displayClusters() {
 
     let html = '';
     for (const [cluster, countryClusterCountries] of Object.entries(clusterCountries)) {
+        html += '<div class="cluster">';
         html += `<h1>Cluster ${cluster} (count=${countryClusterCountries.length})</h1>`;
+        // flags images
+        html += '<div class="flag-images">'
         for (let i=0; i<countryClusterCountries.length; ++i) {
             let clusterCountry = countryClusterCountries[i];
-            html += `<img class="flag-image" id="${cluster}-${i}" src="${clusterCountry.filename}" border="0" />`;
+            html += getFlagImgHtml(cluster, clusterCountry, i);
         }
+        html += "</div>"; // end flag-images
+        // color swatches
+        html += '<div class="color-swatches">'
+        for (let i=0; i<countryClusterCountries.length; ++i) {
+            let clusterCountry = countryClusterCountries[i];
+            let clusterCountryFeatures = getFeaturesByCountryName(clusterCountry.name);
+            html += "<div>" + clusterCountry.name + "</div>";
+            html += "<div>";
+            html += getFlagImgHtml(cluster, clusterCountry, i);
+            html += "</div>";
+            html += `<div class="inner-swatches">`; //innner-swatches
+            let fillsRgb = clusterCountryFeatures["fills_rgb"];
+            for (let j=0; j<fillsRgb.length; ++j) {
+                let fillRgb = fillsRgb[j];
+                let fill = `rgb(${fillRgb[0]}, ${fillRgb[1]}, ${fillRgb[2]})`
+                let hexCode = rgbToHex(fillRgb[0], fillRgb[1], fillRgb[2]);
+                html += `<div class="color-swatch" style="background-color: ${fill}; width: 64px; height: 64px">
+                    <div class="color-swatch-label">${hexCode}</div>
+                </div>`
+            }
+            html += "</div>"; // end inner-swatches
+            html += "<br>";
+        }
+        html += "</div>"; // end color-swatches
+        html += "</div>"; // end cluster
+        html += "<br>";
     }
+
     $('#clustersContainer').html(html);
 }
 

@@ -1,13 +1,56 @@
 //Globals:
-var countries = new Array();
-var clusters = {};
+var _countries = new Array();
+var _clusters = {};
+var _features = {};
+
+function getCountryByIdx(index) {
+    return _countries[index];
+}
+
+function getCountryByName(name) {
+    for (let i=0; i<_countries.length; ++i) {
+        let country = _countries[i];
+        if (country.name == name) {
+            return country
+        }
+    }
+    return null;
+}
 
 function getCountries() {
-    return countries;
+    return _countries;
+}
+
+function addCountry(country) {
+    _countries.push(country);
+}
+
+function getCluster(name) {
+    return _clusters[name];
 }
 
 function getClusters() {
-    return clusters;
+    return _clusters;
+}
+
+function setCluster(svgFilename, cluster) {
+    _clusters[svgFilename] = cluster;
+}
+
+function getCluster(svgFilename) {
+    return _clusters[svgFilename];
+}
+
+function getFeature(svgFilename) {
+    return _features[svgFilename];
+}
+
+function getFeatures() {
+    return _features;
+}
+
+function setFeature(svgFilename, feature) {
+    _features[svgFilename] = feature;
 }
 
 //class
@@ -25,14 +68,21 @@ function Country(name)
 //load xml
 $.get("countries.xml", {}, function(data){
     $("country",data).each(function(){
-        countries.push(new Country($(this).text()));
+        addCountry(new Country($(this).text()));
     });
 });
 
 //load clusters json
 $.get("flag_clusters.json", {}, function(data){
     for (const [key, value] of Object.entries(data)) {
-        clusters[key] = value;
+        setCluster(key, value);
+    }
+});
+
+//load features json
+$.get("flag_features.json", {}, function(data){
+    for (const [key, value] of Object.entries(data)) {
+        setFeature(key, value);
     }
 });
 
@@ -48,20 +98,104 @@ function getFilename(fullPath) {
   return filename;
 }
 
-/*
- * "flags/png/Flag_of_Tanzania.png" -> "Flag_of_Tanzania.svg" -> 0
- * "flags/png/Flag_of_Egypt.png" -> "Flag_of_Egypt.svg" -> 2
+/* Examples:
+ * getSvgFilenameFromPngFilePath("flags/png/Flag_of_Tanzania.png") => "Flag_of_Tanzania.svg"
+ * getSvgFilenameFromPngFilePath("flags/png/Flag_of_Egypt.png") => "Flag_of_Egypt.svg"
  */
-function getClusterFromPngFilePath(pngFilePath) {
-    let fname = getFilename(pngFilePath).replace(".png", ".svg")
-    let cluster = clusters[fname];
+
+function getSvgFilenameFromPngFilePath(pngFilePath) {
+    return getFilename(pngFilePath).replace(".png", ".svg");
+}
+
+/* Examples:
+ * getClusterBySvgFilename("Tanzania") => 0
+ * getClusterBySvgFilename("Egypt") => 2
+ */
+function getClusterByCountryName(countryName) {
+    let countryObj = getCountryByName(countryName);
+    let svgFilename = getSvgFilenameFromPngFilePath(countryObj.filename);
+    let cluster = getCluster(svgFilename);
     return cluster;
+}
+
+function getClusterByCountryIdx(countryIdx) {
+    let countryObj = getCountryByIdx(countryIdx);
+    let svgFilename = getSvgFilenameFromPngFilePath(countryObj.filename);
+    let cluster = getCluster(svgFilename);
+    return cluster;
+}
+
+/* Examples:
+ * getFeaturesByCountry("Tanzania") =>
+ * {
+        "fills_rgb": [
+            [
+                30,
+                181,
+                58
+            ],
+            [
+                0,
+                163,
+                221
+            ]
+        ],
+        "fills_hsl": [
+            [
+                0.375,
+                1.0,
+                0.5
+            ],
+            [
+                0.5,
+                1.0,
+                1.0
+            ]
+        ],
+        "strokes_rgb": [
+            [
+                0,
+                0,
+                0
+            ],
+            [
+                252,
+                209,
+                22
+            ]
+        ],
+        "strokes_hsl": [
+            [
+                0.0,
+                0.0,
+                0.0
+            ],
+            [
+                0.125,
+                1.0,
+                1.0
+            ]
+        ]
+    },
+ */
+function getFeaturesByCountryName(countryName) {
+    let countryObj = getCountryByName(countryName);
+    let svgFilename = getSvgFilenameFromPngFilePath(countryObj.filename);
+    let features = getFeature(svgFilename);
+    return features;
+}
+
+function getFeaturesByCountryIdx(countryIdx) {
+    let countryObj = getCountryByIdx(countryIdx);
+    let svgFilename = getSvgFilenameFromPngFilePath(countryObj.filename);
+    let features = getFeature(svgFilename);
+    return features;
 }
 
 function getCountryFromSvgFilename(svgFilename) {
     let fname = svgFilename.replace(".svg", ".png");
-    for (let i=0; i<countries.length; ++i) {
-        let country = getCountries()[i];
+    for (let i=0; i<getCountries().length; ++i) {
+        let country = getCountryByIdx(i);
         if (country.filename.endsWith(fname)) {
             return country
         }
