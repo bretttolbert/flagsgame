@@ -28,7 +28,7 @@ $(function(){
     $("#feedbackContainer").hide();
     $(".choice-link").click(choiceLinkClicked);
     $('#useInfoBombImg').click(infoBombClicked);
-    $('#continue').click(pickCountry);
+    $('#continue').click(nextQuestion);
     setTimeout("startLevel();",500);
 });
 
@@ -127,7 +127,7 @@ function startLevel()
     $('#useInfoBombImg').hide();
     updateDivs();
     missed = false;
-    continueTimeout = setTimeout(pickCountry, 1500);
+    continueTimeout = setTimeout(nextQuestion, 1500);
 }
 
 function gameOver()
@@ -210,13 +210,13 @@ function choiceLinkClicked(event) {
             audioCorrectAnswer.play();
             msg = getFeedbackCorrect(clickedCountry);
             score += points;
-            continueTimeout = setTimeout(pickCountry, 500);
+            continueTimeout = setTimeout(nextQuestion, 500);
         } else {
             audioWrongAnswer.play();
             msg = getFeedbackIncorrect(clickedCountry, correctCountry);
             lives--;
             missed = true;
-            continueTimeout = setTimeout(pickCountry, 3000);
+            continueTimeout = setTimeout(nextQuestion, 3000);
         }
         setTimeout(updateDivs, 1000);
         question++;
@@ -229,6 +229,17 @@ function choiceLinkClicked(event) {
     }
 }
 
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        // Pick a remaining element at a random index 'j' from 0 to 'i'
+        const j = Math.floor(Math.random() * (i + 1));
+
+        // Swap the current element (i) with the random element (j)
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
 function randomChoice(choices) {
     return Math.floor(Math.random()*choices.length);
 }
@@ -237,12 +248,57 @@ function randomCountryIdx() {
     return randomChoice(getCountryIdxs());
 }
 
-function randomCountryIdxFromCluster(cluster) {
-    let countryIdxs = getClusterCountryIdxs()[cluster];
-    return randomChoice(countryIdxs);
+function randomCountryIdxs() {
+    let countryIdxs = [];
+    //pick first country (this determines cluster)
+    let firstCountryIdx = randomCountryIdx();
+    countryIdxs.push(firstCountryIdx);
+    let cluster = getClusterByCountryIdx(firstCountryIdx);
+    console.log("Chosen cluster: " + cluster);
+    let clusterCountryIdxs = getClusterCountryIdxsByClusterId(cluster);
+    if (numCountries < clusterCountryIdxs.length) {
+        console.log(`picking ${numCountries}-1 more countries from cluster ${cluster}, no duplicates`);
+        const MAX_RETRIES = 1000;
+        let retryCount = 0;
+        while (countryIdxs.length < numCountries && retryCount < MAX_RETRIES) {
+            let ci = randomChoice(clusterCountryIdxs);
+            while (countryIdxs.includes(ci) && retryCount < MAX_RETRIES) {
+                console.info(`chosen (from cluster ${cluster}) countryIdx ${ci} is already in chosen countryIdxs, trying again...`);
+                ++retryCount;
+                ci = randomChoice(clusterCountryIdxs);
+            }
+            console.log(`Adding chosen (from cluster ${cluster}) countryIdx ${ci} to chosen countryIdxs`);
+            countryIdxs.push(ci);
+        }
+    }
+    else
+    {
+        console.log(`adding the entire cluster (${cluster}) and then however many more`);
+        let clusterCountryIdxs = getClusterCountryIdxs()[cluster];
+        for (let i=0; i<clusterCountryIdxs.length; ++i) {
+            let ci = clusterCountryIdxs[i];
+            if (ci != firstCountryIdx) {
+                countryIdxs.push(ci);
+            }
+        }
+        const MAX_RETRIES = 1000;
+        let retryCount = 0;
+        while (countryIdxs.length < numCountries && retryCount < MAX_RETRIES) {
+            let ci = randomCountryIdx();
+            while (countryIdxs.includes(ci) && retryCount < MAX_RETRIES) {
+                console.info(`chosen countryIdx ${ci} is already in chosen countryIdxs, trying again...`);
+                ++retryCount;
+                ci = randomCountryIdx();
+            }
+            countryIdxs.push(ci);
+            console.log(`Adding chosen countryIdx ${ci} to chosen countryIdxs`);
+        }
+    }
+
+    return countryIdxs;
 }
 
-function pickCountry()
+function nextQuestion()
 {
     clearTimeout(continueTimeout);
     updateDivs();
@@ -256,27 +312,7 @@ function pickCountry()
     } else if (question == 11) {
         startLevel();
     } else {        
-        let countryIdxs = [];
-        //pick first country (this determines cluster)
-        let firstCountryIdx = randomCountryIdx();
-        countryIdxs.push(firstCountryIdx);
-        let cluster = getClusterByCountryIdx(firstCountryIdx);
-        console.log("Chosen cluster: " + cluster);
-
-        //pick n-1 more countries from cluster, no duplicates
-        const MAX_RETRIES = 1000;
-        let retryCount = 0;
-        while (countryIdxs.length < numCountries && retryCount < MAX_RETRIES) {
-            let countryIdx = randomCountryIdxFromCluster(cluster);
-            while (countryIdxs.includes(countryIdx) && retryCount < MAX_RETRIES) {
-                console.info(`chosen countryIdx ${countryIdx} is already in chosen countryIdxs, trying again...`);
-                ++retryCount;
-                countryIdx = randomCountryIdxFromCluster(cluster);
-            }
-            console.log(`Adding chosen countryIdx ${countryIdx} to chosen countryIdxs`);
-            countryIdxs.push(countryIdx);
-        }
-
+        let countryIdxs = randomCountryIdxs();
         currentCountries = [];
         for (let i = 0; i < countryIdxs.length; i++) {
             currentCountries.push(getCountryByIdx(countryIdxs[i]))

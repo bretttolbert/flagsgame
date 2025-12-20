@@ -4,8 +4,16 @@ var _clusters = {};
 var _features = {};
 var _clusterCountryIdxs = {}  // map of cluster id to list of country indexes
 
+function getClusterCountryIdxsCount() {
+    return Object.keys(_clusterCountryIdxs).length
+}
+
 function getClusterCountryIdxs() {
     return _clusterCountryIdxs;
+}
+
+function getClusterCountryIdxsByClusterId(clusterId) {
+    return _clusterCountryIdxs[clusterId];
 }
 
 function addClusterCountryIdx(cluster, countryIdx) {
@@ -14,7 +22,10 @@ function addClusterCountryIdx(cluster, countryIdx) {
     } else {
         _clusterCountryIdxs[cluster] = [countryIdx];
     }
-    
+}
+
+function getCountryCount() {
+    return _countries.length;
 }
 
 function getCountryByIdx(index) {
@@ -44,6 +55,10 @@ function addCountry(country) {
     _countries.push(country);
 }
 
+function getClusterCount() {
+    return Object.keys(_clusters).length
+}
+
 function getCluster(name) {
     return _clusters[name];
 }
@@ -62,6 +77,10 @@ function getCluster(svgFilename) {
 
 function getFeature(svgFilename) {
     return _features[svgFilename];
+}
+
+function getFeatureCount() {
+    return Object.keys(_features).length
 }
 
 function getFeatures() {
@@ -229,7 +248,7 @@ function getFeaturesByCountryIdx(countryIdx) {
 
 function getCountryIdxFromSvgFilename(svgFilename) {
     let fname = svgFilename.replace(".svg", ".png");
-    for (let i=0; i<getCountries().length; ++i) {
+    for (let i=0; i<getCountryCount(); ++i) {
         let country = getCountryByIdx(i);
         if (country.filename.endsWith(fname)) {
             return i;
