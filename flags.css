@@ -4,6 +4,28 @@ body {
     font-size: 1em;
     font-family: sans-serif;
     text-align: center;
+
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    min-height: 100vh;      /* Ensures body takes at least full viewport height */
+    margin: 0;              /* Removes default body margins */
+}
+
+header {
+    background-color: #333;
+}
+
+main {
+    flex: 1;                /* Allows main content to grow and fill available space */
+}
+
+footer {
+    font-size: 0.8em;
+    /* Optional styling */
+    background-color: #333;
+    color: white;
+    padding: 0.2em;
+    text-align: center;
 }
 
 /* no underline */
@@ -31,35 +53,32 @@ a:active {
     color: blue;
 }
 
-
 #prompt {
+    margin-top: 1em;
+    font-size: 2em;
     width: 100%;
     text-align: center;
 }
 #flags {
     margin-top: 30px;
 }
-.flag-table {
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-}
 .stats-table {
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
 }
 .stats-table th {
-    padding-left: 50px;
-    padding-right: 50px;
     font-size: 1em;
+    text-align: center;
 }
 .stats-table td {
-    padding-left: 50px;
-    padding-right: 50px;
     font-size: 2em;
+    text-align: center;
 }
 #feedbackContainer  {
     margin-top: 1em;
+    font-size: 2em;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 .wrapper {
     text-align: center;
@@ -67,6 +86,7 @@ a:active {
 }
 #useInfoBombSpan {
     font-size: 1em;
+    color: yellow;
 }
 #useInfoBombImg {
     cursor: pointer;
@@ -90,10 +110,6 @@ a:active {
     min-width: 512px;
     height: 269px;
     margin: 8px;
-}
-footer {
-    margin-top: 1em;
-    font-size: 0.8em;
 }
 .color-swatches {
     margin-top: 0.5em;
@@ -147,4 +163,8 @@ footer {
 .warning {
     color: red;
     font-weight: bold;
+}
+.incorrect {
+    color: red;
+    font-size: 2em;
 }

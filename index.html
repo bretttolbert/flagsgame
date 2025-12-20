@@ -11,13 +11,14 @@
     <header>
         <div class="wrapper">
             <table class='stats-table'>
-            <tr><th>Score</th><th>Level</th><th>Level Progress</th><th>Lives</th><th>Info Bombs</th></tr>
+            <tr><th>Score</th><th>Level</th><th>Level Progress</th><th>Lives</th><th>Info Bombs</th><th></th></tr>
             <tr>
                 <td><span id="score"></span></td>
                 <td><span id="level"></span></td>
                 <td><span id="levelProgress"></span></td>
                 <td><span id="lives"></span></td>
-                <td><span id="infoBombs"></span> <img id="useInfoBombImg" class="clickable" src="img/info_icon_48x48.png" title="Use Info Bomb"/></td>
+                <td><span id="infoBombs"></span></td>
+                <td><img id="useInfoBombImg" class="clickable" src="img/info_icon_48x48.png" title="Use Info Bomb"/></td>
             </tr>
             </table>
         </div>
@@ -27,20 +28,20 @@
     </header>
     <main>
         <div class="wrapper">
+            <div id="prompt"></div>
+        </div>
+        <div class="wrapper">
             <div id="flags">
-                <div id="prompt"></div>
                 <div id="flagTableContainer"></div>
             </div>
             <div id="feedbackContainer"></div>
         </div>
     </main>
     <footer>
-        <div class="wrapper">
-            <!--
-            <img id="continue" title="Continue" src="img/next_48x48.png" class="clickable"/>
-            -->
-            <a href="clusters.html" target="_blank" rel="noopener noreferrer">Clusters</a>
-        </div>
+        <!--
+        <img id="continue" title="Continue" src="img/next_48x48.png" class="clickable"/>
+        -->
+        <a href="clusters.html" target="_blank" rel="noopener noreferrer">Clusters</a>
     </footer>
 </body>
 </html>

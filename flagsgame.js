@@ -1,7 +1,7 @@
 // Depends on: flags.js
 // Globals:
 var currentCountries = new Array();
-var correctCountryId;
+var correctCountryId = -1; // the id (0-n) of correct flag element, of those currently displayed
 var score = 0;
 var points = 25; //number of points earned per question
 var POINT_INCREASE = 25;
@@ -88,8 +88,8 @@ function incrementInfoBombs(increment) {
     }
 }
 
-function useInfoBomb(countryName) {
-    alert(currentCountries[countryName].name);
+function useInfoBomb(countryId) {
+    alert(currentCountries[countryId].name);
     cancelInfoBomb();
     decrementInfoBombs();
     updateDivs();
@@ -121,9 +121,10 @@ function startLevel()
     msg += "Questions are worth " + points + " points. <br>";
     $("#feedbackContainer").html(msg);
     $("#feedbackContainer").show();
+    $("#prompt").hide();
     $('#flags').hide();
     $('#continue').show();
-    //$('#infoBombIndicator').hide();
+    $('#useInfoBombImg').hide();
     updateDivs();
     missed = false;
     continueTimeout = setTimeout(pickCountry, 1500);
@@ -132,6 +133,7 @@ function startLevel()
 function gameOver()
 {
     audioGameOver.play();
+    $("#prompt").hide();
     $('#flags').hide();
     $("#feedbackContainer").show();
     $("#feedbackContainer").html("<br>Game Over<br>"
@@ -183,38 +185,35 @@ function updateDivs()
     updateInfoBombsIndicatorHtml();
 }
 
+function getFeedbackIncorrect(clickedCountry, correctCountry) {
+    let html = '<span class="incorrect">Incorrect</span><br><br>';
+    html += `Your Choice: ${clickedCountry.name}<br>${clickedCountry.imagehtml}<br>`;
+    html += `Correct Choice: ${correctCountry.name}<br>${correctCountry.imagehtml}<br>`;
+    return html;
+}
+
+function getFeedbackCorrect(clickedCountry) {
+    let html = `+${points}<br><br>`;
+    html += `${clickedCountry.name}<br>${clickedCountry.imagehtml}<br>`;
+    return html;
+}
+
 function choiceLinkClicked(event) {
+    let clickedCountryId = event.target.id;
+    let clickedCountry = currentCountries[clickedCountryId]
+    let correctCountry = currentCountries[correctCountryId]
     if (infoBombActive) {
-        useInfoBomb(event.target.id);
+        useInfoBomb(clickedCountryId);
     } else {
         var msg, sleep;
-        if (event.target.id == correctCountryId) {
+        if (clickedCountryId == correctCountryId) {
             audioCorrectAnswer.play();
-            msg = "+" + points + "<br>"
-                + "<table class='flag-table'>"
-                + "<tr><td>"
-                + currentCountries[correctCountryId].name
-                + "</td></tr>"
-                + "<tr><td>"
-                + currentCountries[correctCountryId].imagehtml
-                + "</td></tr>"
-                + "</table>";
+            msg = getFeedbackCorrect(clickedCountry);
             score += points;
             continueTimeout = setTimeout(pickCountry, 500);
         } else {
             audioWrongAnswer.play();
-            msg = "Incorrect <br>"
-                + "<table class='flag-table'>"
-                    + "<tr><th>Your Choice:</th><th>Correct Choice:</th></tr>"
-                    + "<tr>"
-                        + "<td>" + currentCountries[event.target.id].name + "</td>"
-                        + "<td>" + currentCountries[correctCountryId].name + "</td>" 
-                    + "</tr>"
-                    + "<tr>"
-                        + "<td>" + currentCountries[event.target.id].imagehtml + "</td>"
-                        + "<td>" + currentCountries[correctCountryId].imagehtml + "</td>"
-                    + "</tr>" 
-                + "</table>";
+            msg = getFeedbackIncorrect(clickedCountry, correctCountry);
             lives--;
             missed = true;
             continueTimeout = setTimeout(pickCountry, 3000);
@@ -222,7 +221,8 @@ function choiceLinkClicked(event) {
         setTimeout(updateDivs, 1000);
         question++;
         $('#continue').show();
-        //$('#infoBombIndicator').hide();
+        $('#useInfoBombImg').hide();
+        $("#prompt").hide();
         $('#flags').hide();
         $("#feedbackContainer").html(msg);
         $("#feedbackContainer").fadeIn("fast");
@@ -248,8 +248,9 @@ function pickCountry()
     updateDivs();
     $('#feedbackContainer').hide();
     $('#continue').show();
+    $("#prompt").show();
     $('#flags').show();
-    //$('#infoBombIndicator').show();
+    $('#useInfoBombImg').show();
     if (lives == -1) {
         gameOver();
     } else if (question == 11) {
