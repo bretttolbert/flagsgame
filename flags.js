@@ -2,6 +2,20 @@
 var _countries = new Array();
 var _clusters = {};
 var _features = {};
+var _clusterCountryIdxs = {}  // map of cluster id to list of country indexes
+
+function getClusterCountryIdxs() {
+    return _clusterCountryIdxs;
+}
+
+function addClusterCountryIdx(cluster, countryIdx) {
+    if (cluster in _clusterCountryIdxs) {
+        _clusterCountryIdxs[cluster].push(countryIdx);
+    } else {
+        _clusterCountryIdxs[cluster] = [countryIdx];
+    }
+    
+}
 
 function getCountryByIdx(index) {
     return _countries[index];
@@ -19,6 +33,11 @@ function getCountryByName(name) {
 
 function getCountries() {
     return _countries;
+}
+
+function getCountryIdxs() {
+    let n = _countries.length;
+    return Array.from({ length: n }, (_, index) => index);
 }
 
 function addCountry(country) {
@@ -83,6 +102,22 @@ $.get("flag_clusters.json", {}, function(data){
 $.get("flag_features.json", {}, function(data){
     for (const [key, value] of Object.entries(data)) {
         setFeature(key, value);
+    }
+});
+
+
+$(document).ajaxStop(function() {
+    // This function runs when the number of active AJAX requests becomes zero.
+    console.log("All jQuery AJAX requests have completed.");
+
+    // Build country cluster lists
+    for (const [svgFilename, assignedCluster] of Object.entries(getClusters())) {
+        console.log(`cluster ${svgFilename}=${assignedCluster}`);
+        let countryIdx = getCountryIdxFromSvgFilename(svgFilename);
+        //skip svgs not in countries list e.g. retired flag
+        if (countryIdx != -1) {
+            addClusterCountryIdx(assignedCluster, countryIdx);
+        }
     }
 });
 
@@ -192,13 +227,13 @@ function getFeaturesByCountryIdx(countryIdx) {
     return features;
 }
 
-function getCountryFromSvgFilename(svgFilename) {
+function getCountryIdxFromSvgFilename(svgFilename) {
     let fname = svgFilename.replace(".svg", ".png");
     for (let i=0; i<getCountries().length; ++i) {
         let country = getCountryByIdx(i);
         if (country.filename.endsWith(fname)) {
-            return country
+            return i;
         }
     }
-    return null;
+    return -1;
 }

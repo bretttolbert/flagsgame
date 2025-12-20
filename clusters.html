@@ -6,12 +6,13 @@
 <script>
 
 
-function getFlagImgHtml(cluster, clusterCountry, clusterCountryIdx) {
+function getFlagImgHtml(cluster, countryIdx) {
     html = '';
     const pattern = / /gi;
-    let countryNameWikiEscaped = clusterCountry.name.replace(pattern, "_");
+    let country = getCountryByIdx(countryIdx);
+    let countryNameWikiEscaped = country.name.replace(pattern, "_");
     html += `<a href="https://en.wikipedia.org/wiki/${countryNameWikiEscaped}">`;
-    html += `<img class="flag-image" id="${cluster}-${clusterCountryIdx}" src="${clusterCountry.filename}" border="0" />`;
+    html += `<img class="flag-image" id="${cluster}-${countryIdx}" src="${country.filename}" border="0" />`;
     html += `</a>`;
     return html;
 }
@@ -44,44 +45,30 @@ function getColorSwatchesHtml(key, clusterCountryFeatures) {
 }
 
 function displayClusters() {
-    let clusterCountries = {};
-    let clusters = getClusters();
-    for (const [svgFilename, assignedCluster] of Object.entries(clusters)) {
-        console.log(`cluster ${svgFilename}=${assignedCluster}`);
-        let country = getCountryFromSvgFilename(svgFilename);
-        //skip svgs not in countries list e.g. retired flag
-        if (country != null) {
-            if (assignedCluster in clusterCountries) {
-                clusterCountries[assignedCluster].push(country);
-            } else {
-                clusterCountries[assignedCluster] = [country];
-            }
-        }
-    }
-
+    let clusterCountryIdxs = getClusterCountryIdxs();
     let html = '';
-    for (const [cluster, countryClusterCountries] of Object.entries(clusterCountries)) {
+    for (const [cluster, countryIdxs] of Object.entries(clusterCountryIdxs)) {
         html += '<div class="cluster">';
-        html += `<h1>Cluster ${cluster} (count=${countryClusterCountries.length})</h1>`;
+        html += `<h1>Cluster ${cluster} (count=${countryIdxs.length})</h1>`;
         // flags images
         html += '<div class="flag-images">'
-        for (let i=0; i<countryClusterCountries.length; ++i) {
-            let clusterCountry = countryClusterCountries[i];
-            html += getFlagImgHtml(cluster, clusterCountry, i);
+        for (let i=0; i<countryIdxs.length; ++i) {
+            let clusterCountryIdx = countryIdxs[i];
+            html += getFlagImgHtml(cluster, clusterCountryIdx);
         }
         html += "</div>"; // end flag-images
         // color swatches
         html += '<div class="color-swatches">'
-        for (let i=0; i<countryClusterCountries.length; ++i) {
+        for (let i=0; i<clusterCountryIdxs.length; ++i) {
             html += '<div class="color-swatch-container">'
-            let clusterCountry = countryClusterCountries[i];
-            let clusterCountryFeatures = getFeaturesByCountryName(clusterCountry.name);
-            html += "<div>" + clusterCountry.name + "</div>";
+            let country = getCountryByIdx(country);
+            let countryFeatures = getFeaturesByCountryName(country.name);
+            html += "<div>" + country.name + "</div>";
             html += "<div>";
-            html += getFlagImgHtml(cluster, clusterCountry, i);
+            html += getFlagImgHtml(cluster, country, i);
             html += "</div>";
-            html += getColorSwatchesHtml("fills_rgb", clusterCountryFeatures)
-            html += getColorSwatchesHtml("fills_rgb_low", clusterCountryFeatures)
+            html += getColorSwatchesHtml("fills_rgb", countryFeatures)
+            html += getColorSwatchesHtml("fills_rgb_low", countryFeatures)
             html += "</div>"; // end color-swatch-container
         }
         html += "</div>"; // end color-swatches
@@ -96,12 +83,15 @@ $(document).ajaxStop(function() {
     console.log("All jQuery AJAX requests have completed.");
     displayClusters();
     // You might unbind the event if it only needs to run once
-    $(this).off('ajaxStop');
+    //$(this).off('ajaxStop');
 });
 
 </script>
 </head>
 <body>
+<div>
+    <a href="index.html">Flags Game</a>
+</div>
 <div id="clustersContainer">
     Test
 </div>

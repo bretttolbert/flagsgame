@@ -177,17 +177,17 @@ function choiceLinkClicked(event) {
     }
 }
 
+function randomChoice(choices) {
+    return Math.floor(Math.random()*choices.length);
+}
+
 function randomCountryIdx() {
-    return Math.floor(Math.random()*getCountries().length);
+    return randomChoice(getCountryIdxs());
 }
 
 function randomCountryIdxFromCluster(cluster) {
-    //TODO: improve efficiency by building list of countries by cluster
-    cIdx = randomCountryIdx();
-    while (getClusterByCountryIdx(cIdx) != cluster) {
-        cIdx = randomCountryIdx();
-    }
-    return cIdx;
+    let countryIdxs = getClusterCountryIdxs()[cluster];
+    return randomChoice(countryIdxs);
 }
 
 function pickCountry()
@@ -211,11 +211,16 @@ function pickCountry()
         console.log("Chosen cluster: " + cluster);
 
         //pick n-1 more countries from cluster, no duplicates
-        while (countryIdxs.length < numCountries) {
+        const MAX_RETRIES = 1000;
+        let retryCount = 0;
+        while (countryIdxs.length < numCountries && retryCount < MAX_RETRIES) {
             let countryIdx = randomCountryIdxFromCluster(cluster);
-            while (countryIdxs.includes(countryIdx)) {
+            while (countryIdxs.includes(countryIdx) && retryCount < MAX_RETRIES) {
+                console.info(`chosen countryIdx ${countryIdx} is already in chosen countryIdxs, trying again...`);
+                ++retryCount;
                 countryIdx = randomCountryIdxFromCluster(cluster);
             }
+            console.log(`Adding chosen countryIdx ${countryIdx} to chosen countryIdxs`);
             countryIdxs.push(countryIdx);
         }
 
