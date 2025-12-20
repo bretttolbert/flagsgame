@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="1280px" height="640px" viewBox="0 0 30240 15120">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" 
+	width="1280px" height="640px" viewBox="0 0 30240 15120">
 	<desc>Flag of Australia</desc>
 	<defs>
 		<polygon id="Star7" points="0,-9 1.73553,-3.60388 7.03648,-5.61141 3.89971,-0.890084 8.77435,2.00269 3.12733,2.49396 3.90495,8.10872 0,4 -3.90495,8.10872 -3.12733,2.49396 -8.77435,2.00269 -3.89971,-0.890084 -7.03648,-5.61141 -1.73553,-3.60388"/>
@@ -8,7 +7,7 @@
 	</defs>
 
 	<g id="Blue" fill="#00008B">
-		<path id="Background" d="M0,0H30240V15120H0z"/>
+		<path fill="#00008B" id="Background" d="M0,0H30240V15120H0z"/>
 	</g>
 
 	<g id="White" fill="#FFFFFF">
@@ -18,13 +17,13 @@
 		<use xlink:href="#Star7" id="Star_Gamma_Crucis" transform="translate(22680, 2520) scale(120, 120)"/>
 		<use xlink:href="#Star7" id="Star_Delta_Crucis" transform="translate(26040, 5607) scale(120, 120)"/>
 		<use xlink:href="#Star5" id="Star_Epsilon_Crucis" transform="translate(24192, 8190) scale(70, 70)"/>
-		<path id="White_Cross" d="M6300,0H8820V2520H15120V5040H8820V7560H6300V5040H0V2520H6300z"/>
+		<path fill="#FFFFFF" id="White_Cross" d="M6300,0H8820V2520H15120V5040H8820V7560H6300V5040H0V2520H6300z"/>
 		<path id="White_Diagonal" d="M0,0H1690.467390989841010485335293560844833993107480    L15120,6714.766304505079494757332353219577583003446260V7560    H13429.532609010158989514664706439155166006892520L0,845.233695494920505242667646780422416996553740z"/>
 		<use xlink:href="#White_Diagonal" id="White_Diagonal_Flipped" transform="translate(15120) scale(-1, 1)"/>
 	</g>
 
 	<g id="Red" fill="#FF0000">
-		<path id="Red_Cross" d="M6804,0H8316V3024H15120V4536H8316V7560H6804V4536H0V3024H6804z"/>
+		<path fill="#FF0000" id="Red_Cross" d="M6804,0H8316V3024H15120V4536H8316V7560H6804V4536H0V3024H6804z"/>
 		<path id="Red_Diagonals" d="M0,0L5040,2520H3913.021739340105993009776470959436777337928347    L0,563.489130329947003495111764520281611331035827z    M15120,0H13993.021739340105993009776470959436777337928347    L8953.021739340105993009776470959436777337928347,2520H10080z"/>
 		<use xlink:href="#Red_Diagonals" id="Red_Diagonals_Rotated" transform="translate(15120, 7560) scale(-1, -1)"/>
 	</g>

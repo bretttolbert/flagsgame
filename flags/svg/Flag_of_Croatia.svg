@@ -49,6 +49,11 @@
     </rdf:RDF>
   </metadata>
   <sodipodi:namedview id="base" inkscape:zoom="0.5" inkscape:cx="471.93964" inkscape:cy="440.11944" inkscape:window-width="1280" inkscape:window-height="736" inkscape:window-x="0" inkscape:window-y="30" inkscape:current-layer="svg557" showgrid="false"/>
+  <g id="g4544">
+    <rect fill="rgb(255, 255, 255)" y="200.00014" x="0" width="1200" style="font-size: 12px; fill: rgb(255, 255, 255); fill-opacity: 1; fill-rule: evenodd; stroke: none; stroke-width: 0.005; stroke-miterlimit: 4; stroke-dasharray: none; stroke-opacity: 1;" id="rect675" height="200"/>
+    <rect fill="rgb(0, 41, 140)" height="200" id="rect714" style="font-size: 12px; fill: rgb(0, 41, 140); fill-opacity: 1; fill-rule: evenodd; stroke: none; stroke-width: 1pt; stroke-opacity: 1;" width="1200" x="0" y="400.00012"/>
+    <rect fill="rgb(222, 24, 24)" height="200" id="rect713" style="font-size: 12px; fill: rgb(222, 24, 24); fill-opacity: 1; fill-rule: evenodd; stroke-width: 1pt;" width="1200" x="0" y="0.00013125"/>
+  </g>
   <defs id="defs559">
     <inkscape:perspective sodipodi:type="inkscape:persp3d" inkscape:vp_x="0 : 300 : 1" inkscape:vp_y="0 : 1000 : 0" inkscape:vp_z="1200 : 300 : 1" inkscape:persp3d-origin="600 : 200 : 1" id="perspective130"/>
     <linearGradient gradientUnits="objectBoundingBox" id="linearGradient684" spreadMethod="pad" x1="0" x2="1" y1="0" y2="0">
@@ -57,11 +62,6 @@
     </linearGradient>
     <linearGradient gradientUnits="objectBoundingBox" id="linearGradient687" spreadMethod="pad" x1="0" x2="1" xlink:href="#linearGradient684" y1="0" y2="0"/>
   </defs>
-  <g id="g4544">
-    <rect y="200.00014" x="0" width="1200" style="font-size: 12px; fill: rgb(255, 255, 255); fill-opacity: 1; fill-rule: evenodd; stroke: none; stroke-width: 0.005; stroke-miterlimit: 4; stroke-dasharray: none; stroke-opacity: 1;" id="rect675" height="200"/>
-    <rect height="200" id="rect714" style="font-size: 12px; fill: rgb(0, 41, 140); fill-opacity: 1; fill-rule: evenodd; stroke: none; stroke-width: 1pt; stroke-opacity: 1;" width="1200" x="0" y="400.00012"/>
-    <rect height="200" id="rect713" style="font-size: 12px; fill: rgb(222, 24, 24); fill-opacity: 1; fill-rule: evenodd; stroke-width: 1pt;" width="1200" x="0" y="0.00013125"/>
-  </g>
   <g id="g4549" transform="translate(150.001, -0.225157)">
     <g transform="matrix(0.920341, 0, 0, 0.92034, -148.222, 5.89114)" id="g2527">
       <path d="M 520.4584,208.01863 C 560.47837,193.78163 604.85099,186.09985 648.21969,185.99046 C 691.58844,185.88109 735.81711,192.68608 779.52064,208.3472 L 812.05178,142.71749 L 789.18632,102.8865 C 789.18632,102.8865 748.39117,119.64288 748.05628,119.64288 C 747.7213,119.64288 719.29186,88.354257 719.29186,88.354257 L 682.78348,110.4129 L 648.5007,84.194303 L 616.25316,110.00845 L 578.60613,88.248147 L 551.14496,120.88098 L 509.98404,103.28071 L 487.94805,142.74763 L 520.4584,208.01863 z " id="path3501" style="font-size: 12px; fill: rgb(255, 255, 255); fill-opacity: 1; fill-rule: evenodd; stroke: rgb(222, 24, 24); stroke-width: 1.7391; stroke-linecap: round; stroke-opacity: 1;"/>

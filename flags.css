@@ -90,6 +90,14 @@ footer {
     margin-top: 1em;
     font-size: small;
 }
+.color-swatches {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+}
+.color-swatch-container {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
 .color-swatch {
     width: 64px;
     height: 64px;
@@ -109,5 +117,5 @@ footer {
 }
 .inner-swatches {
     margin-top: 0.5em;
-    margin-bottom: 2em;
+    margin-bottom: 0.5em;
 }

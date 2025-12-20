@@ -25,6 +25,24 @@ function rgbToHex(r, g, b) {
   return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
 }
 
+function getColorSwatchesHtml(key, clusterCountryFeatures) {
+    html = '';
+    html += `<div class="inner-swatches">`; //innner-swatches
+    html += `<div>${key}</div>`
+    let fillsRgb = clusterCountryFeatures[key];
+    for (let j=0; j<fillsRgb.length; ++j) {
+        let fillRgb = fillsRgb[j];
+        let fill = `rgb(${fillRgb[0]}, ${fillRgb[1]}, ${fillRgb[2]})`
+        let hexCode = rgbToHex(fillRgb[0], fillRgb[1], fillRgb[2]);
+        html += `<div class="color-swatch" style="background-color: ${fill}; width: 64px; height: 64px">
+            <div class="color-swatch-label">${hexCode}</div>
+        </div>`
+    }
+    html += "</div>"; // end inner-swatches
+    html += "<br>";
+    return html;
+}
+
 function displayClusters() {
     let clusterCountries = {};
     let clusters = getClusters();
@@ -55,28 +73,19 @@ function displayClusters() {
         // color swatches
         html += '<div class="color-swatches">'
         for (let i=0; i<countryClusterCountries.length; ++i) {
+            html += '<div class="color-swatch-container">'
             let clusterCountry = countryClusterCountries[i];
             let clusterCountryFeatures = getFeaturesByCountryName(clusterCountry.name);
             html += "<div>" + clusterCountry.name + "</div>";
             html += "<div>";
             html += getFlagImgHtml(cluster, clusterCountry, i);
             html += "</div>";
-            html += `<div class="inner-swatches">`; //innner-swatches
-            let fillsRgb = clusterCountryFeatures["fills_rgb"];
-            for (let j=0; j<fillsRgb.length; ++j) {
-                let fillRgb = fillsRgb[j];
-                let fill = `rgb(${fillRgb[0]}, ${fillRgb[1]}, ${fillRgb[2]})`
-                let hexCode = rgbToHex(fillRgb[0], fillRgb[1], fillRgb[2]);
-                html += `<div class="color-swatch" style="background-color: ${fill}; width: 64px; height: 64px">
-                    <div class="color-swatch-label">${hexCode}</div>
-                </div>`
-            }
-            html += "</div>"; // end inner-swatches
-            html += "<br>";
+            html += getColorSwatchesHtml("fills_rgb", clusterCountryFeatures)
+            html += getColorSwatchesHtml("fills_rgb_low", clusterCountryFeatures)
+            html += "</div>"; // end color-swatch-container
         }
         html += "</div>"; // end color-swatches
         html += "</div>"; // end cluster
-        html += "<br>";
     }
 
     $('#clustersContainer').html(html);

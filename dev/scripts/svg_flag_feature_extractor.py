@@ -114,16 +114,27 @@ def rgb_to_hsl(rgb: webcolors.IntegerRGB):
     g_float = rgb.green / 255.0
     b_float = rgb.blue / 255.0
 
-    # Convert float RGB to float HSV (0.0-1.0 for H, S, V)
-    h_float, s_float, v_float = colorsys.rgb_to_hsv(r_float, g_float, b_float)
+    # Convert float RGB to float HSL (0.0-1.0 for H, S, V)
+    h_float, l_float, s_float = colorsys.rgb_to_hls(r_float, g_float, b_float)
 
-    # Optional: Convert HSV values to a more human-readable range
-    # H: 0-360 degrees, S: 0-100%, V: 0-100%
-    # h_degrees = h_float * 360.0
-    # s_percent = s_float * 100.0
-    # v_percent = v_float * 100.0
+    return (h_float, s_float, l_float)
 
-    return (h_float, s_float, v_float)
+
+def hsl_to_rgb(hsl_tuple):
+    """
+    Converts HSL values (0-1 range) to RGB values (0-255 range).
+    """
+    h, s, l = hsl_tuple
+
+    # Use the built-in function to get RGB values in the 0-1 range
+    r_float, g_float, b_float = colorsys.hls_to_rgb(h, l, s)
+
+    # Scale the RGB values to the 0-255 range for typical use
+    r_int = int(r_float * 255)
+    g_int = int(g_float * 255)
+    b_int = int(b_float * 255)
+
+    return (r_int, g_int, b_int)
 
 
 def reduce_hsl_resolution(hsl_tuple, hue_steps=8, sat_steps=2, light_steps=2):
@@ -153,15 +164,35 @@ def convert_to_hsl_tuples(colors):
     Converts webcolors.IntegerRGB to primitive hsl tuples
     """
     hue_steps = 8
-    sat_steps = 2
-    light_steps = 2
+    sat_steps = 3
+    light_steps = 3
     return [
         reduce_hsl_resolution(rgb_to_hsl(c), hue_steps, sat_steps, light_steps)
         for c in colors
     ]
 
 
-def extract_colors_from_svg(filename):
+"""
+I attempted to automate as much as possible, and modified many SVG files to allow it go get the
+colors automatically, but unfortunately some flag SVGs have a large number of mostly insignificant colors,
+(e.g. flags with seals or coats of arms)
+Until I can implement some method of considering the proportional area of each color, it's easier
+to just put in some manual overrides. 
+"""
+overrides = {
+    "Flag_of_Croatia.svg": ["#de1818", "#ffffff", "#00298c"],
+    "Flag_of_Equatorial_Guinea.svg": ["#0073ce", "#e32118", "#ffffff", "#3e9a00"],
+    "Flag_of_Malta.svg": ["#e60d2e", "#f1eeee"],
+    "Flag_of_Egypt.svg": ["#ce1126", "#fac800", "#000000", "#ffffff"],
+    "Flag_of_Andorra.svg": ["#f4e400", "#0f228c", "#ed192d"],
+    "Flag_of_El_Salvador.svg": ["#00209f", "#fee6ce", "#ffcc00", "#1f601a"],
+    "Flag_of_Liechtenstein.svg": ["#ce1126", "#002b7f", "#ffd83d", "#000000"],
+    "Flag_of_Spain.svg": ["#ad1519", "#ffc400", "#cccccc", "#005bbf"],
+    "Flag_of_Dominican_Republic.svg": ["#d21034", "#003f87", "#ffffff", "#007b63"],
+}
+
+
+def extract_colors_from_svg(filename, filepath):
     """
     Extracts fill and stroke colors from an SVG file using svgpathtools.
 
@@ -172,56 +203,73 @@ def extract_colors_from_svg(filename):
         dict: A dictionary containing lists of fill and stroke colors found.
     """
 
-    if str(filename).find("Ireland") != -1:
-        print("Ireland")
+    if str(filename).find("Hong_Kong") != -1:  # TODO: Remove
+        print("bp")
 
     ret = {"fills_rgb": [], "strokes_rgb": []}
-    try:
-        # returns color (stroke and fill) lists
-        paths, attributes = svg2paths(filename)  # type: ignore
-    except FileNotFoundError:
-        print(f"Error: The file '{filename}' was not found.")
-        return ret
-    except Exception as e:
-        print(f"An error occurred while parsing the SVG file: {e}")
-        return ret
-    for attrib_dict in attributes:
-        if "fill" in attrib_dict:
-            normalized_color = normalize_color(attrib_dict["fill"])
-            if normalized_color is not None:
-                ret["fills_rgb"].append(normalized_color)
-        if "stroke" in attrib_dict:
-            normalized_color = normalize_color(attrib_dict["stroke"])
-            if normalized_color is not None:
-                ret["strokes_rgb"].append(normalized_color)
-        if "style" in attrib_dict:
-            style = attrib_dict["style"]
-            sheet = cssutils.parseString(".st0 {" + style + "}")
-            dct = {}
-            for rule in sheet:
-                if (
-                    rule.type == rule.STYLE_RULE
-                ):  # Ensures only style rules are processed, skipping @import etc.
-                    selector = rule.selectorText
-                    for prop in rule.style:
-                        dct[prop.name] = prop.value
-            if "fill" in dct:
-                fill = dct["fill"]
-                normalized_color = normalize_color(fill)
+    if filename in overrides:
+        ret["fills_rgb"] = [normalize_color(c) for c in overrides[filename]]
+    else:
+        try:
+            # returns color (stroke and fill) lists
+            paths, attributes = svg2paths(filepath)  # type: ignore
+        except FileNotFoundError:
+            print(f"Error: The file '{filepath}' was not found.")
+            return ret
+        except Exception as e:
+            print(f"An error occurred while parsing the SVG file: {e}")
+            return ret
+        for attrib_dict in attributes:
+            if "fill" in attrib_dict:
+                normalized_color = normalize_color(attrib_dict["fill"])
                 if normalized_color is not None:
                     ret["fills_rgb"].append(normalized_color)
-            if "stroke" in dct:
-                stroke = dct["stroke"]
-                normalized_color = normalize_color(stroke)
+            if "stroke" in attrib_dict:
+                normalized_color = normalize_color(attrib_dict["stroke"])
                 if normalized_color is not None:
                     ret["strokes_rgb"].append(normalized_color)
+            if "style" in attrib_dict:
+                style = attrib_dict["style"]
+                sheet = cssutils.parseString(".st0 {" + style + "}")
+                dct = {}
+                for rule in sheet:
+                    if (
+                        rule.type == rule.STYLE_RULE
+                    ):  # Ensures only style rules are processed, skipping @import etc.
+                        selector = rule.selectorText
+                        for prop in rule.style:
+                            dct[prop.name] = prop.value
+                if "fill" in dct:
+                    fill = dct["fill"]
+                    normalized_color = normalize_color(fill)
+                    if normalized_color is not None:
+                        ret["fills_rgb"].append(normalized_color)
+                if "stroke" in dct:
+                    stroke = dct["stroke"]
+                    normalized_color = normalize_color(stroke)
+                    if normalized_color is not None:
+                        ret["strokes_rgb"].append(normalized_color)
+
+    # filter out dupes
     fills_rgb = list(set(ret["fills_rgb"]))
     strokes_rgb = list(set(ret["strokes_rgb"]))
+    # convert RGB to HSL and reduce color resolution
+    fills_hsl = convert_to_hsl_tuples(fills_rgb)
+    strokes_hsl = convert_to_hsl_tuples(strokes_rgb)
+    # filter out dupes again (effectively merging similar colors)
+    fills_hsl = list(set(fills_hsl))
+    strokes_hsl = list(set(strokes_hsl))
+    # convert back to rgb, now that we've reduced the resolution and filtered out dupes
+    fills_rgb_low = [hsl_to_rgb(c) for c in fills_hsl]
+    strokes_rgb_low = [hsl_to_rgb(c) for c in strokes_hsl]
+    # return the colors data
     return {
         "fills_rgb": fills_rgb,
-        "fills_hsl": convert_to_hsl_tuples(fills_rgb),
+        "fills_hsl": fills_hsl,
+        "fills_rgb_low": fills_rgb_low,
+        "strokes_rgb_low": strokes_rgb_low,
         "strokes_rgb": strokes_rgb,
-        "strokes_hsl": convert_to_hsl_tuples(strokes_rgb),
+        "strokes_hsl": strokes_hsl,
     }
 
 
@@ -229,7 +277,7 @@ def extract_features():
     ret = {}
     for file_path in directory_path.iterdir():
         if file_path.is_file():
-            colors = extract_colors_from_svg(file_path.absolute())
+            colors = extract_colors_from_svg(file_path.name, file_path.absolute())
             ret[file_path.name] = colors
     return ret
 

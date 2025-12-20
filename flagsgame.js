@@ -22,6 +22,9 @@ var audioPowerup = new Audio('sounds/powerup.mp3');
 var audioGameOver = new Audio('sounds/game_over.mp3');
 
 $(function(){
+
+    alert("If you are experiencing problems with this page, and you have used it previously, try clearing your browser data. This will force it to update the JavaScript to the latest version.");
+
     $("#feedbackContainer").hide();
     $(".choice-link").click(choiceLinkClicked);
     $('#infoBombIndicator img').click(function(){

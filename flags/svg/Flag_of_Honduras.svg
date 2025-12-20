@@ -15,7 +15,7 @@
       <use xlink:href="#star" transform="translate(10, -3)"/>
       <use xlink:href="#star" transform="translate(-10, 3)"/>
       <use xlink:href="#star" transform="translate(-10, -3)"/>
-      <rect x="-36" y="-18" width="72" height="12"/>
-      <rect x="-36" y="6" width="72" height="12"/>
+      <rect fill="#0047ba" x="-36" y="-18" width="72" height="12"/>
+      <rect fill="#0047ba" x="-36" y="6" width="72" height="12"/>
    </g>
 </svg>

@@ -1,9 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg width="1026" height="684" id="Flag_of_the_Turkish_Republic_of_Northern_Cyprus" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 360 240">
 <rect width="360" height="240" fill="white"/>
 <g fill="rgb(227,10,23)">
-  <rect width="360" height="24" y="24"/>
+  <rect fill="rgb(227,10,23)" width="360" height="24" y="24"/>
   <rect width="360" height="24" y="192"/>
   <circle cx="120" cy="120" r="60"/>
   <circle cx="135" cy="120" r="48" fill="white"/>
