@@ -31,9 +31,9 @@ def convert_all(
 
     """
 
-    absolute_root_path = source_root.resolve()
+    starting_directory = os.getcwd()
     count = 0
-    for root, _, files in os.walk(absolute_root_path, topdown=False):
+    for root, _, files in os.walk(source_root, topdown=False):
         for fname in files:
             for keyword in exclude_keywords:
                 if root.find(keyword) != -1:
@@ -41,20 +41,24 @@ def convert_all(
             if fname.endswith(source_ext):
                 source_base, source_ext = os.path.splitext(fname)
                 dest_filename = source_base + dest_ext
-                if overwrite or not Path(root).joinpath(dest_filename).exists():
+                dest_path = Path(root).joinpath(dest_filename)
+                cmd = (
+                    f"convert "
+                    + f"-background none "
+                    + f"{fname} "
+                    + f"-resize {resolution} "
+                    + f"-quality {quality} "
+                    + f"{dest_filename}"
+                )
+                print(f"root={root} cmd={cmd}")
+                os.chdir(root)
+                if overwrite or not dest_path.exists():
                     if not dry_run:
-                        cmd = (
-                            f"convert {fname} "
-                            + f"-resize {resolution} "
-                            + f"-quality {quality} "
-                            + f"{dest_filename}"
-                        )
-                        print(f"root={root} cmd={cmd}")
-                        os.chdir(root)
                         os.system(cmd)
-                        if delete_source_file:
-                            os.remove(fname)
-                    count += 1
+                if delete_source_file:
+                    os.remove(fname)
+                os.chdir(starting_directory)
+                count += 1
     return count
 
 
@@ -64,6 +68,7 @@ def convert_svgs_to_x(
     dest_ext,
     resolution,
     quality,
+    overwrite,
     dry_run,
 ):
     # copy svgs from source_path to dest_path (webp/png folder)
@@ -76,31 +81,35 @@ def convert_svgs_to_x(
         resolution=resolution,
         quality=quality,
         delete_source_file=True,
-        overwrite=True,
+        overwrite=overwrite,
         dry_run=dry_run,
     )
     print(f"converted {count} svgs")
 
 
 def main():
-    # recommend a fixed-height resolution with a variable width
-    # consider square flags like Switzerland
-    # if we matched the width, it would look out of proportion
-    resolution = "x300"  # update flags.js if you change the resolution
-    quality = 100
-    source_path = Path("../../flags/svg/")
-    dest_fmt = "webp"
-    dest_path = Path(f"../../flags/{dest_fmt}/{resolution}/")
-    dest_ext = f".{dest_fmt}"
-    dry_run = False
-    convert_svgs_to_x(
-        source_path,
-        dest_path,
-        dest_ext,
-        resolution=resolution,
-        quality=quality,
-        dry_run=dry_run,
-    )
+    # one of the output formats must match the ones defined in flags.js
+    output_fmts = [("png", "x300"), ("webp", "x300")]
+    overwrite = False
+
+    for dest_fmt, resolution in output_fmts:
+        # recommend a fixed-height resolution with a variable width
+        # consider square flags like Switzerland
+        # if we matched the width, it would look out of proportion
+        quality = 100
+        source_path = Path("../../flags/svg/")
+        dest_path = Path(f"../../flags/{dest_fmt}/{resolution}/")
+        dest_ext = f".{dest_fmt}"
+        dry_run = False
+        convert_svgs_to_x(
+            source_path.resolve(),
+            dest_path.resolve(),
+            dest_ext,
+            resolution=resolution,
+            quality=quality,
+            overwrite=overwrite,
+            dry_run=dry_run,
+        )
 
 
 if __name__ == "__main__":
