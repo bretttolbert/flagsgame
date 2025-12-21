@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg>
-<svg width="100%" height="100%" viewBox="-75 -40 120 80" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
-   <rect x="-75" y="-40" width="120" height="80" fill="white"/>
-   <rect x="-45" y="-40" width="90" height="80" fill="#006600"/>
-   <circle r="24" fill="white"/>
-   <circle r="22" cx="-7" cy="-40" fill="#006600" transform="rotate(-41.6335, 45, -40)"/>
+<svg width="100%" height="100%" viewBox="-750 -400 1200 800" preserveAspectRatio="xMidYMid meet" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+   <rect x="-750" y="-400" width="1200" height="800" fill="white"/>
+   <rect x="-450" y="-400" width="900" height="800" fill="#006600"/>
+   <circle r="240" fill="white"/>
+   <!-- Circle below overlaps with white circle above to make crescent -->
+   <circle id="centralGreenCircle" r="220" cx="-70" cy="-400" fill="#006600" transform="rotate(-41.6335, 450, -400)"/>
    <comment>rotation angles = -arctan(8/9)</comment>
-   <g id="star" transform="rotate(-41.6335) translate(16)" fill="white">
+   <g id="star" transform="rotate(-41.6335) translate(160)" fill="white">
       <g id="cone">
-         <polygon id="triangle" points="0,0 -8,0 -8,4" transform="translate(8) rotate(18)"/>
+         <polygon id="triangle" points="0,0 -80,0 -80,40" transform="translate(80) rotate(18)"/>
          <use xlink:href="#triangle" transform="scale(1, -1)"/>
       </g>
       <use xlink:href="#cone" transform="rotate(72)"/>
