@@ -17,9 +17,11 @@
 
 function getFlagImgHtml(cluster, countryIdx) {
     html = '';
-    const pattern = / /gi;
     let country = getCountryByIdx(countryIdx);
-    let countryNameWikiEscaped = country.name.replace(pattern, "_");
+    const whitespace = / /gi;
+    let countryNameWikiEscaped = country.name.replace(whitespace, "_");
+    const parenthetical_suffix = /_\(.*\)$/gi;
+    countryNameWikiEscaped = countryNameWikiEscaped.replace(parenthetical_suffix, "");
     html += `<a href="https://en.wikipedia.org/wiki/${countryNameWikiEscaped}">`;
     html += `<img class="flag-image" id="${cluster}-${countryIdx}" src="${country.filename}" border="0" />`;
     html += `</a>`;
