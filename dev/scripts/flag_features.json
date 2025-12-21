@@ -6460,47 +6460,6 @@
         "strokes_rgb": [],
         "strokes_hsl": []
     },
-    "Flag_of_Zapatista_Territories.svg": {
-        "fills_rgb": [
-            [
-                0,
-                0,
-                0
-            ],
-            [
-                206,
-                17,
-                38
-            ]
-        ],
-        "fills_hsl": [
-            [
-                0.0,
-                0.0,
-                0.0
-            ],
-            [
-                1.0,
-                1.0,
-                0.3333333333333333
-            ]
-        ],
-        "fills_rgb_low": [
-            [
-                0,
-                0,
-                0
-            ],
-            [
-                170,
-                0,
-                0
-            ]
-        ],
-        "strokes_rgb_low": [],
-        "strokes_rgb": [],
-        "strokes_hsl": []
-    },
     "Flag_of_Monaco.svg": {
         "fills_rgb": [
             [
@@ -7411,6 +7370,47 @@
                 255,
                 255,
                 255
+            ]
+        ],
+        "strokes_rgb_low": [],
+        "strokes_rgb": [],
+        "strokes_hsl": []
+    },
+    "Flag_of_Zapatista_territories.svg": {
+        "fills_rgb": [
+            [
+                0,
+                0,
+                0
+            ],
+            [
+                206,
+                17,
+                38
+            ]
+        ],
+        "fills_hsl": [
+            [
+                0.0,
+                0.0,
+                0.0
+            ],
+            [
+                1.0,
+                1.0,
+                0.3333333333333333
+            ]
+        ],
+        "fills_rgb_low": [
+            [
+                0,
+                0,
+                0
+            ],
+            [
+                170,
+                0,
+                0
             ]
         ],
         "strokes_rgb_low": [],
