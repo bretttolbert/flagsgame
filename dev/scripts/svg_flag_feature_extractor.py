@@ -176,13 +176,18 @@ def convert_to_hsl_tuples(colors):
 
 """
 I attempted to automate as much as possible, and modified many SVG files to allow it go get the
-colors automatically, but unfortunately some flag SVGs have a large number of mostly insignificant colors,
+colors automatically*, but unfortunately some flag SVGs have a large number of mostly insignificant colors,
 (e.g. flags with crests, seals or coats of arms)
 Until I can implement some method of considering the proportional area of each color, it's easier
 to just put in some manual overrides. 
 
 Alternative implementation idea:
 Render SVG as a very low resolution raster graphic (e.g. 8x8 px), then take the color information from the pixels.
+
+*The main kind of modification I was making to SVG files was copying the fill attribute from <g> elements 
+and explicitly setting them on at least one child element e.g. <rect>
+I opened an issue on svgpathtools to possibly get the fill attributes from the <g> elements:
+https://github.com/mathandy/svgpathtools/issues/242
 
 """
 overrides = {
@@ -206,16 +211,30 @@ overrides = {
     "Flag_of_Belize.svg": ["#ce1126", "#003f87", "#ffffff", "#005800"],
     "Flag_of_Guatemala.svg": ["#86c7e3", "#ffffff", "#009900", "#ffce00"],
     "Flag_of_Haiti.svg": ["#d21034", "#0a328c", "#ffffff", "#016a16", "#f1b517"],
-    "Flag_of_British_Indian_Ocean_Territory.svg": [
+    "Flag_of_British_Indian_Ocean_Territory_(UK).svg": [
         "#012169",
         "#aa0000",
         "#ffffff",
         "#006d00",
         "#f7d917",
     ],
-    "Flag_of_Montserrat.svg": ["#012169", "#aa0000", "#00a2dd", "#008021", "#a53d08"],
-    "Flag_of_Sint_Maarten.svg": ["#ffffff", "#ba0c0c", "#173d89", "#8fbee3"],
+    "Flag_of_Montserrat_(UK).svg": [
+        "#012169",
+        "#aa0000",
+        "#00a2dd",
+        "#008021",
+        "#a53d08",
+    ],
+    "Flag_of_Sint_Maarten_(Netherlands).svg": [
+        "#ffffff",
+        "#ba0c0c",
+        "#173d89",
+        "#8fbee3",
+    ],
+    "Flag_of_Northern_Ireland_(UK).svg": ["#ffffff", "#cc0000", "#ffcc00"],
 }
+
+overrides_applied = []
 
 
 def extract_colors_from_svg(filename, filepath):
@@ -234,6 +253,7 @@ def extract_colors_from_svg(filename, filepath):
 
     ret = {"fills_rgb": [], "strokes_rgb": []}
     if filename in overrides:
+        overrides_applied.append(filename)
         ret["fills_rgb"] = [normalize_color(c) for c in overrides[filename]]
     else:
         try:
@@ -313,6 +333,13 @@ def extract_features():
         if file_path.is_file():
             colors = extract_colors_from_svg(file_path.name, file_path.absolute())
             ret[file_path.name] = colors
+    # verify that all overrides were applied
+    for fname in overrides:
+        if fname not in overrides_applied:
+            print(
+                f"Error: override not applied (check that the filename is correct): {fname}",
+                file=sys.stderr,
+            )
     return ret
 
 

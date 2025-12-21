@@ -1,42 +1,42 @@
 //Globals:
 const format = "webp";
 const res = "x300";
-var _countries = new Array();
-var _clusters = {};
-var _features = {};
-var _clusterCountryIdxs = {}  // map of cluster id to list of country indexes
+var countries = new Array();
+var clusters = {};
+var features = {};
+var clusterCountryIdxs = {}  // map of cluster id to list of country indexes
 
 function getClusterCountryIdxsCount() {
-    return Object.keys(_clusterCountryIdxs).length
+    return Object.keys(clusterCountryIdxs).length
 }
 
 function getClusterCountryIdxs() {
-    return _clusterCountryIdxs;
+    return clusterCountryIdxs;
 }
 
 function getClusterCountryIdxsByClusterId(clusterId) {
-    return _clusterCountryIdxs[clusterId];
+    return clusterCountryIdxs[clusterId];
 }
 
 function addClusterCountryIdx(cluster, countryIdx) {
-    if (cluster in _clusterCountryIdxs) {
-        _clusterCountryIdxs[cluster].push(countryIdx);
+    if (cluster in clusterCountryIdxs) {
+        clusterCountryIdxs[cluster].push(countryIdx);
     } else {
-        _clusterCountryIdxs[cluster] = [countryIdx];
+        clusterCountryIdxs[cluster] = [countryIdx];
     }
 }
 
 function getCountryCount() {
-    return _countries.length;
+    return countries.length;
 }
 
 function getCountryByIdx(index) {
-    return _countries[index];
+    return countries[index];
 }
 
 function getCountryByName(name) {
-    for (let i=0; i<_countries.length; ++i) {
-        let country = _countries[i];
+    for (let i=0; i<countries.length; ++i) {
+        let country = countries[i];
         if (country.name == name) {
             return country
         }
@@ -45,52 +45,52 @@ function getCountryByName(name) {
 }
 
 function getCountries() {
-    return _countries;
+    return countries;
 }
 
 function getCountryIdxs() {
-    let n = _countries.length;
+    let n = countries.length;
     return Array.from({ length: n }, (_, index) => index);
 }
 
 function addCountry(country) {
-    _countries.push(country);
+    countries.push(country);
 }
 
 function getClusterCount() {
-    return Object.keys(_clusters).length
+    return Object.keys(clusters).length
 }
 
 function getCluster(name) {
-    return _clusters[name];
+    return clusters[name];
 }
 
 function getClusters() {
-    return _clusters;
+    return clusters;
 }
 
 function setCluster(svgFilename, cluster) {
-    _clusters[svgFilename] = cluster;
+    clusters[svgFilename] = cluster;
 }
 
 function getCluster(svgFilename) {
-    return _clusters[svgFilename];
+    return clusters[svgFilename];
 }
 
 function getFeature(svgFilename) {
-    return _features[svgFilename];
+    return features[svgFilename];
 }
 
 function getFeatureCount() {
-    return Object.keys(_features).length
+    return Object.keys(features).length
 }
 
 function getFeatures() {
-    return _features;
+    return features;
 }
 
 function setFeature(svgFilename, feature) {
-    _features[svgFilename] = feature;
+    features[svgFilename] = feature;
 }
 
 //class
@@ -99,8 +99,6 @@ function Country(name)
     this.name = name;
     let filename = name.replace(/ /g,"_"); //replace spaces with underscores
     filename = filename.replace(/'/g,"_"); //replace apostrophies with underscores
-    let ocircumflex = new RegExp("\u00F4","g"); //for côte d'ivoire
-    filename = filename.replace(ocircumflex,"o");
     this.filename = `flags/${format}/${res}/Flag_of_${filename}.${format}`;
     this.imagehtml = `<img class="flag-image" src="${this.filename}">`;
 }
@@ -134,14 +132,17 @@ $(document).ajaxStop(function() {
 
     // Build country cluster lists
     for (const [svgFilename, assignedCluster] of Object.entries(getClusters())) {
-        console.log(`cluster ${svgFilename}=${assignedCluster}`);
+        //console.log(`cluster ${svgFilename}=${assignedCluster}`);
         let countryIdx = getCountryIdxFromSvgFilename(svgFilename);
         //skip svgs not in countries list e.g. retired flag
-        if (countryIdx != -1) {
+        if (countryIdx == -1) {
+            console.warn(`Country not found for SVG file: ${svgFilename}`);
+        } else {
             addClusterCountryIdx(assignedCluster, countryIdx);
         }
     }
 });
+
 
 /**
  * Extracts the filename (with extension) from a given path string.

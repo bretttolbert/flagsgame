@@ -1,20 +1,46 @@
 <?xml version="1.0" ?>
 <data>
-    <country category="dependent">Bermuda</country>
-    <country category="dependent">British Indian Ocean Territory</country>
-    <country category="dependent">Catalonia</country>
-    <country category="dependent">Faroe Islands</country>
-    <country category="dependent">Gibraltar</country>
-    <country category="dependent">Greenland</country>
-    <country category="dependent">Isle of Mann</country>
-    <country category="dependent">Martinique</country>
-    <country category="dependent">Montserrat</country>
-    <country category="dependent">Québec</country>
-    <country category="dependent">Saint-Pierre and Miquelon</country>
-    <country category="dependent">Scotland</country>
-    <country category="dependent">Sint Maarten</country>
-    <country category="dependent">Wales</country>
+    <country category="france-region">Auvergne-Rhône-Alpes (France)</country>
+    <country category="france-region">Bourgogne-Franche-Comté (France)</country>
+    <country category="france-region">Brittany (France)</country>
+    <country category="france-region">Centre-Val de Loire (France)</country>
+    <country category="france-region">Corsica (France)</country>
+    <country category="france-region">Grand Est (France)</country>
+    <country category="france-region">Hauts-de-France (France)</country>
+    <country category="france-region">Île-de-France (France)</country>
+    <country category="france-region">Normandie (France)</country>
+    <country category="france-region">Nouvelle-Aquitaine (France)</country>
+    <country category="france-region">Occitanie (France)</country>
+    <country category="france-region">Pays de la Loire (France)</country>
+    <country category="france-region">Provence-Alpes-Côte d'Azur (France)</country>
+    <country category="france-region">Guadeloupe (France)</country>
+    <country category="france-region">Martinique (France)</country>
+    <country category="france-region">French Guiana (France)</country>
+    <country category="france-region">Réunion (France)</country>
+    <country category="france-region">Mayotte (France)</country>
+    <country category="dependent">Saint-Pierre and Miquelon (France)</country>
+
+    <country category="dependent">Faroe Islands (Denmark)</country>
+    <country category="dependent">Greenland (Denmark)</country>
+
+    <country category="dependent">Sint Maarten (Netherlands)</country>
+
+    <country category="dependent">Québec (Canada)</country>
+
+    <country category="dependent">Bermuda (UK)</country>
+    <country category="dependent">British Indian Ocean Territory (UK)</country>
+    <country category="dependent">Gibraltar (UK)</country>
+    <country category="dependent">Isle of Mann (UK)</country>
+    <country category="dependent">Montserrat (UK)</country>
+    <country category="dependent">Scotland (UK)</country>
+    <country category="dependent">Wales (UK)</country>
+    <country category="dependent">Northern Ireland (UK)</country>
+
+    <country category="dependent">Catalonia (Spain)</country>
+    <country category="limited-recognition">Catalonia (Independence)</country>
+
     <country category="limited-recognition">Zapatista territories</country>
+
     <country>Abkhazia</country>
     <country>Afghanistan</country>
     <country>Albania</country>

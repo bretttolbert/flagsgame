@@ -45,10 +45,10 @@ def convert_all(
                 cmd = (
                     f"convert "
                     + f"-background none "
-                    + f"{fname} "
+                    + f"'{fname}' "
                     + f"-resize {resolution} "
                     + f"-quality {quality} "
-                    + f"{dest_filename}"
+                    + f"'{dest_filename}'"
                 )
                 print(f"root={root} cmd={cmd}")
                 os.chdir(root)
