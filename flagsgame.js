@@ -241,7 +241,7 @@ function shuffleArray(array) {
 }
 
 function randomChoice(choices) {
-    return Math.floor(Math.random()*choices.length);
+    return choices[Math.floor(Math.random()*choices.length)];
 }
 
 function randomCountryIdx() {
@@ -249,25 +249,34 @@ function randomCountryIdx() {
 }
 
 function randomCountryIdxs() {
+    let clusters = getClusters();
+    let clusterCountryIdxsAll = getClusterCountryIdxs();
+    console.log("clusters: " + clusters);
+    console.log("clusterCountryIdxsAll: " + getClusterCountryIdxs);
+
     let countryIdxs = [];
     //pick first country (this determines cluster)
     let firstCountryIdx = randomCountryIdx();
+    let firstCountry = getCountryByIdx(firstCountryIdx);
     countryIdxs.push(firstCountryIdx);
     let cluster = getClusterByCountryIdx(firstCountryIdx);
+    console.log(`firstCountry: ${firstCountryIdx}: ${firstCountry.name} (cluster=${cluster})`);
     console.log("Chosen cluster: " + cluster);
     let clusterCountryIdxs = getClusterCountryIdxsByClusterId(cluster);
     if (numCountries < clusterCountryIdxs.length) {
-        console.log(`picking ${numCountries}-1 more countries from cluster ${cluster}, no duplicates`);
+        console.log(`picking ${numCountries-1} more countries from cluster ${cluster}, no duplicates`);
         const MAX_RETRIES = 1000;
         let retryCount = 0;
         while (countryIdxs.length < numCountries && retryCount < MAX_RETRIES) {
             let ci = randomChoice(clusterCountryIdxs);
             while (countryIdxs.includes(ci) && retryCount < MAX_RETRIES) {
-                console.info(`chosen (from cluster ${cluster}) countryIdx ${ci} is already in chosen countryIdxs, trying again...`);
+                let cname = getCountryByIdx(ci).name;
+                console.info(`chosen (from cluster ${cluster}) countryIdx ${ci} (${cname}) is already in chosen countryIdxs, trying again...`);
                 ++retryCount;
                 ci = randomChoice(clusterCountryIdxs);
             }
-            console.log(`Adding chosen (from cluster ${cluster}) countryIdx ${ci} to chosen countryIdxs`);
+            let cname = getCountryByIdx(ci).name;
+            console.log(`Adding chosen (from cluster ${cluster}) countryIdx ${ci} (${cname}) to chosen countryIdxs`);
             countryIdxs.push(ci);
         }
     }
@@ -291,7 +300,7 @@ function randomCountryIdxs() {
                 ci = randomCountryIdx();
             }
             countryIdxs.push(ci);
-            console.log(`Adding chosen countryIdx ${ci} to chosen countryIdxs`);
+            console.log(`Adding chosen countryIdx ${ci} (${getCountryByIdx(ci).name}) to chosen countryIdxs`);
         }
     }
 
