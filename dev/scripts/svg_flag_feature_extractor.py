@@ -206,6 +206,15 @@ overrides = {
     "Flag_of_Belize.svg": ["#ce1126", "#003f87", "#ffffff", "#005800"],
     "Flag_of_Guatemala.svg": ["#86c7e3", "#ffffff", "#009900", "#ffce00"],
     "Flag_of_Haiti.svg": ["#d21034", "#0a328c", "#ffffff", "#016a16", "#f1b517"],
+    "Flag_of_British_Indian_Ocean_Territory.svg": [
+        "#012169",
+        "#aa0000",
+        "#ffffff",
+        "#006d00",
+        "#f7d917",
+    ],
+    "Flag_of_Montserrat.svg": ["#012169", "#aa0000", "#00a2dd", "#008021", "#a53d08"],
+    "Flag_of_Sint_Maarten.svg": ["#ffffff", "#ba0c0c", "#173d89", "#8fbee3"],
 }
 
 
@@ -220,7 +229,7 @@ def extract_colors_from_svg(filename, filepath):
         dict: A dictionary containing lists of fill and stroke colors found.
     """
 
-    if str(filename).find("Hong_Kong") != -1:  # TODO: Remove
+    if str(filename).find("Scotland") != -1:  # TODO: Remove
         print("bp")
 
     ret = {"fills_rgb": [], "strokes_rgb": []}
@@ -230,12 +239,17 @@ def extract_colors_from_svg(filename, filepath):
         try:
             # returns color (stroke and fill) lists
             paths, attributes = svg2paths(filepath)  # type: ignore
-        except FileNotFoundError:
-            print(f"Error: The file '{filepath}' was not found.")
-            return ret
+        except FileNotFoundError as e:
+            print(f"Error: The file '{filepath}' was not found.", file=sys.stderr)
+            raise e
+            # return ret
         except Exception as e:
-            print(f"An error occurred while parsing the SVG file: {e}")
-            return ret
+            print(
+                f"An error occurred while parsing the SVG file ({filename}): {e}",
+                file=sys.stderr,
+            )
+            raise e
+            # return ret
         for attrib_dict in attributes:
             if "fill" in attrib_dict:
                 normalized_color = normalize_color(attrib_dict["fill"])

@@ -48,8 +48,16 @@ function getColorSwatchesHtml(key, clusterCountryFeatures) {
     return html;
 }
 
-function displayClusters() {
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function displayClusters() {
     let clusterCountryIdxs = getClusterCountryIdxs();
+    while (Object.entries(clusterCountryIdxs).length == 0) {
+        await sleep(10);
+        clusterCountryIdxs = getClusterCountryIdxs();
+    }
     let html = '';
     for (const [cluster, countryIdxs] of Object.entries(clusterCountryIdxs)) {
         html += '<div class="cluster">';

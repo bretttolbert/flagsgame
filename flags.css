@@ -100,15 +100,15 @@ a:active {
 .choice-link img {
     padding: 0px;
     margin: 10px;
-    min-width: 512px;
-    height: 269px;
+    /*min-width: 512px;*/
+    height: 300px;
     margin: 8px;
 }
 .flag-image {
     padding: 0px;
     margin: 10px;
-    min-width: 512px;
-    height: 269px;
+    /*min-width: 512px;*/
+    height: 300px;
     margin: 8px;
 }
 .color-swatches {

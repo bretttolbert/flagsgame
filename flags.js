@@ -1,4 +1,6 @@
 //Globals:
+const format = "webp";
+const res = "x300";
 var _countries = new Array();
 var _clusters = {};
 var _features = {};
@@ -95,18 +97,19 @@ function setFeature(svgFilename, feature) {
 function Country(name)
 {
     this.name = name;
-    var filename = name.replace(/ /g,"_"); //replace spaces with underscores
+    let filename = name.replace(/ /g,"_"); //replace spaces with underscores
     filename = filename.replace(/'/g,"_"); //replace apostrophies with underscores
-    var ocircumflex = new RegExp("\u00F4","g"); //for côte d'ivoire
+    let ocircumflex = new RegExp("\u00F4","g"); //for côte d'ivoire
     filename = filename.replace(ocircumflex,"o");
-    this.filename = "flags/png/300x158/Flag_of_" + filename + ".png";
-    this.imagehtml = '<img class="flag-image" src="' + this.filename + '" >';
+    this.filename = `flags/${format}/${res}/Flag_of_${filename}.${format}`;
+    this.imagehtml = `<img class="flag-image" src="${this.filename}">`;
 }
 
 //load xml
 $.get("countries.xml", {}, function(data){
     $("country",data).each(function(){
-        addCountry(new Country($(this).text()));
+        let c = new Country($(this).text());
+        addCountry(c);
     });
 });
 
@@ -158,7 +161,7 @@ function getFilename(fullPath) {
  */
 
 function getSvgFilenameFromPngFilePath(pngFilePath) {
-    return getFilename(pngFilePath).replace(".png", ".svg");
+    return getFilename(pngFilePath).replace(`.${format}`, ".svg");
 }
 
 /* Examples:
@@ -247,7 +250,7 @@ function getFeaturesByCountryIdx(countryIdx) {
 }
 
 function getCountryIdxFromSvgFilename(svgFilename) {
-    let fname = svgFilename.replace(".svg", ".png");
+    let fname = svgFilename.replace(".svg", `.${format}`);
     for (let i=0; i<getCountryCount(); ++i) {
         let country = getCountryByIdx(i);
         if (country.filename.endsWith(fname)) {
