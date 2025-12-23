@@ -23,7 +23,7 @@ function getFlagImgHtml(cluster, countryIdx) {
     const parenthetical_suffix = /_\(.*\)$/gi;
     countryNameWikiEscaped = countryNameWikiEscaped.replace(parenthetical_suffix, "");
     let lang = 'en';
-    if (country.category == "france-regions") {
+    if (country.category == "france-region") {
         lang = 'fr';
     }
     html += `<a href="https://${lang}.wikipedia.org/wiki/${countryNameWikiEscaped}">`;
