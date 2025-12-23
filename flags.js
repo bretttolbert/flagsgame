@@ -94,10 +94,11 @@ function setFeature(svgFilename, feature) {
 }
 
 //class
-function Country(name, category)
+function Country(name, category, lang)
 {
     this.name = name;
     this.category = category;
+    this.lang = lang;
     let filename = name.replace(/ /g,"_"); //replace spaces with underscores
     filename = filename.replace(/'/g,"_"); //replace apostrophies with underscores
     filename = filename.replace(/,/g, ""); //strip commas
@@ -113,8 +114,12 @@ $.get("countries.xml", {}, function(data){
         if (node.hasAttribute('category')) {
             category = node.getAttribute('category');
         }
+        let lang = "en"
+        if (node.hasAttribute('lang')) {
+            category = node.getAttribute('lang');
+        }
         let name = node.textContent;
-        let c = new Country(name, category);
+        let c = new Country(name, category, lang);
         addCountry(c);
     });
 });

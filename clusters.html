@@ -1,17 +1,5 @@
 <html>
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z8SPJYBDNX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-Z8SPJYBDNX');
-</script>
-<link rel="stylesheet" type="text/css" href="flags.css" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script type="text/javascript" src="flags.js"></script>
 <script>
 
 
@@ -22,11 +10,7 @@ function getFlagImgHtml(cluster, countryIdx) {
     let countryNameWikiEscaped = country.name.replace(whitespace, "_");
     const parenthetical_suffix = /_\(.*\)$/gi;
     countryNameWikiEscaped = countryNameWikiEscaped.replace(parenthetical_suffix, "");
-    let lang = 'en';
-    if (country.category == "france-region") {
-        lang = 'fr';
-    }
-    html += `<a href="https://${lang}.wikipedia.org/wiki/${countryNameWikiEscaped}">`;
+    html += `<a href="https://${country.lang}.wikipedia.org/wiki/${countryNameWikiEscaped}">`;
     html += `<img class="flag-image" id="${cluster}-${countryIdx}" src="${country.filename}" border="0" />`;
     html += `</a>`;
     return html;

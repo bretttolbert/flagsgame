@@ -1,31 +1,31 @@
 <?xml version="1.0" ?>
 <data>
-    <country category="france-region">Auvergne-Rhône-Alpes (France)</country>
-    <country category="france-region">Bourgogne-Franche-Comté (France)</country>
-    <country category="france-region">Brittany (France)</country>
-    <country category="france-region">Centre-Val de Loire (France)</country>
-    <country category="france-region">Corsica (France)</country>
-    <country category="france-region">Grand Est (France)</country>
-    <country category="france-region">Hauts-de-France (France)</country>
-    <country category="france-region">Île-de-France (France)</country>
-    <country category="france-region">Normandie (France)</country>
-    <country category="france-region">Nouvelle-Aquitaine (France)</country>
-    <country category="france-region">Occitanie (France)</country>
-    <country category="france-region">Pays de la Loire (France)</country>
-    <country category="france-region">Provence-Alpes-Côte d'Azur (France)</country>
-    <country category="france-region">Guadeloupe (France)</country>
-    <country category="france-region">Martinique (France)</country>
-    <country category="france-region">French Guiana (France)</country>
-    <country category="france-region">Réunion (France)</country>
-    <country category="france-region">Mayotte (France)</country>
-    <country category="dependent">Saint-Pierre and Miquelon (France)</country>
+    <country lang="fr" category="france-region">Auvergne-Rhône-Alpes (France)</country>
+    <country lang="fr" category="france-region">Bourgogne-Franche-Comté (France)</country>
+    <country lang="fr" category="france-region">Brittany (France)</country>
+    <country lang="fr" category="france-region">Centre-Val de Loire (France)</country>
+    <country lang="fr" category="france-region">Corsica (France)</country>
+    <country lang="fr" category="france-region">Grand Est (France)</country>
+    <country lang="fr" category="france-region">Hauts-de-France (France)</country>
+    <country lang="fr" category="france-region">Île-de-France (France)</country>
+    <country lang="fr" category="france-region">Normandie (France)</country>
+    <country lang="fr" category="france-region">Nouvelle-Aquitaine (France)</country>
+    <country lang="fr" category="france-region">Occitanie (France)</country>
+    <country lang="fr" category="france-region">Pays de la Loire (France)</country>
+    <country lang="fr" category="france-region">Provence-Alpes-Côte d'Azur (France)</country>
+    <country lang="fr" category="france-region">Guadeloupe (France)</country>
+    <country lang="fr" category="france-region">Martinique (France)</country>
+    <country lang="fr" category="france-region">French Guiana (France)</country>
+    <country lang="fr" category="france-region">Réunion (France)</country>
+    <country lang="fr" category="france-region">Mayotte (France)</country>
+    <country lang="fr" category="dependent">Saint-Pierre-et-Miquelon (France)</country>
 
     <country category="dependent">Faroe Islands (Denmark)</country>
     <country category="dependent">Greenland (Denmark)</country>
 
     <country category="dependent">Sint Maarten (Netherlands)</country>
 
-    <country category="dependent">Québec (Canada)</country>
+    <country lang="fr" category="dependent">Québec (Canada)</country>
 
     <country category="dependent">Bermuda (UK)</country>
     <country category="dependent">British Indian Ocean Territory (UK)</country>
@@ -35,13 +35,15 @@
     <country category="dependent">Scotland (UK)</country>
     <country category="dependent">Wales (UK)</country>
     <country category="dependent">Northern Ireland (UK)</country>
-    <country category="dependent">Catalonia (Spain)</country>
+    <country lang="ca" category="dependent">Catalunya (Spain)</country>
     <country category="special-cultural">Valencian Community</country>
-    <country category="historical">Navarre (Bandera de Reino de Navarra)</country>
+    <country lang="es" category="historical">Reino de Navarra</country>
     <country category="limited-recognition">Valencian National Flag</country>
     <country category="limited-recognition">Catalan independence</country>
     <country category="limited-recognition">Basque Country</country>
     <country category="limited-recognition">Zapatista territories</country>
+
+    <country category="us-states">California</country>
     <country category="us-states">Texas</country>
 
     <country>Abkhazia</country>
@@ -97,14 +99,14 @@
     <country>East Timor</country>
     <country>Ecuador</country>
     <country>Egypt</country>
-    <country>El Salvador</country>
+    <country lang="es">El Salvador</country>
     <country>Equatorial Guinea</country>
     <country>Eritrea</country>
     <country>Estonia</country>
     <country>Ethiopia</country>
     <country>Fiji</country>
     <country>Finland</country>
-    <country>France</country>
+    <country lang="fr">France</country>
     <country>Gabon</country>
     <country>Gambia</country>
     <country>Georgia</country>
@@ -157,9 +159,9 @@
     <country>Marshall Islands</country>
     <country>Mauritania</country>
     <country>Mauritius</country>
-    <country>Mexico</country>
+    <country lang="es">Mexico</country>
     <country>Micronesia</country>
-    <country>Moldova</country>
+    <country lang="ro">Republica Moldova</country>
     <country>Monaco</country>
     <country>Mongolia</country>
     <country>Montenegro</country>
@@ -184,21 +186,21 @@
     <country>Palestine</country>
     <country>Panama</country>
     <country>Papua New Guinea</country>
-    <country>Paraguay</country>
-    <country>Peru</country>
+    <country lang="es">Paraguay</country>
+    <country lang="es">Peru</country>
     <country>Philippines</country>
     <country>Poland</country>
     <country>Portugal</country>
-    <country>Puerto Rico</country>
+    <country lang="es">Puerto Rico</country>
     <country>Qatar</country>
-    <country>Romania</country>
+    <country lang="ro">Romania</country>
     <country>Russia</country>
     <country>Rwanda</country>
     <country>Saint Kitts and Nevis</country>
     <country>Saint Lucia</country>
     <country>Saint Vincent and the Grenadines</country>
     <country>Samoa</country>
-    <country>San Marino</country>
+    <country lang="it">San Marino</country>
     <country>Sao Tome and Principe</country>
     <country>Saudi Arabia</country>
     <country>Senegal</country>
@@ -215,7 +217,7 @@
     <country>South Korea</country>
     <country>South Ossetia</country>
     <country>South Sudan</country>
-    <country>Spain</country>
+    <country lang="es">España</country>
     <country>Sri Lanka</country>
     <country>Sudan</country>
     <country>Suriname</country>
@@ -245,7 +247,7 @@
     <country>Uzbekistan</country>
     <country>Vanuatu</country>
     <country>Vatican City</country>
-    <country>Venezuela</country>
+    <country lang="es">Venezuela</country>
     <country>Vietnam</country>
     <country>Western Sahara</country>
     <country>Yemen</country>
