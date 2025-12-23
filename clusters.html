@@ -22,7 +22,11 @@ function getFlagImgHtml(cluster, countryIdx) {
     let countryNameWikiEscaped = country.name.replace(whitespace, "_");
     const parenthetical_suffix = /_\(.*\)$/gi;
     countryNameWikiEscaped = countryNameWikiEscaped.replace(parenthetical_suffix, "");
-    html += `<a href="https://en.wikipedia.org/wiki/${countryNameWikiEscaped}">`;
+    let lang = 'en';
+    if (country.category == "france-regions") {
+        lang = 'fr';
+    }
+    html += `<a href="https://${lang}.wikipedia.org/wiki/${countryNameWikiEscaped}">`;
     html += `<img class="flag-image" id="${cluster}-${countryIdx}" src="${country.filename}" border="0" />`;
     html += `</a>`;
     return html;
@@ -117,7 +121,7 @@ $(document).ajaxStop(function() {
 });
 
 </script>
-<meta name="viewport" content="width=720px, initial-scale=0.5, user-scalable=no">
+<meta name="viewport" content="width=720, initial-scale=0.5, user-scalable=no">
 </head>
 <body>
 <header>
