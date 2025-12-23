@@ -328,12 +328,14 @@ function nextQuestion()
         }
         let html = '';
         for (let i = 0; i < currentCountries.length; i++) {
+            html += '<div class="choice">';
             html += '<a href="#" class="choice-link">';
             html += '<img class="flag-image" id="' + i + '" src="' + 
                 currentCountries[i].filename + '" border="0" />';
             html += '</a>';
+            html += '</div>';
         }
-        $('#flagTableContainer').html(html);
+        $('#choiceContainer').html(html);
         //pick which one is to be the correct choice
         correctCountryId = Math.floor(Math.random()*numCountries);
         $("#prompt").html(currentCountries[correctCountryId].name);

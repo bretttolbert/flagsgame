@@ -4,7 +4,6 @@ body {
     font-size: 1em;
     font-family: sans-serif;
     text-align: center;
-
     display: flex;
     flex-direction: column; /* Stack children vertically */
     min-height: 100vh;      /* Ensures body takes at least full viewport height */
@@ -61,6 +60,19 @@ a:active {
 }
 #flags {
     margin-top: 30px;
+}
+
+#choiceContainer {
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.choice {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
 }
 .stats-table {
     width: 100%;

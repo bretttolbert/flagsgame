@@ -35,11 +35,14 @@
     <country category="dependent">Scotland (UK)</country>
     <country category="dependent">Wales (UK)</country>
     <country category="dependent">Northern Ireland (UK)</country>
-
     <country category="dependent">Catalonia (Spain)</country>
-    <country category="limited-recognition">Catalonia (Independence)</country>
-
+    <country category="special-cultural">Valencian Community</country>
+    <country category="historical">Navarre (Bandera de Reino de Navarra)</country>
+    <country category="limited-recognition">Valencian National Flag</country>
+    <country category="limited-recognition">Catalan independence</country>
+    <country category="limited-recognition">Basque Country</country>
     <country category="limited-recognition">Zapatista territories</country>
+    <country category="us-states">Texas</country>
 
     <country>Abkhazia</country>
     <country>Afghanistan</country>

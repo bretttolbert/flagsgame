@@ -99,6 +99,7 @@ function Country(name)
     this.name = name;
     let filename = name.replace(/ /g,"_"); //replace spaces with underscores
     filename = filename.replace(/'/g,"_"); //replace apostrophies with underscores
+    filename = filename.replace(/,/g, ""); //strip commas
     this.filename = `flags/${format}/${res}/Flag_of_${filename}.${format}`;
     this.imagehtml = `<img class="flag-image" src="${this.filename}">`;
 }
