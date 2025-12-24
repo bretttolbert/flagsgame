@@ -93,16 +93,22 @@ function setFeature(svgFilename, feature) {
     features[svgFilename] = feature;
 }
 
+function getSvgFilenameFromName(name) {
+    var ret = name.replace(/ /g,"_"); //replace spaces with underscores
+    ret = ret.replace(/'/g,"_"); //replace apostrophies with underscores
+    ret = ret.replace(/,/g, ""); //strip commas
+    ret = ret.replace(/\./g, ""); //strip periods
+    return ret
+}
+
 //class
 function Country(name, category, lang)
 {
     this.name = name;
     this.category = category;
     this.lang = lang;
-    let filename = name.replace(/ /g,"_"); //replace spaces with underscores
-    filename = filename.replace(/'/g,"_"); //replace apostrophies with underscores
-    filename = filename.replace(/,/g, ""); //strip commas
-    this.filename = `flags/${format}/${res}/Flag_of_${filename}.${format}`;
+    let fname = getSvgFilenameFromName(name); 
+    this.filename = `flags/${format}/${res}/Flag_of_${fname}.${format}`;
     this.imagehtml = `<img class="flag-image" src="${this.filename}">`;
 }
 
@@ -116,7 +122,7 @@ $.get("countries.xml", {}, function(data){
         }
         let lang = "en"
         if (node.hasAttribute('lang')) {
-            category = node.getAttribute('lang');
+            lang = node.getAttribute('lang');
         }
         let name = node.textContent;
         let c = new Country(name, category, lang);

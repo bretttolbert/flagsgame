@@ -192,14 +192,14 @@ https://github.com/mathandy/svgpathtools/issues/242
 """
 overrides = {
     "Flag_of_Croatia.svg": ["#de1818", "#ffffff", "#00298c"],
-    "Flag_of_Equatorial_Guinea.svg": ["#0073ce", "#e32118", "#ffffff", "#3e9a00"],
+    "Flag_of_Guinea_Ecuatorial.svg": ["#0073ce", "#e32118", "#ffffff", "#3e9a00"],
     "Flag_of_Malta.svg": ["#e60d2e", "#f1eeee"],
     "Flag_of_Egypt.svg": ["#ce1126", "#fac800", "#000000", "#ffffff"],
     "Flag_of_Andorra.svg": ["#f4e400", "#0f228c", "#ed192d"],
     "Flag_of_El_Salvador.svg": ["#00209f", "#fee6ce", "#ffcc00", "#1f601a"],
     "Flag_of_Liechtenstein.svg": ["#ce1126", "#002b7f", "#ffd83d", "#000000"],
     "Flag_of_España.svg": ["#ad1519", "#ffc400", "#cccccc", "#005bbf"],
-    "Flag_of_Dominican_Republic.svg": ["#d21034", "#003f87", "#ffffff", "#007b63"],
+    "Flag_of_República_Dominicana.svg": ["#d21034", "#003f87", "#ffffff", "#007b63"],
     "Flag_of_Fiji.svg": ["#51b5e0", "#ce1126", "#002868", "#ffffff"],
     "Flag_of_Vatican_City.svg": ["#ffbd03", "#ffffff", "#bfbfbf"],
     "Flag_of_Republica_Moldova.svg": ["#0000b3", "#f7d900", "#e32110", "#86632b"],
@@ -210,7 +210,7 @@ overrides = {
     "Flag_of_Ecuador.svg": ["#fcd116", "#0000c4", "#ce1126", "#005b00"],
     "Flag_of_Belize.svg": ["#ce1126", "#003f87", "#ffffff", "#005800"],
     "Flag_of_Guatemala.svg": ["#86c7e3", "#ffffff", "#009900", "#ffce00"],
-    "Flag_of_Haiti.svg": ["#d21034", "#0a328c", "#ffffff", "#016a16", "#f1b517"],
+    "Flag_of_Haïti.svg": ["#d21034", "#0a328c", "#ffffff", "#016a16", "#f1b517"],
     "Flag_of_British_Indian_Ocean_Territory_(UK).svg": [
         "#012169",
         "#aa0000",
@@ -232,6 +232,44 @@ overrides = {
         "#8fbee3",
     ],
     "Flag_of_Northern_Ireland_(UK).svg": ["#ffffff", "#cc0000", "#ffcc00"],
+    "Flag_of_Florida_(USA).svg": ["#ffffff", "#cc0000", "#ffb900", "#015941"],
+    "Flag_of_Missouri_(USA).svg": ["#ffffff", "#cc0000", "#00205b", "#ffc813"],
+    "Flag_of_Montana_(USA).svg": ["#002a86", "#fec70b", "#008600"],
+    "Flag_of_New_Jersey_(USA).svg": ["#ffca66", "#0076a8"],
+    "Flag_of_Pennsylvania_(USA).svg": ["#00205b", "#414141", "#dca90d"],
+    "Flag_of_Maine_(USA).svg": ["#0a3161", "#ffd100"],
+    "Flag_of_Oklahoma_(USA).svg": ["#0073cf", "#ffffff", "#b3995d", "#1d5c42"],
+    "Flag_of_Connecticut_(USA).svg": ["#0c2d83", "#ffffff", "#044617"],
+    "Flag_of_Nebraska_(USA).svg": ["#002a86", "#ffcc00", "#c8c8c8"],
+    "Flag_of_Michigan_(USA).svg": [
+        "#00287e",
+        "#006fff",
+        "#b37535",
+        "#ffffff",
+        "#ef1439",
+    ],
+    "Flag_of_Kansas_(USA).svg": ["#002569", "#fcd100", "#29b910"],
+    "Flag_of_Virginia_(USA).svg": ["#012168", "#ffffff", "#8c0000", "#00788c"],
+    "Flag_of_Kentucky_(USA).svg": ["#000066", "#ffffff", "#f6c604", "#31a17f"],
+    "Flag_of_Delaware_(USA).svg": [
+        "#669ca4",
+        "#c7a97f",
+        "#e6c737",
+        "#b12f39",
+        "#586538",
+    ],
+    "Flag_of_Louisiana_(USA).svg": ["#01447b", "#ffffff", "#f8ba55"],
+    "Flag_of_New_Hampshire_(USA).svg": ["#002a86", "#efae0e", "#ffffff"],
+    "Flag_of_Vermont_(USA).svg": ["#003366", "#002a22", "#ffcc33"],
+    "Flag_of_Idaho_(USA).svg": ["#003776", "#efae0e", "#d50000"],
+    "Flag_of_West_Virginia_(USA).svg": ["#00205b", "#ffffff", "#076f4f", "#bf0d3e"],
+    "Flag_of_New_York_(USA).svg": [
+        "#002d72",
+        "#aa853c",
+        "#1c76a3",
+        "#2f5032",
+        "#b4b4b4",
+    ],
 }
 
 overrides_applied = []
@@ -252,9 +290,12 @@ def extract_colors_from_svg(filename, filepath):
         print("bp")
 
     ret = {"fills_rgb": [], "strokes_rgb": []}
-    if filename in overrides:
-        overrides_applied.append(filename)
-        ret["fills_rgb"] = [normalize_color(c) for c in overrides[filename]]
+    filename_without_modifiers = filename.replace("_(no-text)", "")
+    if filename_without_modifiers in overrides:
+        overrides_applied.append(filename_without_modifiers)
+        ret["fills_rgb"] = [
+            normalize_color(c) for c in overrides[filename_without_modifiers]
+        ]
     else:
         try:
             # returns color (stroke and fill) lists

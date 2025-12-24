@@ -43,46 +43,61 @@ with open("flag_features.json", "r") as f:
     data = []
     for item in raw_data.items():
         item_fills = item[1]["fills_hsl"]
-        item_fills_r = np.array([f[0] for f in item_fills])
-        item_fills_g = np.array([f[1] for f in item_fills])
-        item_fills_b = np.array([f[2] for f in item_fills])
+        item_fills_h = np.array([f[0] for f in item_fills])
+        item_fills_s = np.array([f[1] for f in item_fills])
+        item_fills_l = np.array([f[2] for f in item_fills])
 
+        """
         PAD_VALUE = -1
 
-        if len(item_fills_r) < NUM_FILLS:
-            item_fills_r = np.pad(
-                item_fills_r,
-                (0, NUM_FILLS - len(item_fills_r)),
+        if len(item_fills_h) < NUM_FILLS:
+            item_fills_h = np.pad(
+                item_fills_h,
+                (0, NUM_FILLS - len(item_fills_h)),
                 "constant",
                 constant_values=PAD_VALUE,
             )
-        elif len(item_fills_r > NUM_FILLS):
-            item_fills_r = item_fills_r[:NUM_FILLS]
+        elif len(item_fills_h) > NUM_FILLS:
+            item_fills_h = item_fills_h[:NUM_FILLS]
 
-        if len(item_fills_g) < NUM_FILLS:
-            item_fills_g = np.pad(
-                item_fills_g,
-                (0, NUM_FILLS - len(item_fills_g)),
+        if len(item_fills_s) < NUM_FILLS:
+            item_fills_s = np.pad(
+                item_fills_s,
+                (0, NUM_FILLS - len(item_fills_s)),
                 "constant",
                 constant_values=PAD_VALUE,
             )
-        elif len(item_fills_g > NUM_FILLS):
-            item_fills_g = item_fills_g[:NUM_FILLS]
+        elif len(item_fills_s) > NUM_FILLS:
+            item_fills_s = item_fills_s[:NUM_FILLS]
 
-        if len(item_fills_b) < NUM_FILLS:
-            item_fills_b = np.pad(
-                item_fills_b,
-                (0, NUM_FILLS - len(item_fills_b)),
+        if len(item_fills_l) < NUM_FILLS:
+            item_fills_l = np.pad(
+                item_fills_l,
+                (0, NUM_FILLS - len(item_fills_l)),
                 "constant",
                 constant_values=PAD_VALUE,
             )
-        elif len(item_fills_b > NUM_FILLS):
-            item_fills_b = item_fills_b[:NUM_FILLS]
+        elif len(item_fills_l) > NUM_FILLS:
+            item_fills_l = item_fills_l[:NUM_FILLS]
+        """
+
+        # originally, I padded with -1 (commented out above), but this yielded mediocre results
+        # let's try padding with actual values, chosen at random
+        while len(item_fills_h) < NUM_FILLS:
+            item_fills_h = np.append(item_fills_h, np.random.choice(item_fills_h))
+        while len(item_fills_s) < NUM_FILLS:
+            item_fills_s = np.append(item_fills_s, np.random.choice(item_fills_s))
+        while len(item_fills_l) < NUM_FILLS:
+            item_fills_l = np.append(item_fills_l, np.random.choice(item_fills_l))
+        # or shrink if needed:
+        item_fills_h = item_fills_h[:NUM_FILLS]
+        item_fills_s = item_fills_s[:NUM_FILLS]
+        item_fills_l = item_fills_l[:NUM_FILLS]
 
         item_data = []
-        item_data.extend(item_fills_r)
-        item_data.extend(item_fills_g)
-        item_data.extend(item_fills_b)
+        item_data.extend(item_fills_h)
+        item_data.extend(item_fills_s)
+        item_data.extend(item_fills_l)
 
         data.append(item_data)
 

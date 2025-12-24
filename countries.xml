@@ -43,17 +43,67 @@
     <country category="limited-recognition">Basque Country</country>
     <country category="limited-recognition">Zapatista territories</country>
 
-    <country category="us-states">California</country>
-    <country category="us-states">Texas</country>
+    <country category="us-states" lang="es">Puerto Rico (USA)</country>
+    <country category="us-states">Alabama (USA)</country>
+    <country category="us-states">Alaska (USA)</country>
+    <country category="us-states">Arizona (USA)</country>
+    <country category="us-states">Arkansas (USA) (no-text)</country>
+    <country category="us-states">California (USA) (no-text)</country>
+    <country category="us-states">Colorado (USA)</country>
+    <country category="us-states">Connecticut (USA)</country>
+    <country category="us-states">Delaware (USA) (no-text)</country>
+    <country category="us-states">Florida (USA) (no-text)</country>
+    <country category="us-states">Georgia (USA) (no-text)</country>
+    <country category="us-states">Hawaii (USA)</country>
+    <country category="us-states">Idaho (USA) (no-text)</country>
+    <country category="us-states">Illinois (USA) (no-text)</country>
+    <country category="us-states">Indiana (USA) (no-text)</country>
+    <country category="us-states">Iowa (USA) (no-text)</country>
+    <country category="us-states">Kansas (USA) (no-text)</country>
+    <country category="us-states">Kentucky (USA) (no-text)</country>
+    <country category="us-states">Louisiana (USA)</country>
+    <country category="us-states">Maine (USA) (no-text)</country>
+    <country category="us-states">Maryland (USA)</country>
+    <country category="us-states">Massachusetts (USA)</country>
+    <country category="us-states">Michigan (USA)</country>
+    <country category="us-states">Minnesota (USA)</country>
+    <country category="us-states">Mississippi (USA) (no-text)</country>
+    <country category="us-states">Missouri (USA)</country>
+    <country category="us-states">Montana (USA) (no-text)</country>
+    <country category="us-states">Nebraska (USA) (no-text)</country>
+    <country category="us-states">Nevada (USA) (no-text)</country>
+    <country category="us-states">New Hampshire (USA) (no-text)</country>
+    <country category="us-states">New Jersey (USA)</country>
+    <country category="us-states">New Mexico (USA)</country>
+    <country category="us-states">New York (USA)</country>
+    <country category="us-states">North Carolina (USA) (no-text)</country>
+    <country category="us-states">North Dakota (USA) (no-text)</country>
+    <country category="us-states">Ohio (USA)</country>
+    <country category="us-states">Oklahoma (USA) (no-text)</country>
+    <country category="us-states">Oregon (reverse) (USA)</country>
+    <country category="us-states">Pennsylvania (USA)</country>
+    <country category="us-states">Rhode Island (USA)</country>
+    <country category="us-states">South Carolina (USA)</country>
+    <country category="us-states">South Dakota (USA) (no-text)</country>
+    <country category="us-states">Tennessee (USA)</country>
+    <country category="us-states">Texas (USA)</country>
+    <country category="us-states">Utah (USA)</country>
+    <country category="us-states">Vermont (USA) (no-text)</country>
+    <country category="us-states">Virginia (USA) (no-text)</country>
+    <country category="us-states">Washington (USA) (no-text)</country>
+    <country category="us-states">Washington, D.C. (USA)</country>
+    <country category="us-states">West Virginia (USA) (no-text)</country>
+    <country category="us-states">Wisconsin (USA) (no-text)</country>
+    <country category="us-states">Wyoming (USA) (no-text)</country>
 
     <country>Abkhazia</country>
     <country>Afghanistan</country>
     <country>Albania</country>
-    <country>Algeria</country>
-    <country>Andorra</country>
+    <country lang="fr">Algeria</country>
+    <country lang="ca">Andorra</country>
     <country>Angola</country>
     <country>Antigua and Barbuda</country>
-    <country>Argentina</country>
+    <country lang="es">Argentina</country>
     <country>Armenia</country>
     <country>Australia</country>
     <country>Austria</country>
@@ -63,63 +113,64 @@
     <country>Bangladesh</country>
     <country>Barbados</country>
     <country>Belarus</country>
-    <country>Belgium</country>
-    <country>Belize</country>
+    <country lang="fr">Belgium</country>
+    <country lang="es">Belize</country>
     <country>Benin</country>
     <country>Bhutan</country>
-    <country>Bolivia</country>
+    <country lang="es">Bolívia</country>
     <country>Bosnia and Herzegovina</country>
     <country>Botswana</country>
-    <country>Brazil</country>
+    <country lang="pt">Brasil</country>
     <country>Brunei</country>
     <country>Bulgaria</country>
-    <country>Burkina Faso</country>
-    <country>Burundi</country>
+    <country lang="fr">Burkina Faso</country>
+    <country lang="fr">Burundi</country>
     <country>Cambodia</country>
-    <country>Cameroon</country>
+    <country lang="fr">Cameroon</country>
     <country>Canada</country>
     <country>Cape Verde</country>
-    <country>Central African Republic</country>
-    <country>Chad</country>
-    <country>Chile</country>
+    <country lang="fr">Central African Republic</country>
+    <country lang="fr">Chad</country>
+    <country lang="fr">Chile</country>
     <country>China</country>
-    <country>Columbia</country>
-    <country>Comoros</country>
-    <country>Congo</country>
-    <country>Costa Rica</country>
-    <country>Côte d'Ivoire</country>
+    <country lang="es">Columbia</country>
+    <country lang="fr">Comoros</country>
+    <country lang="fr">République démocratique du Congo</country>
+    <country lang="fr">République du Congo</country>
+    <country lang="es">Costa Rica</country>
+    <country lang="fr">Côte d'Ivoire</country>
     <country>Croatia</country>
-    <country>Cuba</country>
+    <country lang="es">Cuba</country>
     <country>Cyprus</country>
     <country>Czech Republic</country>
     <country>Denmark</country>
-    <country>Djibouti</country>
+    <country lang="fr">Djibouti</country>
     <country>Dominica</country>
-    <country>Dominican Republic</country>
+    <country lang="es">República Dominicana</country>
     <country>East Timor</country>
-    <country>Ecuador</country>
+    <country lang="fr">Ecuador</country>
     <country>Egypt</country>
     <country lang="es">El Salvador</country>
-    <country>Equatorial Guinea</country>
+    <country lang="es">Guinea Ecuatorial</country>
     <country>Eritrea</country>
     <country>Estonia</country>
     <country>Ethiopia</country>
     <country>Fiji</country>
     <country>Finland</country>
     <country lang="fr">France</country>
-    <country>Gabon</country>
+    <country lang="fr">Gabon</country>
     <country>Gambia</country>
     <country>Georgia</country>
     <country>Germany</country>
     <country>Ghana</country>
     <country>Greece</country>
-    <country>Guatemala</country>
-    <country>Guinea-Bissau</country>
-    <country>Guinea</country>
+    <country lang="es">Guatemala</country>
+    <country lang="fr">Guinea-Bissau</country>
+    <country lang="fr">Guinea</country>
     <country>Guyana</country>
     <country>Grenada</country>
-    <country>Haiti</country>
-    <country>Honduras</country>
+    <country lang="fr">Haïti</country>
+    <country lang="es">Honduras</country>
     <country>Hong Kong</country>
     <country>Hungary</country>
     <country>Iceland</country>
@@ -129,7 +180,7 @@
     <country>Iraq</country>
     <country>Ireland</country>
     <country>Israel</country>
-    <country>Italy</country>
+    <country lang="it">Italy</country>
     <country>Jamaica</country>
     <country>Japan</country>
     <country>Jordan</country>
@@ -150,24 +201,23 @@
     <country>Lithuania</country>
     <country>Luxembourg</country>
     <country>Macedonia</country>
-    <country>Madagascar</country>
+    <country lang="fr">Madagascar</country>
     <country>Malawi</country>
     <country>Malaysia</country>
     <country>Maldives</country>
-    <country>Mali</country>
+    <country lang="fr">Mali</country>
     <country>Malta</country>
     <country>Marshall Islands</country>
-    <country>Mauritania</country>
-    <country>Mauritius</country>
+    <country lang="fr">Mauritania</country>
+    <country lang="fr">Mauritius</country>
     <country lang="es">Mexico</country>
     <country>Micronesia</country>
     <country lang="ro">Republica Moldova</country>
     <country>Monaco</country>
     <country>Mongolia</country>
     <country>Montenegro</country>
-    <country>Morocco</country>
+    <country lang="fr">Morocco</country>
     <country>Mozambique</country>
-    <country>Myanmar</country>
     <country>Myanmar</country>
     <country>Nagorno-Karabakh</country>
     <country>Namibia</country>
@@ -175,8 +225,8 @@
     <country>Nepal</country>
     <country>Netherlands</country>
     <country>New Zealand</country>
-    <country>Nicaragua</country>
-    <country>Niger</country>
+    <country lang="es">Nicaragua (no-text)</country>
+    <country lang="fr">Niger</country>
     <country>Nigeria</country>
     <country>North Korea</country>
     <country>Norway</country>
@@ -184,18 +234,17 @@
     <country>Pakistan</country>
     <country>Palau</country>
     <country>Palestine</country>
-    <country>Panama</country>
+    <country lang="es">Panama</country>
     <country>Papua New Guinea</country>
     <country lang="es">Paraguay</country>
     <country lang="es">Peru</country>
     <country>Philippines</country>
     <country>Poland</country>
-    <country>Portugal</country>
-    <country lang="es">Puerto Rico</country>
+    <country lang="pt">Portugal</country>
     <country>Qatar</country>
     <country lang="ro">Romania</country>
     <country>Russia</country>
-    <country>Rwanda</country>
+    <country lang="fr">Rwanda</country>
     <country>Saint Kitts and Nevis</country>
     <country>Saint Lucia</country>
     <country>Saint Vincent and the Grenadines</country>
@@ -203,9 +252,9 @@
     <country lang="it">San Marino</country>
     <country>Sao Tome and Principe</country>
     <country>Saudi Arabia</country>
-    <country>Senegal</country>
+    <country lang="fr">Senegal</country>
     <country>Serbia</country>
-    <country>Seychelles</country>
+    <country lang="fr">Seychelles</country>
     <country>Sierra Leone</country>
     <country>Singapore</country>
     <country>Slovakia</country>
@@ -223,17 +272,17 @@
     <country>Suriname</country>
     <country>Swaziland</country>
     <country>Sweden</country>
-    <country>Switzerland</country>
+    <country lang="fr">Switzerland</country>
     <country>Syria</country>
     <country>Taiwan</country>
     <country>Tajikistan</country>
     <country>Tanzania</country>
     <country>Thailand</country>
-    <country>Togo</country>
+    <country lang="fr">Togo</country>
     <country>Tonga</country>
-    <country>Transnistria</country>
+    <country>Transnistria (reverse)</country>
     <country>Trinidad and Tobago</country>
-    <country>Tunisia</country>
+    <country lang="fr">Tunisia</country>
     <country>Turkey</country>
     <country>Turkish Republic of Northern Cyprus</country>
     <country>Turkmenistan</country>
@@ -243,7 +292,7 @@
     <country>United Arab Emirates</country>
     <country>United Kingdom</country>
     <country>United States</country>
-    <country>Uruguay</country>
+    <country lang="es">Uruguay</country>
     <country>Uzbekistan</country>
     <country>Vanuatu</country>
     <country>Vatican City</country>
