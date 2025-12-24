@@ -18,15 +18,14 @@
     <country lang="fr" category="france-region">French Guiana (France)</country>
     <country lang="fr" category="france-region">Réunion (France)</country>
     <country lang="fr" category="france-region">Mayotte (France)</country>
-    <country lang="fr" category="dependent">Saint-Pierre-et-Miquelon (France)</country>
-
+    <country lang="fr" category="france-outre-mer">Saint-Pierre-et-Miquelon (France)</country>
+    <country lang="fr" category="france-outre-mer">Nouvelle-Calédonie</country>
+    <country lang="nl" category="nederlandse-provincie">Friesland (Nederlands)</country>
     <country category="dependent">Faroe Islands (Denmark)</country>
     <country category="dependent">Greenland (Denmark)</country>
-
     <country category="dependent">Sint Maarten (Netherlands)</country>
-
     <country lang="fr" category="dependent">Québec (Canada)</country>
-
+    <country>Crimea</country>
     <country category="dependent">Bermuda (UK)</country>
     <country category="dependent">British Indian Ocean Territory (UK)</country>
     <country category="dependent">Gibraltar (UK)</country>
@@ -35,13 +34,37 @@
     <country category="dependent">Scotland (UK)</country>
     <country category="dependent">Wales (UK)</country>
     <country category="dependent">Northern Ireland (UK)</country>
-    <country lang="ca" category="dependent">Catalunya (Spain)</country>
-    <country category="special-cultural">Valencian Community</country>
+    <country lang="es" category="dependent">Andalucía (España)</country>
+    <country lang="ca" category="dependent">Catalunya (España)</country>
     <country lang="es" category="historical">Reino de Navarra</country>
+    <country lang="ca" category="dependent">Balearic Islands (España)</country>
+    <country lang="ca" category="municipal">Barcelona (España)</country>
+    <country lang="nl" category="municipal">Amsterdam (Nederlands)</country>
+    <country lang="es" category="dependent">Aragon (España)</country>
     <country category="limited-recognition">Valencian National Flag</country>
     <country category="limited-recognition">Catalan independence</country>
     <country category="limited-recognition">Basque Country</country>
     <country category="limited-recognition">Zapatista territories</country>
+    <country category="limited-recognition">Cascadia</country>
+    <country category="limited-recognition">Republic of New Afrika</country>
+    <country>Europe</country>
+    <country category="dependent">Sicily</country>
+    <country category="dependent">Sardinia</country>
+    <country category="cultural">Valencian Community</country>
+    <country category="cultural">Acadiana</country>
+    <country category="cultural">Acadia</country>
+    <country category="cultural">Australian Aboriginal</country>
+    <country category="cultural">Gay Pride</country>
+    <country category="cultural">Transgender Pride</country>
+    <country category="cultural">Bisexual Pride</country>
+    <country category="cultural">Non-Binary Pride</country>
+    <country category="cultural">Pansexual Pride</country>
+    <country category="cultural">Rainbow Peace</country>
+    <country category="cultural">Campaign For Nuclear Disarmament</country>
+    <country category="dependent">Åland (Finland)</country>
+    <country category="dependent">Aruba (Nederlands)</country>
+    <country category="deutschland-land">Baden-Württemberg (Deutschland)</country>
+    <country category="deutschland-land">Bavaria (Deutschland)</country>
 
     <country category="us-states" lang="es">Puerto Rico (USA)</country>
     <country category="us-states">Alabama (USA)</country>
@@ -98,6 +121,7 @@
 
     <country>Abkhazia</country>
     <country>Afghanistan</country>
+    <country category="historic">Afghanistan 2013-2021</country>
     <country>Albania</country>
     <country lang="fr">Algeria</country>
     <country lang="ca">Andorra</country>
@@ -219,6 +243,7 @@
     <country lang="fr">Morocco</country>
     <country>Mozambique</country>
     <country>Myanmar</country>
+    <country category="historic">Myanmar 2013-2021</country>
     <country>Nagorno-Karabakh</country>
     <country>Namibia</country>
     <country>Nauru</country>
@@ -274,6 +299,7 @@
     <country>Sweden</country>
     <country lang="fr">Switzerland</country>
     <country>Syria</country>
+    <country category="historic">Syria 1980-2024</country>
     <country>Taiwan</country>
     <country>Tajikistan</country>
     <country>Tanzania</country>
