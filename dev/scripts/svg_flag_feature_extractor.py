@@ -270,7 +270,7 @@ overrides = {
         "#2f5032",
         "#b4b4b4",
     ],
-    "Flag_of_Aragon_(España)": ["#fbea0e", "#ed1c24", "#0071bc", "#ffffff"],
+    "Flag_of_Aragon_(España).svg": ["#fbea0e", "#ed1c24", "#0071bc", "#ffffff"],
 }
 
 overrides_applied = []

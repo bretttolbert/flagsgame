@@ -32,18 +32,22 @@ function getColorSwatchesHtml(key, clusterCountryFeatures) {
     html += `<div style="float: none">${key}</div>`
     html += "</td>";
     html += "<td>";
-    let fillsRgb = clusterCountryFeatures[key];
-    for (let j=0; j<fillsRgb.length; ++j) {
-        let fillRgb = fillsRgb[j];
-        let fill = `rgb(${fillRgb[0]}, ${fillRgb[1]}, ${fillRgb[2]})`
-        let hexCode = rgbToHex(fillRgb[0], fillRgb[1], fillRgb[2]);
-        html += `<div class="color-swatch" style="background-color: ${fill}; width: 64px; height: 64px">
-            <div class="color-swatch-label">${hexCode}</div>
-        </div>`
+    try {
+        let fillsRgb = clusterCountryFeatures[key];
+        for (let j=0; j<fillsRgb.length; ++j) {
+            let fillRgb = fillsRgb[j];
+            let fill = `rgb(${fillRgb[0]}, ${fillRgb[1]}, ${fillRgb[2]})`
+            let hexCode = rgbToHex(fillRgb[0], fillRgb[1], fillRgb[2]);
+            html += `<div class="color-swatch" style="background-color: ${fill}; width: 64px; height: 64px">
+                <div class="color-swatch-label">${hexCode}</div>
+            </div>`
+        }
+        html += "</td>";
+        html += "</div>"; // end inner-swatches
+        html += "</tr>"
+    } catch (ex) {
+        console.error(ex);
     }
-    html += "</td>";
-    html += "</div>"; // end inner-swatches
-    html += "</tr>"
     return html;
 }
 

@@ -65,6 +65,10 @@
     <country category="dependent">Aruba (Nederlands)</country>
     <country category="deutschland-land">Baden-Württemberg (Deutschland)</country>
     <country category="deutschland-land">Bavaria (Deutschland)</country>
+    <country category="international-organization">United Nations</country>
+    <country category="political">Anarcho-syndicalism</country>
+    <country category="political">Industrial Workers of the World</country>
+    <country category="political">Democratic Socialists of America</country>
 
     <country category="us-states" lang="es">Puerto Rico (USA)</country>
     <country category="us-states">Alabama (USA)</country>
@@ -292,6 +296,7 @@
     <country>South Ossetia</country>
     <country>South Sudan</country>
     <country lang="es">España</country>
+    <country category="historic" lang="es">España 1931–1939 (Segunda República Española)</country>
     <country>Sri Lanka</country>
     <country>Sudan</country>
     <country>Suriname</country>
