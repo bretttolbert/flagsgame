@@ -1,5 +1,8 @@
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="flags.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="flags.js"></script>
 <script>
 
 
@@ -78,20 +81,24 @@ async function displayClusters() {
             let countryIdx = countryIdxs[i];
             let country = getCountryByIdx(countryIdx);
             let countryFeatures = getFeaturesByCountryName(country.name);
-            html += '<div class="color-swatch-container">'
-            html += "<div>" + country.name + "</div>";
-            html += "<div>";
-            html += getFlagImgHtml(cluster, countryIdx);
-            html += "</div>";
+            if (countryFeatures === undefined) {
+                console.error(`getFeaturesByCountryName(${country.name}) returned undefined`);
+            } else {
+                html += '<div class="color-swatch-container">'
+                html += "<div>" + country.name + "</div>";
+                html += "<div>";
+                html += getFlagImgHtml(cluster, countryIdx);
+                html += "</div>";
 
-            html += '<div class="hcentered">';
-            html += "<table>";
-            html += getColorSwatchesHtml("fills_rgb", countryFeatures)
-            html += getColorSwatchesHtml("fills_rgb_low", countryFeatures)
-            html += "</table>";
-            html += "</div>";
+                html += '<div class="hcentered">';
+                html += "<table>";
+                html += getColorSwatchesHtml("fills_rgb", countryFeatures)
+                html += getColorSwatchesHtml("fills_rgb_low", countryFeatures)
+                html += "</table>";
+                html += "</div>";
 
-            html += "</div>"; // end color-swatch-container
+                html += "</div>"; // end color-swatch-container
+            }
         }
         html += "</div>"; // end color-swatches
         html += "</div>"; // end cluster
