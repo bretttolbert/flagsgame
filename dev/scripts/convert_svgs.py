@@ -71,6 +71,9 @@ def convert_svgs_to_x(
     overwrite,
     dry_run,
 ):
+    # create dest path (including /svg/{fmt}/ subfolders) if it doesn't already exist
+    dest_path.mkdir(exist_ok=True, parents=True)
+
     # copy svgs from source_path to dest_path (webp/png folder)
     shutil.copytree(source_path, dest_path, dirs_exist_ok=True)
     # convert in place (webp/png folder), then delete svg
@@ -89,16 +92,32 @@ def convert_svgs_to_x(
 
 def main():
     # one of the output formats must match the ones defined in flags.js
-    output_fmts = [("png", "x300"), ("webp", "x300")]
-    overwrite = False
 
-    for dest_fmt, resolution in output_fmts:
+    SOURCE_ROOT = "../../flags"
+    SOURCE_FMT = "svg"
+
+    # default config:
+    OUTPUT_FMTS = [("png", "x300"), ("webp", "x300")]
+    DEST_ROOT = "../../flags"
+    OVERWRITE = False
+
+    # special config:
+    # max fb upload res = 2048 in either dim
+    # most extreme ratio is Qatar 11:28
+    #  11  x
+    #  28  2048
+    #  x = 804.571428571
+    # OUTPUT_FMTS = [("png", "x800")]
+    # DEST_ROOT = "/home/brett/Pictures/Flags"
+    # OVERWRITE = False
+
+    for dest_fmt, resolution in OUTPUT_FMTS:
         # recommend a fixed-height resolution with a variable width
         # consider square flags like Switzerland
         # if we matched the width, it would look out of proportion
         quality = 100
-        source_path = Path("../../flags/svg/")
-        dest_path = Path(f"../../flags/{dest_fmt}/{resolution}/")
+        source_path = Path(f"{SOURCE_ROOT}/{SOURCE_FMT}/")
+        dest_path = Path(f"{DEST_ROOT}/{dest_fmt}/{resolution}/")
         dest_ext = f".{dest_fmt}"
         dry_run = False
         convert_svgs_to_x(
@@ -107,7 +126,7 @@ def main():
             dest_ext,
             resolution=resolution,
             quality=quality,
-            overwrite=overwrite,
+            overwrite=OVERWRITE,
             dry_run=dry_run,
         )
 
