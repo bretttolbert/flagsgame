@@ -24150,6 +24150,47 @@
         "strokes_rgb": [],
         "strokes_hsl": []
     },
+    "Flag_of_Diver_Down.svg": {
+        "fills_rgb": [
+            [
+                255,
+                0,
+                0
+            ],
+            [
+                255,
+                255,
+                255
+            ]
+        ],
+        "fills_hsl": [
+            [
+                0.0,
+                0.0,
+                1.0
+            ],
+            [
+                0.0,
+                1.0,
+                0.6666666666666666
+            ]
+        ],
+        "fills_rgb_low": [
+            [
+                254,
+                85,
+                85
+            ],
+            [
+                255,
+                255,
+                255
+            ]
+        ],
+        "strokes_rgb_low": [],
+        "strokes_rgb": [],
+        "strokes_hsl": []
+    },
     "Flag_of_South_Dakota_(USA).svg": {
         "fills_rgb": [
             [
