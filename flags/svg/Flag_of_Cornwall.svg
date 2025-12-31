@@ -1,0 +1,5 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="1000" height="600">
+	<title>Cornwall</title>
+	<path id="black" fill="#000" d="m1000 0v600h-1000v-600z"/>
+	<path id="cross" fill="#fff" d="m1000 240v120h-440v240h-120v-240h-440v-120h440v-240h120v240z"/>
+</svg>

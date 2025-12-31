@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="918" height="612" viewBox="0 0 27 18">
+<rect width="27" height="18" fill="#000"/>
+<g fill="#18186b">
+<rect width="27" height="2" y="2" fill="#18186b"/>
+<rect width="27" height="6" y="6"/>
+<rect width="27" height="2" y="14"/>
+</g>
+<rect width="27" height="2" y="8" fill="#fff"/>
+<path d="M 58,17 C 52,7 42,0 30,0 C 13,0 0,13 0,30 C 0,63 18,68 58,106 C 98,68 116,63 116,30 C 116,13 103,0 86,0 C 74,0 64,7 58,17 z" fill="#e70039" stroke="#000" stroke-width=".25" transform="translate(1.3643,4.274)rotate(-38)scale(.0663,.0674)"/>
+</svg>

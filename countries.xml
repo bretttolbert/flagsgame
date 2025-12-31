@@ -59,6 +59,7 @@
     <country category="cultural">Bisexual Pride</country>
     <country category="cultural">Non-Binary Pride</country>
     <country category="cultural">Pansexual Pride</country>
+    <country category="cultural">Leather, Latex, and BDSM Pride</country>
     <country category="cultural">Rainbow Peace</country>
     <country category="cultural">Campaign For Nuclear Disarmament</country>
     <country category="dependent">Åland (Finland)</country>
@@ -76,6 +77,20 @@
     <country category="political">Starry Plough (Irish Citizen Army)</country>
     <country category="political">Pan-African (UNIA)</country>
     <country category="political">Lowndes County Freedom Organization (no-text)</country>
+    <country category="historical">Blackbeard</country>
+    <country category="historical">Jolly Roger</country>
+    <country category="dependent">French Polynesia</country>
+    <country category="cultural">Maori</country>
+    <country>New Caledonia</country>
+    <country>Benelux</country>
+    <country>Saba</country>
+    <country category="dependent">England</country>
+    <country>Bonaire</country>
+    <country category="dependent">Cornwall</country>
+    <country>Macau</country>
+    <country>Symbionese Liberation Army</country>
+    <country>Serapis</country>
+    <country>American Indian Movement</country>
 
     <country category="us-states" lang="es">Puerto Rico (USA)</country>
     <country category="us-states">Alabama (USA)</country>
@@ -214,7 +229,7 @@
     <country>Iran</country>
     <country>Iraq</country>
     <country>Ireland</country>
-    <country>Israel</country>
+    <country category="limited-recognition">Israel</country>
     <country lang="it">Italy</country>
     <country>Jamaica</country>
     <country>Japan</country>
