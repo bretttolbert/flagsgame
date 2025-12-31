@@ -1,6 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" 
 width="6000" height="3600" 
 viewBox="0 0 30 18">
+  <!-- 
+  SVG file created by Brett Tolbert <bretttolbert.com> 2026
+  Free license (GNU GPL)
+  -->
     <rect y="0" fill="#0099ff" width="30" height="18"></rect>
     <g transform="translate(3 3)" fill="#fff" stroke="#000">
         <circle transform="rotate(45)" r="6" cy="-4.243" cx="12.728" fill="#000"/>
