@@ -1,0 +1,37 @@
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="800"/>
+
+<defs>
+    <polygon id="gold_star" fill="#FFCD00" points="0,-25 7,-10 24,-10 11,2 16,19 0,10 -16,19 -11,2 -24,-10 -7,-10"/>
+    <polygon id="red_star" fill="#FF0000" points="0,-25 7,-10 24,-10 11,2 16,19 0,10 -16,19 -11,2 -24,-10 -7,-10"/>
+  </defs>
+
+  <rect width="800" height="800" fill="#00205B"/>
+
+  <!-- Ground (Monte Sano) -->
+  <path d="M0,800 Q400,350 800,800 Z" fill="#228B22"/>
+  
+  <!-- Rocket body -->
+  <path d="M400,200 
+           C430,250 435,350 435,550 
+           L470,750 L450,750 L435,680 
+           L365,680 L350,750 L330,750 
+           L365,550 C365,350 370,250 400,200 Z" 
+        fill="#FFFFFF"/>
+  <!-- Rocket nozzle -->
+  <rect x="385" y="680" width="30" height="15" fill="#333333"/>
+
+  <!-- Stars -->
+  <g transform="translate(400, 300)">
+    <use href="#gold_star" transform="rotate(0) translate(0, -150)"/>
+    <use href="#gold_star" transform="rotate(45) translate(0, -150)"/>
+    <use href="#gold_star" transform="rotate(90) translate(0, -150)"/>
+    <use href="#gold_star" transform="rotate(135) translate(0, -150)"/>
+    <use href="#red_star" transform="rotate(180) translate(0, -150) scale(1, -1)"/>
+    <use href="#gold_star" transform="rotate(225) translate(0, -150)"/>
+    <use href="#gold_star" transform="rotate(270) translate(0, -150)"/>
+    <use href="#gold_star" transform="rotate(315) translate(0, -150)"/>
+  </g>
+
+
+</svg>

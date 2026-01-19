@@ -20,6 +20,11 @@
     <country lang="fr" category="france-region">Mayotte (France)</country>
     <country lang="fr" category="france-outre-mer">Saint-Pierre-et-Miquelon (France)</country>
     <country lang="fr" category="france-outre-mer">Nouvelle-Calédonie</country>
+    <country category="pakistan-region">Punjab (Pakistan)</country>
+    <country category="pakistan-region">Sindh (Pakistan)</country>
+    <country category="pakistan-region">Khyber Pakhtunkhw (Pakistan)</country>
+    <country category="pakistan-region">Balochistan (Pakistan)</country>
+    <country category="pakistan-region">Islamabad Capital Territory (Pakistan)</country>
     <country lang="nl" category="nederlandse-provincie">Friesland (Nederlands)</country>
     <country category="dependent">Faroe Islands (Denmark)</country>
     <country category="dependent">Greenland (Denmark)</country>
@@ -40,6 +45,9 @@
     <country lang="ca" category="dependent">Balearic Islands (España)</country>
     <country lang="ca" category="municipal">Barcelona (España)</country>
     <country lang="nl" category="municipal">Amsterdam (Nederlands)</country>
+    <country category="municipal">St Louis (Missouri)</country>
+    <country category="municipal">New Orleans (Louisiana)</country>
+    <country category="municipal">Huntsville (Alabama)</country>
     <country lang="es" category="dependent">Aragon (España)</country>
     <country category="limited-recognition">Valencian National Flag</country>
     <country category="limited-recognition">Catalan independence</country>
