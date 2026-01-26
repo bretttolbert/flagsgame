@@ -1,0 +1,168 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="flags.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="flags.js"></script>
+<script>
+
+function escapeName(name, escapeWsChar="+") {
+    const whitespace = / /gi;
+    const parenthetical_suffix = /\(.*\)$/gi;
+    name = name.replace(parenthetical_suffix, "");
+    name = name.trim().replace(whitespace, escapeWsChar);
+    return name
+}
+
+function getYouTubeLink(country, beforeTextEscaped) {
+    let url = `youtube.com/results?search_query=${beforeTextEscaped}${escapeName(country.name)}`;
+    html = `<a href="https://${url}">${url}</a>`;
+    return html;
+}
+
+function getFlagGoogleLink(country) {
+    let url = "google.com";
+    if (country.lang != "en") {
+        url = `google.${country.lang}`;
+    }
+    url = `${url}/search?q=${escapeName(country.name)}`;
+    html = `<a href="https://${url}">${url}</a>`;
+    return html;
+}
+
+function getFlagDuckDuckGoLink(country) {
+    let url = `duckduckgo.com/?q=${escapeName(country.name)}`;
+    html = `<a href="https://${url}">${url}</a>`;
+    return html;
+}
+
+function getFlagWikiLink(country) {
+    let url = `${country.lang}.wikipedia.org/wiki/${escapeName(country.name, escapeWsChar="_")}`;
+    html = `<a href="https://${url}">${url}</a>`;
+    return html;
+}
+
+function getFlagImgHtml(country) {
+    let countryIdx = getCountryIdxByName(country.name);
+    let svgFilename = getSvgFilenameFromName(country.name);
+    svgFilename = `flags/svg/Flag_of_${svgFilename}.svg`;
+    html = '';
+    html += `<a href="${svgFilename}">`;
+    html += `<img class="flag-image" id="${countryIdx}" src="${country.filename}" border="0" />`;
+    html += `</a>`;
+    return html;
+}
+
+function componentToHex(c) {
+  var hex = c.toString(16);
+  return hex.length == 1 ? "0" + hex : hex;
+}
+
+function rgbToHex(r, g, b) {
+  return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+}
+
+function getColorSwatchesHtml(key, clusterCountryFeatures) {
+    html = '<tr>';
+    html += `<div class="inner-swatches">`; //innner-swatches
+    html += "<td>";
+    html += `<div style="float: none">${key}</div>`
+    html += "</td>";
+    html += "<td>";
+    try {
+        let fillsRgb = clusterCountryFeatures[key];
+        for (let j=0; j<fillsRgb.length; ++j) {
+            let fillRgb = fillsRgb[j];
+            let fill = `rgb(${fillRgb[0]}, ${fillRgb[1]}, ${fillRgb[2]})`
+            let hexCode = rgbToHex(fillRgb[0], fillRgb[1], fillRgb[2]);
+            html += `<div class="color-swatch" style="background-color: ${fill}; width: 64px; height: 64px">
+                <div class="color-swatch-label">${hexCode}</div>
+            </div>`
+        }
+        html += "</td>";
+        html += "</div>"; // end inner-swatches
+        html += "</tr>"
+    } catch (ex) {
+        console.error(ex);
+    }
+    return html;
+}
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function displayFlag(name) {
+    let html = "";
+    let country = getCountryByName(name);
+    html += '<div class="flag-detail">';
+    html += `<h1>${country.name}</h1>`;
+    
+    // flags images
+    html += '<div class="flag-images">'
+    html += getFlagImgHtml(country);
+    html += "</div>"; // end flag-images
+
+    // color swatches
+    html += '<div class="color-swatches">'
+    let countryFeatures = getFeaturesByCountryName(country.name);
+    if (countryFeatures === undefined) {
+        console.error(`getFeaturesByCountryName(${country.name}) returned undefined`);
+    } else {
+        html += '<div class="color-swatch-container">'
+        html += '<div class="hcentered">';
+        html += "<table>";
+        html += getColorSwatchesHtml("fills_rgb", countryFeatures)
+        html += getColorSwatchesHtml("fills_rgb_low", countryFeatures)
+        html += "</table>";
+        html += "</div>"; // end hcentered
+        html += "</div>"; // end color-swatch-container
+    }
+    html += "</div>"; // end color-swatches
+
+    // links
+    html += '<ul class="no-bullets">';
+
+    html += "<li>" + getFlagWikiLink(country) + "</li>";
+    html += "<li>" + getFlagGoogleLink(country) + "</li>";
+    html += "<li>" + getFlagDuckDuckGoLink(country) + "</li>";
+    html += "<li>" + getYouTubeLink(country, "Music+of+") + "</li>";
+    html += "<li>" + getYouTubeLink(country, "Cuisine+of+") + "</li>";
+    
+
+    html += "</ul>";
+
+    html += "</div>"; // end flag-detail
+
+    // apply html
+    $('#clustersContainer').html(html);
+}
+
+$(document).ajaxStop(function() {
+    // This function runs when the number of active AJAX requests becomes zero.
+    console.log("All jQuery AJAX requests have completed.");
+    const params = new URLSearchParams(window.location.search);
+    if (params.has("name")) {
+        const name = params.get("name");
+        displayFlag(name);
+    }
+    // You might unbind the event if it only needs to run once
+    //$(this).off('ajaxStop');
+});
+
+</script>
+<meta name="viewport" content="width=720, initial-scale=0.5, user-scalable=no">
+</head>
+<body>
+<header>
+    <a href="index.html">Flags Game</a><br>
+    <a href="index.html">Flags Clusters</a><br>
+</header>
+<main>
+<div id="clustersContainer">
+    
+</div>
+</main>
+<footer>
+</footer>
+</body>
+</html>
