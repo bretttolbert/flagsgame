@@ -49,6 +49,14 @@ function getFlagImgHtml(country) {
     html += `<a href="${svgFilename}">`;
     html += `<img class="flag-image" id="${countryIdx}" src="${country.filename}" border="0" />`;
     html += `</a>`;
+
+    // if this is a no-text variant, show the original as well
+    if (svgFilename.includes("_(no-text)")) {
+        html += `<a href="${svgFilename.replace("_(no-text)", "")}">`;
+        html += `<img class="flag-image" id="${countryIdx}-original" src="${country.filename.replace("_(no-text)", "")}" border="0" />`;
+        html += `</a>`;
+    }
+
     return html;
 }
 
