@@ -57,6 +57,13 @@ function getFlagImgHtml(country) {
         html += `</a>`;
     }
 
+    // if this is the reverse side, show the front side as well
+    if (svgFilename.includes("_(reverse)")) {
+        html += `<a href="${svgFilename.replace("_(reverse)", "")}">`;
+        html += `<img class="flag-image" id="${countryIdx}-original" src="${country.filename.replace("_(reverse)", "")}" border="0" />`;
+        html += `</a>`;
+    }
+
     return html;
 }
 
