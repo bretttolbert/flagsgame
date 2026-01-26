@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 4096 2304">
+    <!-- 
+  SVG file created by Brett Tolbert <bretttolbert.com> 2026
+  Free license (GNU GPL)
+  -->
+
+    <path fill="#00853f" d="M0 0h4096v2304H0z" />
+    <path fill="#000000" d="M0 0h4096v1536H0z" />
+    <path fill="#e31b23" d="M0 0h4096v768H0z" />
+
+    <g transform="scale(4) translate(411, 188)">
+    <polygon
+        fill="#e31b23"
+        points="100,10 120,80 190,80 130,120 150,190 100,150 50,190 70,120 10,80 80,80"
+    />
+    </g>
+
+</svg>

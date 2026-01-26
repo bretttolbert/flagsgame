@@ -276,6 +276,8 @@ overrides = {
         "#ed1c24",
         "#630b57",
     ],
+    "Flag_of_Polabian_Slavs_(Wends).svg": ["#000000", "#e40000", "#f0a800", "#ffffff"],
+    "Flag_of_Under_No_Pretext.svg": ["#000000", "#ffffff", "#ff0000"],
 }
 
 overrides_applied = []

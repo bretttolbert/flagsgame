@@ -180,3 +180,11 @@ a:active {
     color: red;
     font-size: 2em;
 }
+
+.no-bullets {
+  list-style-type: none;
+}
+
+.flag-detail li {
+    font-size: 2em;
+}

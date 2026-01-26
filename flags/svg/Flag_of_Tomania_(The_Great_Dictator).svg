@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="329.44803mm"
+   height="219.90656mm"
+   viewBox="0 0 329.44803 219.90656"
+   version="1.1"
+   id="svg534"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
+   sodipodi:docname="Tomania flag.svg">
+  <defs
+     id="defs528" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="522.84879"
+     inkscape:cy="260.7363"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     inkscape:window-width="1366"
+     inkscape:window-height="705"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata531">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(96.761909,-32.921722)">
+    <g
+       id="g1442">
+      <rect
+         style="fill:#ff0000;fill-opacity:1;stroke-width:0.264583"
+         id="rect550"
+         width="329.44803"
+         height="219.90656"
+         x="-96.761909"
+         y="32.921722" />
+      <g
+         id="g1434"
+         transform="translate(-0.00507368,-0.0043258)">
+        <path
+           id="ellipse1412"
+           style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.32292;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M 66.682882,67.33335 C 51.293918,67.754601 37.128997,76.655556 27.91475,88.650396 12.666903,108.57978 7.7940746,135.14549 11.98541,159.60812 c 3.072543,17.9548 11.331811,35.60206 25.538011,47.39756 11.643096,9.75138 28.187781,14.24467 42.906757,9.59721 15.25413,-4.47381 27.383082,-16.48728 34.546302,-30.3936 12.61373,-23.88242 13.58498,-53.2449 3.88133,-78.31083 C 112.99024,93.007887 102.60942,79.226587 87.990503,72.086739 81.385883,68.882093 74.04788,67.088164 66.682882,67.33335 Z" />
+        <ellipse
+           id="path3187"
+           style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.32292;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           cx="67.962105"
+           cy="142.875"
+           rx="51.63179"
+           ry="69.757896" />
+        <path
+           id="path2413"
+           d="M 37.751931,106.62279 49.835999,94.538721 61.920068,106.62279 74.004136,94.538721 86.088205,106.62279 74.004136,118.70686 86.088205,130.79093 74.004136,142.87499 61.920068,130.79093 49.835999,142.87499 37.751931,130.79093 49.835999,118.70686 Z"
+           style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.41681px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           id="path3185"
+           d="M 49.835999,154.95906 61.920068,142.87499 74.004136,154.95906 86.088205,142.87499 98.172273,154.95906 86.088205,167.04313 98.172273,179.1272 86.088205,191.21127 74.004136,179.1272 61.920068,191.21127 49.835999,179.1272 61.920068,167.04313 Z"
+           style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.41681px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      </g>
+    </g>
+  </g>
+</svg>

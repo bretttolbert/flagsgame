@@ -34,6 +34,16 @@ function getCountryByIdx(index) {
     return countries[index];
 }
 
+function getCountryIdxByName(name) {
+    for (let i=0; i<countries.length; ++i) {
+        let country = countries[i];
+        if (country.name == name) {
+            return i
+        }
+    }
+    return null;
+}
+
 function getCountryByName(name) {
     for (let i=0; i<countries.length; ++i) {
         let country = countries[i];

@@ -22,14 +22,49 @@
     <country lang="fr" category="france-outre-mer">Nouvelle-Calédonie</country>
     <country category="pakistan-region">Punjab (Pakistan)</country>
     <country category="pakistan-region">Sindh (Pakistan)</country>
-    <country category="pakistan-region">Khyber Pakhtunkhw (Pakistan)</country>
+    <country category="pakistan-region">Khyber Pakhtunkhwa (Pakistan)</country>
     <country category="pakistan-region">Balochistan (Pakistan)</country>
     <country category="pakistan-region">Islamabad Capital Territory (Pakistan)</country>
     <country lang="nl" category="nederlandse-provincie">Friesland (Nederlands)</country>
     <country category="dependent">Faroe Islands (Denmark)</country>
     <country category="dependent">Greenland (Denmark)</country>
     <country category="dependent">Sint Maarten (Netherlands)</country>
-    <country lang="fr" category="dependent">Québec (Canada)</country>
+
+    <country lang="en" category="canada-province">Alberta (Canada)</country>
+    <country lang="en" category="canada-province">British Columbia (Canada)</country>
+    <country lang="en" category="canada-province">Manitoba (Canada)</country>
+    <country lang="en" category="canada-province">Newfoundland and Labrador (Canada)</country>
+    <country lang="en" category="canada-province">Northwest Territories (Canada)</country>
+    <country lang="en" category="canada-province">Nova Scotia (Canada)</country>
+    <country lang="en" category="canada-province">Nunavut (Canada)</country>
+    <country lang="en" category="canada-province">Ontario (Canada)</country>
+    <country lang="en" category="canada-province">Prince Edward Island (Canada)</country>
+    <country lang="en" category="canada-province">Saskatchewan (Canada)</country>
+    <country lang="en" category="canada-province">Yukon (Canada)</country>
+    <country lang="fr" category="canada-province">Nouveau-Brunswick (Canada)</country>
+    <country lang="fr" category="canada-province">Québec (Canada)</country>
+    
+    <country category="political">Under No Pretext (no-text)</country>
+    <country category="historical">German Democratic Republic</country>
+    <country category="historical">Cross of Burgundy</country>
+    <country>26th of July Movement (Cuba) (no-text)</country>
+    <country>Freetown Christiania</country>
+    <country category="historical">Free France (1940-1944)</country>
+    <country category="historical">Yugoslavia (1946-1992)</country>
+    <country category="cultural">Syriac-Aramaic People</country>
+    <country category="cultural">Polabian Slavs (Wends)</country>
+    <country>Bahia</country>
+    <country category="cultural">Mexican American Chicanos Chicanas</country>
+    <country category="cultural">Mayan People</country>
+    <country category="international">Planet Terra</country>
+    <country category="cultural">New England</country>
+    <country category="dependent">Isle of Skye (Scotland)</country>
+    <country category="cultural">Blue Öyster Cult</country>
+    <country category="cultural">Prince</country>
+    <country category="fictional">Klingon Empire</country>
+    <country category="fictional">First Galactic Empire (Star Wars)</country>
+    <country category="fictional">Tomania (The Great Dictator)</country>
+    <country category="historical">Holy Roman Emperor with Arms (1493-1556)</country>
     <country>Crimea</country>
     <country category="dependent">Bermuda (UK)</country>
     <country category="dependent">British Indian Ocean Territory (UK)</country>
@@ -39,6 +74,7 @@
     <country category="dependent">Scotland (UK)</country>
     <country category="dependent">Wales (UK)</country>
     <country category="dependent">Northern Ireland (UK)</country>
+    <country lang="es" category="dependent">Galicia (España)</country>
     <country lang="es" category="dependent">Andalucía (España)</country>
     <country lang="ca" category="dependent">Catalunya (España)</country>
     <country lang="es" category="historical">Reino de Navarra</country>
@@ -75,7 +111,9 @@
     <country category="deutschland-land">Baden-Württemberg (Deutschland)</country>
     <country category="deutschland-land">Bavaria (Deutschland)</country>
     <country category="international-organization">United Nations</country>
+    <country category="international-organization">NATO</country>
     <country category="political">Anarcho-syndicalism</country>
+    <country category="political">Green Anarchism</country>
     <country category="political">Industrial Workers of the World</country>
     <country category="political">Democratic Socialists of America</country>
 
@@ -84,7 +122,12 @@
     <country category="political">Yippies</country>
     <country category="political">Starry Plough (Irish Citizen Army)</country>
     <country category="political">Pan-African (UNIA)</country>
+    <country category="political">Pan-African (Huey Newton funeral flag)</country>
     <country category="political">Lowndes County Freedom Organization (no-text)</country>
+    <country category="cultural">African-American</country>
+    <country category="cultural">Black-American Heritage</country>
+    <country category="cultural">Ethiopia (1897-1974) (Rastafarian)</country>
+
     <country category="historical">Blackbeard</country>
     <country category="historical">Jolly Roger</country>
     <country category="dependent">French Polynesia</country>
@@ -154,7 +197,7 @@
 
     <country>Abkhazia</country>
     <country>Afghanistan</country>
-    <country category="historic">Afghanistan 2013-2021</country>
+    <country category="historical">Afghanistan 2013-2021</country>
     <country>Albania</country>
     <country lang="fr">Algeria</country>
     <country lang="ca">Andorra</country>
@@ -248,6 +291,7 @@
     <country>Kurdistan</country>
     <country>Kuwait</country>
     <country>Kyrgyzstan</country>
+    <country category="historical">Kyrgyzstan 1992-2003</country>
     <country>Laos</country>
     <country>Latvia</country>
     <country>Lebanon</country>
@@ -276,7 +320,7 @@
     <country lang="fr">Morocco</country>
     <country>Mozambique</country>
     <country>Myanmar</country>
-    <country category="historic">Myanmar 2013-2021</country>
+    <country category="historical">Myanmar 2013-2021</country>
     <country>Nagorno-Karabakh</country>
     <country>Namibia</country>
     <country>Nauru</country>
@@ -325,7 +369,7 @@
     <country>South Ossetia</country>
     <country>South Sudan</country>
     <country lang="es">España</country>
-    <country category="historic" lang="es">España 1931-1939 (Segunda República Española)</country>
+    <country category="historical" lang="es">España 1931-1939 (Segunda República Española)</country>
     <country>Sri Lanka</country>
     <country>Sudan</country>
     <country>Suriname</country>
@@ -333,7 +377,7 @@
     <country>Sweden</country>
     <country lang="fr">Switzerland</country>
     <country>Syria</country>
-    <country category="historic">Syria 1980-2024</country>
+    <country category="historical">Syria 1980-2024</country>
     <country>Taiwan</country>
     <country>Tajikistan</country>
     <country>Tanzania</country>
