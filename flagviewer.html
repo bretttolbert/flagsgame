@@ -13,7 +13,7 @@ function escapeName(name, escapeWsChar="+") {
     return name
 }
 
-function getYouTubeLink(country, beforeTextEscaped) {
+function getYouTubeLink(country, beforeTextEscaped="") {
     let url = `youtube.com/results?search_query=${beforeTextEscaped}${escapeName(country.name)}`;
     html = `<a href="https://${url}">${url}</a>`;
     return html;
@@ -140,6 +140,7 @@ async function displayFlag(name) {
     html += "<li>" + getFlagWikiLink(country) + "</li>";
     html += "<li>" + getFlagGoogleLink(country) + "</li>";
     html += "<li>" + getFlagDuckDuckGoLink(country) + "</li>";
+    html += "<li>" + getYouTubeLink(country) + "</li>";
     html += "<li>" + getYouTubeLink(country, "Music+of+") + "</li>";
     html += "<li>" + getYouTubeLink(country, "Cuisine+of+") + "</li>";
     
