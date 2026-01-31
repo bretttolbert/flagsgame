@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Flag Clusters</title>
+<title>Flags</title>
 <meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z8SPJYBDNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z8SPJYBDNX');
+</script>
 <link rel="stylesheet" type="text/css" href="flags.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type="text/javascript" src="flags.js"></script>
 <script>
 
-
-function getFlagImgHtml(cluster, countryIdx) {
+function getFlagImgHtml(countryIdx) {
     html = '';
     let country = getCountryByIdx(countryIdx);
     const whitespace = / /gi;
     let nameEscaped = country.name.replace(whitespace, "%20");
-    //const parenthetical_suffix = /_\(.*\)$/gi;
-    //nameEscaped = nameEscaped.replace(parenthetical_suffix, "");
     html += `<a href="flagviewer.html?name=${nameEscaped}">`;
-    html += `<img class="flag-image" id="${cluster}-${countryIdx}" src="${country.filename}" border="0" />`;
+    html += `<img class="flag-image" id="${countryIdx}" src="${country.filename}" border="0" />`;
     html += `</a>`;
     return html;
 }
@@ -61,59 +67,57 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-async function displayClusters() {
-    let clusterCountryIdxs = getClusterCountryIdxs();
-    while (Object.entries(clusterCountryIdxs).length == 0) {
+async function displayFlags() {
+    let countryIdxs = getCountryIdxs();
+    let viewName = "All";
+    while (Object.entries(countryIdxs).length == 0) {
         await sleep(10);
-        clusterCountryIdxs = getClusterCountryIdxs();
+        countryIdxs = getCountryIdxs();
     }
     let html = '';
-    for (const [cluster, countryIdxs] of Object.entries(clusterCountryIdxs)) {
-        html += '<div class="cluster">';
-        html += `<h1>Cluster ${cluster} (count=${countryIdxs.length})</h1>`;
-        // flags images
-        html += '<div class="flag-images">'
-        for (let i=0; i<countryIdxs.length; ++i) {
-            let countryIdx = countryIdxs[i];
-            html += getFlagImgHtml(cluster, countryIdx);
-        }
-        html += "</div>"; // end flag-images
-        // color swatches
-        html += '<div class="color-swatches">'
-        for (let i=0; i<countryIdxs.length; ++i) {
-            let countryIdx = countryIdxs[i];
-            let country = getCountryByIdx(countryIdx);
-            let countryFeatures = getFeaturesByCountryName(country.name);
-            if (countryFeatures === undefined) {
-                console.error(`getFeaturesByCountryName(${country.name}) returned undefined`);
-            } else {
-                html += '<div class="color-swatch-container">'
-                html += "<div>" + country.name + "</div>";
-                html += "<div>";
-                html += getFlagImgHtml(cluster, countryIdx);
-                html += "</div>";
-
-                html += '<div class="hcentered">';
-                html += "<table>";
-                html += getColorSwatchesHtml("fills_rgb", countryFeatures)
-                html += getColorSwatchesHtml("fills_rgb_low", countryFeatures)
-                html += "</table>";
-                html += "</div>";
-
-                html += "</div>"; // end color-swatch-container
-            }
-        }
-        html += "</div>"; // end color-swatches
-        html += "</div>"; // end cluster
+    html += '<div class="cluster">';
+    html += `<h1>View: ${viewName} (count=${countryIdxs.length})</h1>`;
+    // flags images
+    html += '<div class="flag-images">'
+    for (let i=0; i<countryIdxs.length; ++i) {
+        let countryIdx = countryIdxs[i];
+        html += getFlagImgHtml(countryIdx);
     }
+    html += "</div>"; // end flag-images
+    // color swatches
+    html += '<div class="color-swatches">'
+    for (let i=0; i<countryIdxs.length; ++i) {
+        let countryIdx = countryIdxs[i];
+        let country = getCountryByIdx(countryIdx);
+        let countryFeatures = getFeaturesByCountryName(country.name);
+        if (countryFeatures === undefined) {
+            console.error(`getFeaturesByCountryName(${country.name}) returned undefined`);
+        } else {
+            html += '<div class="color-swatch-container">'
+            html += "<div>" + country.name + "</div>";
+            html += "<div>";
+            html += getFlagImgHtml(countryIdx);
+            html += "</div>";
 
-    $('#clustersContainer').html(html);
+            html += '<div class="hcentered">';
+            html += "<table>";
+            html += getColorSwatchesHtml("fills_rgb", countryFeatures)
+            html += getColorSwatchesHtml("fills_rgb_low", countryFeatures)
+            html += "</table>";
+            html += "</div>";
+
+            html += "</div>"; // end color-swatch-container
+        }
+    }
+    html += "</div>"; // end color-swatches
+    html += "</div>"; // end cluster
+    $('#flagsContainer').html(html);
 }
 
 $(document).ajaxStop(function() {
     // This function runs when the number of active AJAX requests becomes zero.
     console.log("All jQuery AJAX requests have completed.");
-    displayClusters();
+    displayFlags();
     // You might unbind the event if it only needs to run once
     //$(this).off('ajaxStop');
 });
@@ -124,9 +128,10 @@ $(document).ajaxStop(function() {
 <body>
 <header>
     <a href="index.html">Flags Game</a>
+    <a href="clusters.html">Flags Clusters</a>
 </header>
 <main>
-<div id="clustersContainer">
+<div id="flagsContainer">
     Test
 </div>
 </main>
