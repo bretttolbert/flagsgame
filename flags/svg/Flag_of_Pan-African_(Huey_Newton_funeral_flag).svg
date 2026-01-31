@@ -1,19 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg"
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
     viewBox="0 0 4096 2304">
     <!-- 
-  SVG file created by Brett Tolbert <bretttolbert.com> 2026
-  Free license (GNU GPL)
-  -->
-
+    SVG file created by Brett Tolbert <bretttolbert.com> 2026
+    Free license (GNU GPL)
+    -->
     <path fill="#00853f" d="M0 0h4096v2304H0z" />
     <path fill="#000000" d="M0 0h4096v1536H0z" />
     <path fill="#e31b23" d="M0 0h4096v768H0z" />
 
-    <g transform="scale(4) translate(411, 188)">
-    <polygon
-        fill="#e31b23"
-        points="100,10 120,80 190,80 130,120 150,190 100,150 50,190 70,120 10,80 80,80"
-    />
-    </g>
+    <!-- Star SVG from Cameroon's flag -->
+	<g id="star" fill="#e31b23" transform="translate(2048, 1190) scale(400)">
+		<g id="c">
+			<path fill="#e31b23" id="triangle" d="M0,0 v1 h0.5 z" transform="translate(0, -1) rotate(18)" />
+			<use xlink:href="#triangle" transform="scale(-1, 1)" />
+
+		</g>
+		<use xlink:href="#c" transform="rotate(72)" />
+		<use xlink:href="#c" transform="rotate(144)" />
+		<use xlink:href="#c" transform="rotate(216)" />
+		<use xlink:href="#c" transform="rotate(288)" />
+	</g>
 
 </svg>
