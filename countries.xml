@@ -44,7 +44,7 @@
     <country lang="fr" tags="canada-province">Nouveau-Brunswick (Canada)</country>
     <country lang="fr" tags="canada-province">Québec (Canada)</country>
     
-    <country tags="cultural,political,liberation,revolution">Under No Pretext (no-text)</country>
+    <country tags="svg-author-brett-tolbert,cultural,political,liberation,revolution">Under No Pretext (no-text)</country>
     <country tags="historical">German Democratic Republic</country>
     <country tags="historical">Cross of Burgundy</country>
     <country>26th of July Movement (Cuba) (no-text)</country>
@@ -83,7 +83,7 @@
     <country lang="nl" tags="municipal">Amsterdam (Nederlands)</country>
     <country tags="municipal">St Louis (Missouri)</country>
     <country tags="municipal">New Orleans (Louisiana)</country>
-    <country tags="municipal">Huntsville (Alabama)</country>
+    <country tags="svg-author-brett-tolbert,municipal">Huntsville (Alabama)</country>
     <country lang="es" tags="dependent">Aragon (España)</country>
     <country tags="limited-recognition">Valencian National Flag</country>
     <country tags="limited-recognition,liberation,revolution">Catalan independence</country>
@@ -105,7 +105,7 @@
     <country tags="cultural,lgbtq-pride">Pansexual Pride</country>
     <country tags="cultural,lgbtq-pride,counterculture">Leather, Latex, and BDSM Pride</country>
     <country tags="cultural,political,counterculture">Rainbow Peace</country>
-    <country tags="cultural,counterculture">Campaign For Nuclear Disarmament</country>
+    <country tags="svg-author-brett-tolbert,cultural,counterculture">Campaign For Nuclear Disarmament</country>
     <country tags="dependent">Åland (Finland)</country>
     <country tags="dependent">Aruba (Nederlands)</country>
     <country tags="deutschland-land">Baden-Württemberg (Deutschland)</country>
@@ -114,18 +114,18 @@
     <country tags="international-organization">NATO</country>
     <country tags="political,liberation,revolution">Anarcho-syndicalism</country>
     <country tags="political,liberation,revolution,eco">Green Anarchism</country>
-    <country tags="political,liberation,revolution">Industrial Workers of the World</country>
-    <country tags="political,liberation,revolution">Democratic Socialists of America</country>
+    <country tags="svg-author-brett-tolbert,political,liberation,revolution">Industrial Workers of the World</country>
+    <country tags="svg-author-brett-tolbert,political,liberation,revolution">Democratic Socialists of America</country>
 
     <country tags="special">Diver Down</country>
     <country tags="cultural,new-zealand">Koru</country>
     <country tags="cultural,political,revolution,marijuana,hippies,counterculture">Yippies</country>
     <country tags="political,liberation,irish,revolutionary">Starry Plough (Irish Citizen Army)</country>
     <country tags="political,liberation,black-liberation,african-american,revolution">Pan-African (UNIA)</country>
-    <country tags="political,liberation,black-liberation,african-american,revolution">Pan-African (Huey Newton funeral flag)</country>
-    <country tags="political,liberation,black-liberation,african-american,revolution">Lowndes County Freedom Organization (no-text)</country>
+    <country tags="svg-author-brett-tolbert,political,liberation,black-liberation,african-american,revolution">Pan-African (Huey Newton funeral flag)</country>
+    <country tags="svg-author-brett-tolbert,political,liberation,black-liberation,african-american,revolution">Lowndes County Freedom Organization (no-text)</country>
     <country tags="cultural,political,liberation,black-liberation,african-american,revolution">African-American</country>
-    <country tags="cultural,political,liberation,black-liberation,african-american,revolution">Black-American Heritage</country>
+    <country tags="svg-author-brett-tolbert,cultural,political,liberation,black-liberation,african-american,revolution">Black-American Heritage</country>
     <country tags="cultural,political,liberation,black-liberation,jamaican,rasta">Ethiopia (1897-1974) (Rastafarian)</country>
     <country tags="cultural,fiction,african-american,black-liberation,revolution">Wakanda</country>
 
