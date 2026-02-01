@@ -80,6 +80,7 @@ function getRequestParams() {
 async function displayFlags() {
     let lang = "*";
     let tags = [];
+    let exclusive = false;
     const requestParams = getRequestParams();
     if ("lang" in requestParams) {
         lang = requestParams["lang"];
@@ -87,10 +88,15 @@ async function displayFlags() {
     if ("tags" in requestParams) {
         tags = requestParams["tags"];
     }
-    let countryIdxs = getCountryIdxsFiltered(lang, tags);
+    if ("exclusive" in requestParams) {
+        if (requestParams["exclusive"] == "true") {
+            exclusive = true;
+        }
+    }
+    let countryIdxs = getCountryIdxsFiltered(lang, tags, exclusive);
     while (Object.entries(countryIdxs).length == 0) {
         await sleep(10);
-        countryIdxs = getCountryIdxsFiltered(lang, tags);
+        countryIdxs = getCountryIdxsFiltered(lang, tags, exclusive);
     }
     let viewName = `Filters: lang=${lang}, tags=[${tags.join(',')}]`;
     let html = '';

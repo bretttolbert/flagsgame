@@ -63,7 +63,7 @@ function getCountryIdxs() {
     return Array.from({ length: n }, (_, index) => index);
 }
 
-function getCountryIdxsFiltered(lang, tags) {
+function getCountryIdxsFiltered(lang, tags, exclusive) {
     ret = [];
     for (let i=0; i<countries.length; ++i) {
         let country = countries[i];
@@ -71,8 +71,24 @@ function getCountryIdxsFiltered(lang, tags) {
         if (tags != null) {
             tagsIntersection = tags.filter(element => country.tags.includes(element));
         }
-        if ((tags == null || tags.length == 0 || tagsIntersection.length > 0) 
-         && (!lang || lang == "" || lang == "*" || country.lang == lang)) {
+        
+        let tagsMatch = false;
+        if (tags == null || tags.length == 0) {
+            tagsMatch = true;
+        } else {
+            if (exclusive) {
+                tagsMatch = (tagsIntersection.length == tags.length);
+            } else {
+                tagsMatch = (tagsIntersection.length > 0);
+            }
+        }
+
+        let langMatch = false;
+        if (!lang || lang == "" || lang == "*" || country.lang == lang) {
+            langMatch = true;
+        }
+
+        if (tagsMatch && langMatch) {
             ret.push(i);
         }
     }
