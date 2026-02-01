@@ -58,16 +58,44 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+function getRequestParams() {
+    const searchParams = new URLSearchParams(location.search);
+    var requestParams = {};
+    const scalarKeys = ["lang"]; //all others are list keys
+    for (const key of searchParams.keys()) {
+        console.log("searchParam key=" + key);
+        if (scalarKeys.includes(key)) {
+            const value = searchParams.get(key);
+            console.log("searchParams: (scalar) " + key + " = " + value);
+            requestParams[key] = value;
+        } else {
+            const values = searchParams.getAll(key);
+            console.log("searchParams: (list) " + key + " = " + values);
+            requestParams[key] = values;
+        }
+    }
+    return requestParams
+}
+
 async function displayFlags() {
-    let countryIdxs = getCountryIdxs();
-    let viewName = "All";
+    let lang = "*";
+    let tags = [];
+    const requestParams = getRequestParams();
+    if ("lang" in requestParams) {
+        lang = requestParams["lang"];
+    }
+    if ("tags" in requestParams) {
+        tags = requestParams["tags"];
+    }
+    let countryIdxs = getCountryIdxsFiltered(lang, tags);
     while (Object.entries(countryIdxs).length == 0) {
         await sleep(10);
-        countryIdxs = getCountryIdxs();
+        countryIdxs = getCountryIdxsFiltered(lang, tags);
     }
+    let viewName = `Filters: lang=${lang}, tags=[${tags.join(',')}]`;
     let html = '';
     html += '<div class="cluster">';
-    html += `<h1>View: ${viewName} (count=${countryIdxs.length})</h1>`;
+    html += `<h1>${viewName} (count=${countryIdxs.length})</h1>`;
     // flags images
     html += '<div class="flag-images">'
     for (let i=0; i<countryIdxs.length; ++i) {
@@ -118,8 +146,7 @@ $(document).ajaxStop(function() {
 </head>
 <body>
 <header>
-    <a href="index.html">Flags Game</a>
-    <a href="clusters.html">Flags Clusters</a>
+    <a href="index.html">Flags Main Menu</a>
 </header>
 <main>
 <div id="flagsContainer">
@@ -127,6 +154,7 @@ $(document).ajaxStop(function() {
 </div>
 </main>
 <footer>
+    <a href="index.html">Flags Main Menu</a>
 </footer>
 </body>
 </html>

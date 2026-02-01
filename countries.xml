@@ -1,203 +1,204 @@
 <?xml version="1.0" ?>
 <data>
-    <country lang="fr" category="france-region">Auvergne-Rhône-Alpes (France)</country>
-    <country lang="fr" category="france-region">Bourgogne-Franche-Comté (France)</country>
-    <country lang="fr" category="france-region">Brittany (France)</country>
-    <country lang="fr" category="france-region">Centre-Val de Loire (France)</country>
-    <country lang="fr" category="france-region">Corsica (France)</country>
-    <country lang="fr" category="france-region">Grand Est (France)</country>
-    <country lang="fr" category="france-region">Hauts-de-France (France)</country>
-    <country lang="fr" category="france-region">Île-de-France (France)</country>
-    <country lang="fr" category="france-region">Normandie (France)</country>
-    <country lang="fr" category="france-region">Nouvelle-Aquitaine (France)</country>
-    <country lang="fr" category="france-region">Occitanie (France)</country>
-    <country lang="fr" category="france-region">Pays de la Loire (France)</country>
-    <country lang="fr" category="france-region">Provence-Alpes-Côte d'Azur (France)</country>
-    <country lang="fr" category="france-region">Guadeloupe (France)</country>
-    <country lang="fr" category="france-region">Martinique (France)</country>
-    <country lang="fr" category="france-region">French Guiana (France)</country>
-    <country lang="fr" category="france-region">Réunion (France)</country>
-    <country lang="fr" category="france-region">Mayotte (France)</country>
-    <country lang="fr" category="france-outre-mer">Saint-Pierre-et-Miquelon (France)</country>
-    <country lang="fr" category="france-outre-mer">Nouvelle-Calédonie</country>
-    <country category="pakistan-region">Punjab (Pakistan)</country>
-    <country category="pakistan-region">Sindh (Pakistan)</country>
-    <country category="pakistan-region">Khyber Pakhtunkhwa (Pakistan)</country>
-    <country category="pakistan-region">Balochistan (Pakistan)</country>
-    <country category="pakistan-region">Islamabad Capital Territory (Pakistan)</country>
-    <country lang="nl" category="nederlandse-provincie">Friesland (Nederlands)</country>
-    <country category="dependent">Faroe Islands (Denmark)</country>
-    <country category="dependent">Greenland (Denmark)</country>
-    <country category="dependent">Sint Maarten (Netherlands)</country>
+    <country lang="fr" tags="france-region">Auvergne-Rhône-Alpes (France)</country>
+    <country lang="fr" tags="france-region">Bourgogne-Franche-Comté (France)</country>
+    <country lang="fr" tags="france-region">Brittany (France)</country>
+    <country lang="fr" tags="france-region">Centre-Val de Loire (France)</country>
+    <country lang="fr" tags="france-region">Corsica (France)</country>
+    <country lang="fr" tags="france-region">Grand Est (France)</country>
+    <country lang="fr" tags="france-region">Hauts-de-France (France)</country>
+    <country lang="fr" tags="france-region">Île-de-France (France)</country>
+    <country lang="fr" tags="france-region">Normandie (France)</country>
+    <country lang="fr" tags="france-region">Nouvelle-Aquitaine (France)</country>
+    <country lang="fr" tags="france-region">Occitanie (France)</country>
+    <country lang="fr" tags="france-region">Pays de la Loire (France)</country>
+    <country lang="fr" tags="france-region">Provence-Alpes-Côte d'Azur (France)</country>
+    <country lang="fr" tags="france-region">Guadeloupe (France)</country>
+    <country lang="fr" tags="france-region">Martinique (France)</country>
+    <country lang="fr" tags="france-region">French Guiana (France)</country>
+    <country lang="fr" tags="france-region">Réunion (France)</country>
+    <country lang="fr" tags="france-region">Mayotte (France)</country>
+    <country lang="fr" tags="france-outre-mer">Saint-Pierre-et-Miquelon (France)</country>
+    <country lang="fr" tags="france-outre-mer">Nouvelle-Calédonie</country>
+    <country tags="pakistan-region">Punjab (Pakistan)</country>
+    <country tags="pakistan-region">Sindh (Pakistan)</country>
+    <country tags="pakistan-region">Khyber Pakhtunkhwa (Pakistan)</country>
+    <country tags="pakistan-region">Balochistan (Pakistan)</country>
+    <country tags="pakistan-region">Islamabad Capital Territory (Pakistan)</country>
+    <country lang="nl" tags="nederlandse-provincie">Friesland (Nederlands)</country>
+    <country tags="dependent">Faroe Islands (Denmark)</country>
+    <country tags="dependent">Greenland (Denmark)</country>
+    <country tags="dependent">Sint Maarten (Netherlands)</country>
 
-    <country lang="en" category="canada-province">Alberta (Canada)</country>
-    <country lang="en" category="canada-province">British Columbia (Canada)</country>
-    <country lang="en" category="canada-province">Manitoba (Canada)</country>
-    <country lang="en" category="canada-province">Newfoundland and Labrador (Canada)</country>
-    <country lang="en" category="canada-province">Northwest Territories (Canada)</country>
-    <country lang="en" category="canada-province">Nova Scotia (Canada)</country>
-    <country lang="en" category="canada-province">Nunavut (Canada)</country>
-    <country lang="en" category="canada-province">Ontario (Canada)</country>
-    <country lang="en" category="canada-province">Prince Edward Island (Canada)</country>
-    <country lang="en" category="canada-province">Saskatchewan (Canada)</country>
-    <country lang="en" category="canada-province">Yukon (Canada)</country>
-    <country lang="fr" category="canada-province">Nouveau-Brunswick (Canada)</country>
-    <country lang="fr" category="canada-province">Québec (Canada)</country>
+    <country lang="en" tags="canada-province">Alberta (Canada)</country>
+    <country lang="en" tags="canada-province">British Columbia (Canada)</country>
+    <country lang="en" tags="canada-province">Manitoba (Canada)</country>
+    <country lang="en" tags="canada-province">Newfoundland and Labrador (Canada)</country>
+    <country lang="en" tags="canada-province">Northwest Territories (Canada)</country>
+    <country lang="en" tags="canada-province">Nova Scotia (Canada)</country>
+    <country lang="en" tags="canada-province">Nunavut (Canada)</country>
+    <country lang="en" tags="canada-province">Ontario (Canada)</country>
+    <country lang="en" tags="canada-province">Prince Edward Island (Canada)</country>
+    <country lang="en" tags="canada-province">Saskatchewan (Canada)</country>
+    <country lang="en" tags="canada-province">Yukon (Canada)</country>
+    <country lang="fr" tags="canada-province">Nouveau-Brunswick (Canada)</country>
+    <country lang="fr" tags="canada-province">Québec (Canada)</country>
     
-    <country category="political">Under No Pretext (no-text)</country>
-    <country category="historical">German Democratic Republic</country>
-    <country category="historical">Cross of Burgundy</country>
+    <country tags="cultural,political,liberation,revolution">Under No Pretext (no-text)</country>
+    <country tags="historical">German Democratic Republic</country>
+    <country tags="historical">Cross of Burgundy</country>
     <country>26th of July Movement (Cuba) (no-text)</country>
     <country>Freetown Christiania</country>
-    <country category="historical">Free France (1940-1944)</country>
-    <country category="historical">Yugoslavia (1946-1992)</country>
-    <country category="cultural">Syriac-Aramaic People</country>
-    <country category="cultural">Polabian Slavs (Wends)</country>
+    <country tags="historical">Free France (1940-1944)</country>
+    <country tags="historical">Yugoslavia (1946-1992)</country>
+    <country tags="cultural">Syriac-Aramaic People</country>
+    <country tags="cultural">Polabian Slavs (Wends)</country>
     <country>Bahia</country>
-    <country category="cultural">Mexican American Chicanos Chicanas</country>
-    <country category="cultural">Mayan People</country>
-    <country category="international">Planet Terra</country>
-    <country category="cultural">New England</country>
-    <country category="dependent">Isle of Skye (Scotland)</country>
-    <country category="cultural">Blue Öyster Cult</country>
-    <country category="cultural">Prince</country>
-    <country category="fictional">Klingon Empire</country>
-    <country category="fictional">First Galactic Empire (Star Wars)</country>
-    <country category="fictional">Tomania (The Great Dictator)</country>
-    <country category="historical">Holy Roman Emperor with Arms (1493-1556)</country>
+    <country tags="cultural,political,liberation,revolution">Mexican American Chicanos Chicanas</country>
+    <country tags="cultural">Mayan People</country>
+    <country tags="international,cultural,political,liberation,eco">Planet Terra</country>
+    <country tags="cultural">New England</country>
+    <country tags="dependent">Isle of Skye (Scotland)</country>
+    <country tags="cultural">Blue Öyster Cult</country>
+    <country tags="cultural,african-american">Prince</country>
+    <country tags="fictional">Klingon Empire</country>
+    <country tags="fictional">First Galactic Empire (Star Wars)</country>
+    <country tags="fictional">Tomania (The Great Dictator)</country>
+    <country tags="historical">Holy Roman Emperor with Arms (1493-1556)</country>
     <country>Crimea</country>
-    <country category="dependent">Bermuda (UK)</country>
-    <country category="dependent">British Indian Ocean Territory (UK)</country>
-    <country category="dependent">Gibraltar (UK)</country>
-    <country category="dependent">Isle of Mann (UK)</country>
-    <country category="dependent">Montserrat (UK)</country>
-    <country category="dependent">Scotland (UK)</country>
-    <country category="dependent">Wales (UK)</country>
-    <country category="dependent">Northern Ireland (UK)</country>
-    <country lang="es" category="dependent">Galicia (España)</country>
-    <country lang="es" category="dependent">Andalucía (España)</country>
-    <country lang="ca" category="dependent">Catalunya (España)</country>
-    <country lang="es" category="historical">Reino de Navarra</country>
-    <country lang="ca" category="dependent">Balearic Islands (España)</country>
-    <country lang="ca" category="municipal">Barcelona (España)</country>
-    <country lang="nl" category="municipal">Amsterdam (Nederlands)</country>
-    <country category="municipal">St Louis (Missouri)</country>
-    <country category="municipal">New Orleans (Louisiana)</country>
-    <country category="municipal">Huntsville (Alabama)</country>
-    <country lang="es" category="dependent">Aragon (España)</country>
-    <country category="limited-recognition">Valencian National Flag</country>
-    <country category="limited-recognition">Catalan independence</country>
-    <country category="limited-recognition">Basque Country</country>
-    <country category="limited-recognition">Zapatista territories</country>
-    <country category="limited-recognition">Cascadia</country>
-    <country category="limited-recognition">Republic of New Afrika</country>
+    <country tags="dependent">Bermuda (UK)</country>
+    <country tags="dependent">British Indian Ocean Territory (UK)</country>
+    <country tags="dependent">Gibraltar (UK)</country>
+    <country tags="dependent">Isle of Mann (UK)</country>
+    <country tags="dependent">Montserrat (UK)</country>
+    <country tags="dependent">Scotland (UK)</country>
+    <country tags="dependent">Wales (UK)</country>
+    <country tags="dependent">Northern Ireland (UK)</country>
+    <country lang="es" tags="dependent">Galicia (España)</country>
+    <country lang="es" tags="dependent">Andalucía (España)</country>
+    <country lang="ca" tags="dependent">Catalunya (España)</country>
+    <country lang="es" tags="historical">Reino de Navarra</country>
+    <country lang="ca" tags="dependent">Balearic Islands (España)</country>
+    <country lang="ca" tags="municipal">Barcelona (España)</country>
+    <country lang="nl" tags="municipal">Amsterdam (Nederlands)</country>
+    <country tags="municipal">St Louis (Missouri)</country>
+    <country tags="municipal">New Orleans (Louisiana)</country>
+    <country tags="municipal">Huntsville (Alabama)</country>
+    <country lang="es" tags="dependent">Aragon (España)</country>
+    <country tags="limited-recognition">Valencian National Flag</country>
+    <country tags="limited-recognition,liberation,revolution">Catalan independence</country>
+    <country tags="limited-recognition">Basque Country</country>
+    <country tags="limited-recognition,political,liberation,revolution">Zapatista territories</country>
+    <country tags="limited-recognition,political,liberation,revolution">Cascadia</country>
+    <country tags="limited-recognition,political,liberation,black-liberation,revolution">Republic of New Afrika</country>
     <country>Europe</country>
-    <country category="dependent">Sicily</country>
-    <country category="dependent">Sardinia</country>
-    <country category="cultural">Valencian Community</country>
-    <country category="cultural">Acadiana</country>
-    <country category="cultural">Acadia</country>
-    <country category="cultural">Australian Aboriginal</country>
-    <country category="cultural">Gay Pride</country>
-    <country category="cultural">Transgender Pride</country>
-    <country category="cultural">Bisexual Pride</country>
-    <country category="cultural">Non-Binary Pride</country>
-    <country category="cultural">Pansexual Pride</country>
-    <country category="cultural">Leather, Latex, and BDSM Pride</country>
-    <country category="cultural">Rainbow Peace</country>
-    <country category="cultural">Campaign For Nuclear Disarmament</country>
-    <country category="dependent">Åland (Finland)</country>
-    <country category="dependent">Aruba (Nederlands)</country>
-    <country category="deutschland-land">Baden-Württemberg (Deutschland)</country>
-    <country category="deutschland-land">Bavaria (Deutschland)</country>
-    <country category="international-organization">United Nations</country>
-    <country category="international-organization">NATO</country>
-    <country category="political">Anarcho-syndicalism</country>
-    <country category="political">Green Anarchism</country>
-    <country category="political">Industrial Workers of the World</country>
-    <country category="political">Democratic Socialists of America</country>
+    <country tags="dependent">Sicily</country>
+    <country tags="dependent">Sardinia</country>
+    <country tags="cultural">Valencian Community</country>
+    <country tags="cultural">Acadiana</country>
+    <country tags="cultural">Acadia</country>
+    <country tags="cultural">Australian Aboriginal</country>
+    <country tags="cultural,lgbtq-pride">Gay Pride</country>
+    <country tags="cultural,lgbtq-pride">Transgender Pride</country>
+    <country tags="cultural,lgbtq-pride">Bisexual Pride</country>
+    <country tags="cultural,lgbtq-pride">Non-Binary Pride</country>
+    <country tags="cultural,lgbtq-pride">Pansexual Pride</country>
+    <country tags="cultural,lgbtq-pride,counterculture">Leather, Latex, and BDSM Pride</country>
+    <country tags="cultural,political,counterculture">Rainbow Peace</country>
+    <country tags="cultural,counterculture">Campaign For Nuclear Disarmament</country>
+    <country tags="dependent">Åland (Finland)</country>
+    <country tags="dependent">Aruba (Nederlands)</country>
+    <country tags="deutschland-land">Baden-Württemberg (Deutschland)</country>
+    <country tags="deutschland-land">Bavaria (Deutschland)</country>
+    <country tags="international-organization">United Nations</country>
+    <country tags="international-organization">NATO</country>
+    <country tags="political,liberation,revolution">Anarcho-syndicalism</country>
+    <country tags="political,liberation,revolution,eco">Green Anarchism</country>
+    <country tags="political,liberation,revolution">Industrial Workers of the World</country>
+    <country tags="political,liberation,revolution">Democratic Socialists of America</country>
 
-    <country category="special">Diver Down</country>
-    <country category="cultural">Koru</country>
-    <country category="political">Yippies</country>
-    <country category="political">Starry Plough (Irish Citizen Army)</country>
-    <country category="political">Pan-African (UNIA)</country>
-    <country category="political">Pan-African (Huey Newton funeral flag)</country>
-    <country category="political">Lowndes County Freedom Organization (no-text)</country>
-    <country category="cultural">African-American</country>
-    <country category="cultural">Black-American Heritage</country>
-    <country category="cultural">Ethiopia (1897-1974) (Rastafarian)</country>
+    <country tags="special">Diver Down</country>
+    <country tags="cultural,new-zealand">Koru</country>
+    <country tags="cultural,political,revolution,marijuana,hippies,counterculture">Yippies</country>
+    <country tags="political,liberation,irish,revolutionary">Starry Plough (Irish Citizen Army)</country>
+    <country tags="political,liberation,black-liberation,african-american,revolution">Pan-African (UNIA)</country>
+    <country tags="political,liberation,black-liberation,african-american,revolution">Pan-African (Huey Newton funeral flag)</country>
+    <country tags="political,liberation,black-liberation,african-american,revolution">Lowndes County Freedom Organization (no-text)</country>
+    <country tags="cultural,political,liberation,black-liberation,african-american,revolution">African-American</country>
+    <country tags="cultural,political,liberation,black-liberation,african-american,revolution">Black-American Heritage</country>
+    <country tags="cultural,political,liberation,black-liberation,jamaican,rasta">Ethiopia (1897-1974) (Rastafarian)</country>
+    <country tags="cultural,fiction,african-american,black-liberation,revolution">Wakanda</country>
 
-    <country category="historical">Blackbeard</country>
-    <country category="historical">Jolly Roger</country>
-    <country category="dependent">French Polynesia</country>
-    <country category="cultural">Maori</country>
+    <country tags="historical">Blackbeard</country>
+    <country tags="historical">Jolly Roger</country>
+    <country tags="dependent">French Polynesia</country>
+    <country tags="cultural">Maori</country>
     <country>Benelux</country>
     <country>Saba</country>
-    <country category="dependent">England</country>
+    <country tags="dependent">England</country>
     <country>Bonaire</country>
-    <country category="dependent">Cornwall</country>
+    <country tags="dependent">Cornwall</country>
     <country>Macau</country>
     <country>Symbionese Liberation Army</country>
     <country>Serapis</country>
     <country>American Indian Movement</country>
 
-    <country category="us-states" lang="es">Puerto Rico (USA)</country>
-    <country category="us-states">Alabama (USA)</country>
-    <country category="us-states">Alaska (USA)</country>
-    <country category="us-states">Arizona (USA)</country>
-    <country category="us-states">Arkansas (USA) (no-text)</country>
-    <country category="us-states">California (USA) (no-text)</country>
-    <country category="us-states">Colorado (USA)</country>
-    <country category="us-states">Connecticut (USA)</country>
-    <country category="us-states">Delaware (USA) (no-text)</country>
-    <country category="us-states">Florida (USA) (no-text)</country>
-    <country category="us-states">Georgia (USA) (no-text)</country>
-    <country category="us-states">Hawaii (USA)</country>
-    <country category="us-states">Idaho (USA) (no-text)</country>
-    <country category="us-states">Illinois (USA) (no-text)</country>
-    <country category="us-states">Indiana (USA) (no-text)</country>
-    <country category="us-states">Iowa (USA) (no-text)</country>
-    <country category="us-states">Kansas (USA) (no-text)</country>
-    <country category="us-states">Kentucky (USA) (no-text)</country>
-    <country category="us-states">Louisiana (USA)</country>
-    <country category="us-states">Maine (USA) (no-text)</country>
-    <country category="us-states">Maryland (USA)</country>
-    <country category="us-states">Massachusetts (USA)</country>
-    <country category="us-states">Michigan (USA)</country>
-    <country category="us-states">Minnesota (USA)</country>
-    <country category="us-states">Mississippi (USA) (no-text)</country>
-    <country category="us-states">Missouri (USA)</country>
-    <country category="us-states">Montana (USA) (no-text)</country>
-    <country category="us-states">Nebraska (USA) (no-text)</country>
-    <country category="us-states">Nevada (USA) (no-text)</country>
-    <country category="us-states">New Hampshire (USA) (no-text)</country>
-    <country category="us-states">New Jersey (USA)</country>
-    <country category="us-states">New Mexico (USA)</country>
-    <country category="us-states">New York (USA)</country>
-    <country category="us-states">North Carolina (USA) (no-text)</country>
-    <country category="us-states">North Dakota (USA) (no-text)</country>
-    <country category="us-states">Ohio (USA)</country>
-    <country category="us-states">Oklahoma (USA) (no-text)</country>
-    <country category="us-states">Oregon (reverse) (USA)</country>
-    <country category="us-states">Pennsylvania (USA)</country>
-    <country category="us-states">Rhode Island (USA)</country>
-    <country category="us-states">South Carolina (USA)</country>
-    <country category="us-states">South Dakota (USA) (no-text)</country>
-    <country category="us-states">Tennessee (USA)</country>
-    <country category="us-states">Texas (USA)</country>
-    <country category="us-states">Utah (USA)</country>
-    <country category="us-states">Vermont (USA) (no-text)</country>
-    <country category="us-states">Virginia (USA) (no-text)</country>
-    <country category="us-states">Washington (USA) (no-text)</country>
-    <country category="us-states">Washington, D.C. (USA)</country>
-    <country category="us-states">West Virginia (USA) (no-text)</country>
-    <country category="us-states">Wisconsin (USA) (no-text)</country>
-    <country category="us-states">Wyoming (USA) (no-text)</country>
+    <country tags="us-states" lang="es">Puerto Rico (USA)</country>
+    <country tags="us-states">Alabama (USA)</country>
+    <country tags="us-states">Alaska (USA)</country>
+    <country tags="us-states">Arizona (USA)</country>
+    <country tags="us-states">Arkansas (USA) (no-text)</country>
+    <country tags="us-states">California (USA) (no-text)</country>
+    <country tags="us-states">Colorado (USA)</country>
+    <country tags="us-states">Connecticut (USA)</country>
+    <country tags="us-states">Delaware (USA) (no-text)</country>
+    <country tags="us-states">Florida (USA) (no-text)</country>
+    <country tags="us-states">Georgia (USA) (no-text)</country>
+    <country tags="us-states">Hawaii (USA)</country>
+    <country tags="us-states">Idaho (USA) (no-text)</country>
+    <country tags="us-states">Illinois (USA) (no-text)</country>
+    <country tags="us-states">Indiana (USA) (no-text)</country>
+    <country tags="us-states">Iowa (USA) (no-text)</country>
+    <country tags="us-states">Kansas (USA) (no-text)</country>
+    <country tags="us-states">Kentucky (USA) (no-text)</country>
+    <country tags="us-states">Louisiana (USA)</country>
+    <country tags="us-states">Maine (USA) (no-text)</country>
+    <country tags="us-states">Maryland (USA)</country>
+    <country tags="us-states">Massachusetts (USA)</country>
+    <country tags="us-states">Michigan (USA)</country>
+    <country tags="us-states">Minnesota (USA)</country>
+    <country tags="us-states">Mississippi (USA) (no-text)</country>
+    <country tags="us-states">Missouri (USA)</country>
+    <country tags="us-states">Montana (USA) (no-text)</country>
+    <country tags="us-states">Nebraska (USA) (no-text)</country>
+    <country tags="us-states">Nevada (USA) (no-text)</country>
+    <country tags="us-states">New Hampshire (USA) (no-text)</country>
+    <country tags="us-states">New Jersey (USA)</country>
+    <country tags="us-states">New Mexico (USA)</country>
+    <country tags="us-states">New York (USA)</country>
+    <country tags="us-states">North Carolina (USA) (no-text)</country>
+    <country tags="us-states">North Dakota (USA) (no-text)</country>
+    <country tags="us-states">Ohio (USA)</country>
+    <country tags="us-states">Oklahoma (USA) (no-text)</country>
+    <country tags="us-states">Oregon (reverse) (USA)</country>
+    <country tags="us-states">Pennsylvania (USA)</country>
+    <country tags="us-states">Rhode Island (USA)</country>
+    <country tags="us-states">South Carolina (USA)</country>
+    <country tags="us-states">South Dakota (USA) (no-text)</country>
+    <country tags="us-states">Tennessee (USA)</country>
+    <country tags="us-states">Texas (USA)</country>
+    <country tags="us-states">Utah (USA)</country>
+    <country tags="us-states">Vermont (USA) (no-text)</country>
+    <country tags="us-states">Virginia (USA) (no-text)</country>
+    <country tags="us-states">Washington (USA) (no-text)</country>
+    <country tags="us-states">Washington, D.C. (USA)</country>
+    <country tags="us-states">West Virginia (USA) (no-text)</country>
+    <country tags="us-states">Wisconsin (USA) (no-text)</country>
+    <country tags="us-states">Wyoming (USA) (no-text)</country>
 
     <country>Abkhazia</country>
     <country>Afghanistan</country>
-    <country category="historical">Afghanistan 2013-2021</country>
+    <country tags="historical">Afghanistan 2013-2021</country>
     <country>Albania</country>
     <country lang="fr">Algeria</country>
     <country lang="ca">Andorra</country>
@@ -279,7 +280,7 @@
     <country>Iran</country>
     <country>Iraq</country>
     <country>Ireland</country>
-    <country category="limited-recognition">Israel</country>
+    <country tags="limited-recognition">Israel</country>
     <country lang="it">Italy</country>
     <country>Jamaica</country>
     <country>Japan</country>
@@ -291,7 +292,7 @@
     <country>Kurdistan</country>
     <country>Kuwait</country>
     <country>Kyrgyzstan</country>
-    <country category="historical">Kyrgyzstan 1992-2023</country>
+    <country tags="historical">Kyrgyzstan 1992-2023</country>
     <country>Laos</country>
     <country>Latvia</country>
     <country>Lebanon</country>
@@ -320,7 +321,7 @@
     <country lang="fr">Morocco</country>
     <country>Mozambique</country>
     <country>Myanmar</country>
-    <country category="historical">Myanmar 1974-2010</country>
+    <country tags="historical">Myanmar 1974-2010</country>
     <country>Nagorno-Karabakh</country>
     <country>Namibia</country>
     <country>Nauru</country>
@@ -369,7 +370,7 @@
     <country>South Ossetia</country>
     <country>South Sudan</country>
     <country lang="es">España</country>
-    <country category="historical" lang="es">España 1931-1939 (Segunda República Española)</country>
+    <country tags="historical" lang="es">España 1931-1939 (Segunda República Española)</country>
     <country>Sri Lanka</country>
     <country>Sudan</country>
     <country>Suriname</country>
@@ -377,7 +378,7 @@
     <country>Sweden</country>
     <country lang="fr">Switzerland</country>
     <country>Syria</country>
-    <country category="historical">Syria 1980-2024</country>
+    <country tags="historical">Syria 1980-2024</country>
     <country>Taiwan</country>
     <country>Tajikistan</country>
     <country>Tanzania</country>

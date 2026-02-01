@@ -160,8 +160,9 @@ $(document).ajaxStop(function() {
     console.log("All jQuery AJAX requests have completed.");
     const params = new URLSearchParams(window.location.search);
     if (params.has("name")) {
-        const name = params.get("name");
-        displayFlag(name);
+        const nameParam = params.get("name");
+        const decodedNameParam = decodeURIComponent(nameParam);
+        displayFlag(decodedNameParam);
     }
     // You might unbind the event if it only needs to run once
     //$(this).off('ajaxStop');

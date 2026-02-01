@@ -185,6 +185,15 @@ a:active {
   list-style-type: none;
 }
 
+.main-menu {
+    font-size: 2em;
+    margin: 0.5em;
+}
+
 .flag-detail li {
     font-size: 2em;
+}
+
+p {
+    margin: 2em;
 }

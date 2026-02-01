@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<title>Flags Game</title>
+<head>
+<meta charset="UTF-8">
+<title>Flags</title>
+<link rel="stylesheet" type="text/css" href="flags.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="flags.js"></script>
+<script type="text/javascript" src="flagsgame.js"></script>
+<meta name="viewport" content="width=720, initial-scale=0.5, user-scalable=no">
+</head>
+<body>
+    <header>
+        <div class="wrapper">
+            <table class='stats-table'>
+            <tr><th>Score</th><th>Level</th><th>Level Progress</th><th>Lives</th><th>Info Bombs</th><th></th></tr>
+            <tr>
+                <td><span id="score"></span></td>
+                <td><span id="level"></span></td>
+                <td><span id="levelProgress"></span></td>
+                <td><span id="lives"></span></td>
+                <td><span id="infoBombs"></span></td>
+                <td><img id="useInfoBombImg" class="clickable" src="img/info_icon_48x48.png" title="Use Info Bomb"/></td>
+            </tr>
+            </table>
+        </div>
+        <div class="wrapper">
+            <span id="useInfoBombSpan"></span>
+        </div>
+    </header>
+    <main>
+        <div class="wrapper">
+            <div id="prompt"></div>
+        </div>
+        <div class="wrapper">
+            <div id="flags">
+                <div id="choiceContainer"></div>
+            </div>
+            <div id="feedbackContainer"></div>
+        </div>
+    </main>
+    <footer>
+        <!--
+        <img id="continue" title="Continue" src="img/next_48x48.png" class="clickable"/>
+        -->
+        <a href="index.html" target="_blank" rel="noopener noreferrer">Flags Main Menu</a>
+    </footer>
+</body>
+</html>

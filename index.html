@@ -1,50 +1,33 @@
 <!DOCTYPE html>
 <html>
-<title>Flags Game</title>
+<title>Flags</title>
 <head>
 <meta charset="UTF-8">
 <title>Flags</title>
 <link rel="stylesheet" type="text/css" href="flags.css" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script type="text/javascript" src="flags.js"></script>
-<script type="text/javascript" src="flagsgame.js"></script>
 <meta name="viewport" content="width=720, initial-scale=0.5, user-scalable=no">
 </head>
 <body>
     <header>
-        <div class="wrapper">
-            <table class='stats-table'>
-            <tr><th>Score</th><th>Level</th><th>Level Progress</th><th>Lives</th><th>Info Bombs</th><th></th></tr>
-            <tr>
-                <td><span id="score"></span></td>
-                <td><span id="level"></span></td>
-                <td><span id="levelProgress"></span></td>
-                <td><span id="lives"></span></td>
-                <td><span id="infoBombs"></span></td>
-                <td><img id="useInfoBombImg" class="clickable" src="img/info_icon_48x48.png" title="Use Info Bomb"/></td>
-            </tr>
-            </table>
-        </div>
-        <div class="wrapper">
-            <span id="useInfoBombSpan"></span>
-        </div>
+    <h1>Flags</h1>
+    <h2>An assortment of SVG flags and associated projects</h2>
     </header>
     <main>
-        <div class="wrapper">
-            <div id="prompt"></div>
-        </div>
-        <div class="wrapper">
-            <div id="flags">
-                <div id="choiceContainer"></div>
-            </div>
-            <div id="feedbackContainer"></div>
-        </div>
+        <p>Most of these flags were sourced from Wikipedia. Many of them have been improved by me, e.g. cleaning up and modernizing the SVG XML, fixing width/height issues, and adding explicit fill attributes to improve ease of color parsing. A few were created by me either from scratch, using <a href="https://pypi.org/project/vtracer/">vtracer</a>, or by borrowing bits and pieces of SVG XML from other flags.</p>
+        <ul class="no-bullets main-menu">
+            <li><a href="flagsgame.html">Flags Game - A vexillology guessing game using k-means clustering to make it very challenging</a></li>
+            <li><a href="clusters.html">Flag Clusters - A listing of the flag clusters used in flags game</a></li>
+            <li><a href="flags.html">All Flags - Listing of all flags, filterable using the URL arguments <b>lang=</b> and <b>tags=</b></a></li>
+            <li><a href="flags.html?lang=fr">Flags filtered by <b>lang</b> <i>fr</i></a></li>
+            <li><a href="flags.html?tags=cultural&tags=historical">Flags filtered by <b>tags</b> <i>cultural, historical</i></a></li>
+            <li><a href="flags.html?tags=cultural&tags=fictional">Flags filtered by <b>tags</b> <i>cultural, fictional</i></a></li>
+            <li><a href="flags.html?tags=liberation&tags=revolution">Flags filtered by <b>tags</b> <i>liberation, revolution</i></a></li>
+            <li><a href="flags.html?tags=black-liberation">Flags filtered by <b>tags</b> <i>black-liberation</i></a></li>
+            <li><a href="flags.html?tags=lgbtq-pride">Flags filtered by <b>tags</b> <i>lgbtq-pride</i></a></li>
+        </ul>
     </main>
     <footer>
-        <!--
-        <img id="continue" title="Continue" src="img/next_48x48.png" class="clickable"/>
-        -->
-        <a href="clusters.html" target="_blank" rel="noopener noreferrer">Clusters</a>
+        Copyright © 2006 Brett Tolbert
     </footer>
 </body>
 </html>

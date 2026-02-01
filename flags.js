@@ -63,6 +63,22 @@ function getCountryIdxs() {
     return Array.from({ length: n }, (_, index) => index);
 }
 
+function getCountryIdxsFiltered(lang, tags) {
+    ret = [];
+    for (let i=0; i<countries.length; ++i) {
+        let country = countries[i];
+        let tagsIntersection = [];
+        if (tags != null) {
+            tagsIntersection = tags.filter(element => country.tags.includes(element));
+        }
+        if ((tags == null || tags.length == 0 || tagsIntersection.length > 0) 
+         && (!lang || lang == "" || lang == "*" || country.lang == lang)) {
+            ret.push(i);
+        }
+    }
+    return ret;
+}
+
 function addCountry(country) {
     countries.push(country);
 }
@@ -112,10 +128,10 @@ function getSvgFilenameFromName(name) {
 }
 
 //class
-function Country(name, category, lang)
+function Country(name, tags, lang)
 {
     this.name = name;
-    this.category = category;
+    this.tags = tags;
     this.lang = lang;
     let fname = getSvgFilenameFromName(name); 
     this.filename = `flags/${format}/${res}/Flag_of_${fname}.${format}`;
@@ -126,16 +142,17 @@ function Country(name, category, lang)
 $.get("countries.xml", {}, function(data){
     $("country",data).each(function(){
         let node = $(this)[0];
-        let category = ""
-        if (node.hasAttribute('category')) {
-            category = node.getAttribute('category');
+        let tags = [];
+        if (node.hasAttribute('tags')) {
+            tagsString = node.getAttribute('tags');
+            tags = tagsString.split(",");
         }
         let lang = "en"
         if (node.hasAttribute('lang')) {
             lang = node.getAttribute('lang');
         }
         let name = node.textContent;
-        let c = new Country(name, category, lang);
+        let c = new Country(name, tags, lang);
         addCountry(c);
     });
 });
