@@ -24421,6 +24421,62 @@
         "strokes_rgb": [],
         "strokes_hsl": []
     },
+    "Flag_of_Republic_of_Slowjamastan.svg": {
+        "fills_rgb": [
+            [
+                1,
+                128,
+                128
+            ],
+            [
+                207,
+                208,
+                32
+            ],
+            [
+                255,
+                255,
+                255
+            ]
+        ],
+        "fills_hsl": [
+            [
+                0.0,
+                0.0,
+                1.0
+            ],
+            [
+                0.125,
+                0.5,
+                0.3333333333333333
+            ],
+            [
+                0.5,
+                1.0,
+                0.3333333333333333
+            ]
+        ],
+        "fills_rgb_low": [
+            [
+                0,
+                169,
+                170
+            ],
+            [
+                127,
+                106,
+                42
+            ],
+            [
+                255,
+                255,
+                255
+            ]
+        ],
+        "strokes_rgb_low": [],
+        "strokes_rgb": [],
+        "strokes_hsl": []
+    },
     "Flag_of_Sindh_(Pakistan).svg": {
         "fills_rgb": [
             [

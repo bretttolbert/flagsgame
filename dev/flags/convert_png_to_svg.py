@@ -34,6 +34,6 @@ def convert_png_to_svg(input_path, output_path):
 
 # Usage
 convert_png_to_svg(
-    "Flag_of_Under_No_Pretext-(no-text).png",
-    "Flag_of_Under_No_Pretext_(no-text).svg",
+    "Flag_of_Republic_of_Slowjamastan.png",
+    "Flag_of_Republic_of_Slowjamastan.svg",
 )
