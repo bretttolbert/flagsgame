@@ -25,10 +25,40 @@
     <country tags="pakistan,pakistan-region">Khyber Pakhtunkhwa (Pakistan)</country>
     <country tags="pakistan,pakistan-region">Balochistan (Pakistan)</country>
     <country tags="pakistan,pakistan-region">Islamabad Capital Territory (Pakistan)</country>
+    <country tags="dependent,island,north-atlantic,denmark">Faroe Islands (Denmark)</country>
+    <country tags="dependent,island,north-atlantic,denmark">Greenland (Denmark)</country>
+
+    <!-- nederlandse-provincie -->
     <country tags="nederlands,nederlandse-provincie" lang="nl">Friesland (Nederlands)</country>
-    <country tags="dependent,island,denmark">Faroe Islands (Denmark)</country>
-    <country tags="dependent,island,denmark">Greenland (Denmark)</country>
-    <country tags="dependent,island,nederlands">Sint Maarten (Netherlands)</country>
+    <country tags="nederlands,nederlandse-provincie" lang="nl">Drenthe (Nederlands)</country>
+    <country tags="nederlands,nederlandse-provincie" lang="nl">Limburg (Nederlands)</country>
+    <country tags="nederlands,nederlandse-provincie" lang="nl">Flevoland (Nederlands)</country>
+    <country tags="nederlands,nederlandse-provincie" lang="nl">Gelderland (Nederlands)</country>
+    <country tags="nederlands,nederlandse-provincie" lang="nl">Groningen (Nederlands)</country>
+    <country tags="nederlands,nederlandse-provincie" lang="nl">North Brabant (Nederlands)</country>
+    <country tags="nederlands,nederlandse-provincie" lang="nl">North Holland (Nederlands)</country>
+    <country tags="nederlands,nederlandse-provincie" lang="nl">Overijssel (Nederlands)</country>
+    <country tags="nederlands,nederlandse-provincie" lang="nl">Zuid-Holland (Nederlands)</country>
+    <country tags="nederlands,nederlandse-provincie" lang="nl">Utrecht (Nederlands)</country>
+    <country tags="nederlands,nederlandse-provincie" lang="nl">Zeeland (Nederlands)</country>
+
+    <!-- nederlands,island -->
+    <country tags="dependent,island,caribbean,nederlands">Sint Maarten (Nederlands)</country>
+    <country tags="dependent,island,caribbean,nederlands">Curaçao (Nederlands)</country>
+    <country tags="dependent,island,caribbean,nederlands">Aruba (Nederlands)</country>
+    <country tags="dependent,island,caribbean,nederlands">Saba (Nederlands)</country>
+    <country tags="dependent,island,caribbean,nederlands">Bonaire (Nederlands)</country>
+    <country tags="dependent,island,caribbean,nederlands">Sint Eustatius (Nederlands)</country>
+
+    <!-- nederlands,municipal -->
+    <country lang="nl" tags="nederlands,municipal">Amsterdam (Nederlands)</country>
+    <country lang="nl" tags="nederlands,municipal">'s-Hertogenbosch (Nederlands)</country>
+
+    <!-- nederlands,military -->
+    <country lang="nl" tags="nederlands,military">Naval_Jack_(Nederlands)</country>
+
+    <!-- international -->
+    <country tags="dependent,international,europe">Benelux</country>
 
     <country lang="en" tags="canada,canadian-province">Alberta (Canada)</country>
     <country lang="en" tags="canada,canadian-province">British Columbia (Canada)</country>
@@ -59,8 +89,9 @@
     <country tags="international,cultural,political,liberation,eco">Planet Terra</country>
     <country tags="cultural">New England</country>
     <country tags="dependent,united-kingdom,island">Isle of Skye (Scotland)</country>
-    <country tags="cultural">Blue Öyster Cult</country>
-    <country tags="cultural,african-american,black-liberation,revolution">Prince</country>
+    <country tags="cultural,music">Blue Öyster Cult</country>
+    <country tags="cultural,african-american,black-liberation,revolution,music">Prince</country>
+    <country tags="fictional,united-states">Western Forces</country>
     <country tags="fictional">Klingon Empire</country>
     <country tags="fictional">First Galactic Empire (Star Wars)</country>
     <country tags="fictional">Tomania (The Great Dictator)</country>
@@ -80,7 +111,6 @@
     <country lang="es" tags="historical">Reino de Navarra</country>
     <country lang="ca" tags="dependent,españa,island">Balearic Islands (España)</country>
     <country lang="ca" tags="municipal,españa">Barcelona (España)</country>
-    <country lang="nl" tags="municipal,nederlands">Amsterdam (Nederlands)</country>
     <country tags="municipal">St Louis (Missouri)</country>
     <country tags="municipal">New Orleans (Louisiana)</country>
     <country tags="svg-author-brett-tolbert,municipal">Huntsville (Alabama)</country>
@@ -114,7 +144,6 @@
     <country tags="cultural,political,counterculture">Rainbow Peace</country>
     <country tags="svg-author-brett-tolbert,cultural,counterculture">Campaign For Nuclear Disarmament</country>
     <country tags="dependent">Åland (Finland)</country>
-    <country tags="dependent">Aruba (Nederlands)</country>
     <country tags="deutschland,deutschland-land">Baden-Württemberg (Deutschland)</country>
     <country tags="deutschland,deutschland-land">Bavaria (Deutschland)</country>
     <country tags="international">United Nations</country>
@@ -141,9 +170,6 @@
     <country tags="historical,cultural">Jolly Roger</country>
     <country tags="dependent,france,island,oceanic,south-pacific">French Polynesia</country>
     <country tags="cultural,new-zealand">Maori</country>
-    <country tags="dependent,international,europe">Benelux</country>
-    <country tags="dependent,island,caribbean,nederlands">Saba</country>
-    <country tags="dependent,island,caribbean,nederlands">Bonaire</country>
     <country tags="dependent,united-kingdom">England</country>
     <country tags="dependent,united-kingdom">Cornwall</country>
     <country tags="dependent,china">Macau</country>
@@ -334,7 +360,7 @@
     <country tags="national,africa">Namibia</country>
     <country tags="national,island,oceanic,south-pacific">Nauru</country>
     <country tags="national,asia">Nepal</country>
-    <country tags="national,europe">Netherlands</country>
+    <country tags="national,europe">Nederlands</country>
     <country tags="national,island,oceanic">New Zealand</country>
     <country tags="national,north-america,central-america" lang="es">Nicaragua (no-text)</country>
     <country tags="national,africa" lang="fr">Niger</country>

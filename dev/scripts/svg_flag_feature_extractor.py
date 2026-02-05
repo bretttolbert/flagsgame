@@ -225,7 +225,7 @@ overrides = {
         "#008021",
         "#a53d08",
     ],
-    "Flag_of_Sint_Maarten_(Netherlands).svg": [
+    "Flag_of_Sint_Maarten_(Nederlands).svg": [
         "#ffffff",
         "#ba0c0c",
         "#173d89",
