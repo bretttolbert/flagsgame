@@ -136,8 +136,10 @@ function setFeature(svgFilename, feature) {
 }
 
 function getSvgFilenameFromName(name) {
-    var ret = name.replace(/ /g,"_"); //replace spaces with underscores
-    ret = ret.replace(/'/g,"_"); //replace apostrophies with underscores
+    var ret = name;
+    ret = ret.replace(/^'/, ""); //replace leading apostrophe with nothing
+    ret = ret.replace(/ /g,"_"); //replace spaces with underscores
+    ret = ret.replace(/'/g,"_"); //replace apostrophes with underscores
     ret = ret.replace(/,/g, ""); //strip commas
     ret = ret.replace(/\./g, ""); //strip periods
     return ret
